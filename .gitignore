@@ -1,0 +1,4 @@
+node_modules/
+
+# intermediate Tailwind output; tools/scope-css.mjs turns it into landing-vigilant.css
+css/.landing-vigilant.build.css

@@ -1,0 +1,31 @@
+/* =====================================================================
+   ArqamWeb (LeVisage) — full theme stylesheet entry.
+   Bundled + minified into ../css/main.min.css by `npm run build:css`.
+
+   Tailwind is included WITHOUT preflight, so it adds utility classes you can
+   use in any theme template (about/contact/pharmacies/front-page ...) without
+   resetting the Astra parent theme. Scanned files are set in tailwind.config.js.
+   ===================================================================== */
+
+@config "../tailwind.config.js";
+
+/* Tailwind theme tokens (CSS variables) — no preflight/reset. */
+@import "tailwindcss/theme.css";
+
+/* Brand color tokens (primary/secondary/navy/gold ...) from the design. */
+@import "./tokens.css";
+
+/* Hand-written theme CSS (order matters: base first, then design layers). */
+@import "./base.css";                 /* global + WooCommerce overrides   */
+@import "../css/header-footer.css";   /* custom header & footer           */
+@import "../css/lv-pages.css";        /* About / Contact / Pharmacies     */
+@import "../css/lv-home.css";         /* Home / front page                */
+
+/* Design "furniture" — reusable utility classes from the Radiance redesign. */
+@import "./components.css";
+
+/* Generated Tailwind utilities last, so they can override same-specificity
+   component styles when you add them in markup.
+   source(none) disables Tailwind's automatic project-wide scan — only the
+   files listed in tailwind.config.js `content` are scanned. */
+@import "tailwindcss/utilities.css" source(none);

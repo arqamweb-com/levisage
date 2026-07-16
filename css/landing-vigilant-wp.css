@@ -1,0 +1,125 @@
+/**
+ * WordPress-side glue for the VIGILANT landing template.
+ *
+ * landing-vigilant.css is generated (compiled Tailwind, scoped under .lv-page).
+ * Anything hand-written — Astra layout resets, native form controls that replaced
+ * the React ones — lives here.
+ */
+
+/* Astra wraps page content in a padded, max-width container. The landing page is
+   full-bleed, so neutralise it for this template only. */
+.page-template-landing-page #content .ast-container,
+.page-template-landing-page .lv-primary {
+    max-width: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.page-template-landing-page .entry-content,
+.page-template-landing-page .ast-article-single {
+    padding: 0;
+    border: 0;
+}
+
+/* The scoped preflight only reaches descendants of .lv-page, not the wrapper. */
+.lv-page {
+    box-sizing: border-box;
+    text-align: right;
+}
+
+/* The sticky order bar owns the bottom 76px, so the page needs that much room
+   underneath — on the document, not on Astra's .site-footer: this theme renders
+   its own footer markup after #page and leaves .site-footer empty, so a margin
+   there just opened a 76px hole above the real footer. */
+.page-template-landing-page {
+    padding-bottom: 76px;
+}
+
+.page-template-landing-page .ast-scroll-top {
+    bottom: 90px;
+}
+
+/* --- native controls that replaced the Radix ones --------------------------- */
+
+/* radio pill */
+.lv-page .lv-pkg {
+    border-color: var(--color-border);
+    background: #fff;
+}
+
+.lv-page .lv-pkg.is-selected {
+    border-color: var(--leaf);
+    background: color-mix(in srgb, var(--leaf) 5%, #fff);
+}
+
+.lv-page .lv-dot {
+    flex: 0 0 auto;
+    width: 1.15rem;
+    height: 1.15rem;
+    border-radius: 9999px;
+    border: 2px solid var(--color-border);
+    display: grid;
+    place-items: center;
+    transition: border-color .15s ease;
+}
+
+.lv-page .lv-pkg.is-selected .lv-dot {
+    border-color: var(--leaf);
+}
+
+.lv-page .lv-pkg.is-selected .lv-dot::after {
+    content: "";
+    width: .55rem;
+    height: .55rem;
+    border-radius: 9999px;
+    background: var(--leaf);
+}
+
+.lv-page .lv-pkg-input:focus-visible + .lv-dot {
+    outline: 2px solid var(--navy);
+    outline-offset: 2px;
+}
+
+/* select: keep the chevron the design had */
+.lv-page .lv-select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%234d5660' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m4 6 4 4 4-4'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: left .85rem center;
+    padding-left: 2.25rem;
+}
+
+.lv-page .lv-select:invalid {
+    color: var(--color-muted-foreground);
+}
+
+/* honeypot — visually gone, still reachable to bots */
+.lv-page .lv-hp {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+/* exit-intent dialog: [hidden] wins over the flex display */
+.lv-page .lv-exit {
+    display: flex;
+}
+
+.lv-page .lv-exit[hidden] {
+    display: none;
+}
+
+/* invalid field feedback (native validation is suppressed; JS sets this) */
+.lv-page .lv-invalid {
+    border-color: #dc2626 !important;
+}
+
+.lv-page .lv-error-msg {
+    color: #dc2626;
+    font-size: .75rem;
+    margin-top: .35rem;
+}

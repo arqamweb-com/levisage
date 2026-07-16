@@ -1,0 +1,87 @@
+/* =====================================================================
+   Brand design tokens — from "LeVisage Radiance Redesign" (styles.css).
+   Same oklch values as the original. Registered as Tailwind theme colors,
+   radius scale & fonts below, so bg-primary / bg-card / text-muted-foreground
+   / rounded-xl / font-display ... all work.
+
+   NOTE: preflight + the design's global `@layer base` (body/heading resets)
+   are intentionally NOT included — they would reset the Astra parent theme &
+   WooCommerce site-wide. These are tokens + opt-in utilities only.
+   ===================================================================== */
+
+:root {
+  --radius: 0.75rem;
+
+  /* Brand palette (translated to oklch) */
+  --navy-deep: oklch(0.24 0.05 230);   /* ≈ #082b38 */
+  --navy:      oklch(0.55 0.16 240);   /* ≈ #0b71b7 */
+  --leaf:      oklch(0.62 0.18 145);   /* ≈ #2b9822 */
+  --ink:       oklch(0.18 0.005 270);  /* ≈ #1d1d1b */
+  --gold:      oklch(0.82 0.12 85);    /* ≈ #e8be62 */
+  --cream:     oklch(0.98 0.012 85);   /* ≈ #fcf8f0 */
+
+  /* Semantic roles (shadcn-style) */
+  --background:           oklch(0.99 0.004 80);
+  --foreground:           var(--ink);
+  --card:                 oklch(1 0 0);
+  --card-foreground:      var(--ink);
+  --popover:              oklch(1 0 0);
+  --popover-foreground:   var(--ink);
+  --primary:              var(--navy);
+  --primary-foreground:   oklch(0.99 0 0);
+  --secondary:            oklch(0.96 0.01 230);
+  --secondary-foreground: var(--navy-deep);
+  --muted:                oklch(0.96 0.008 230);
+  --muted-foreground:     oklch(0.45 0.02 250);
+  --accent:               var(--leaf);
+  --accent-foreground:    oklch(0.99 0 0);
+  --destructive:          oklch(0.6 0.22 25);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border:               oklch(0.9 0.01 230);
+  --input:                oklch(0.93 0.01 230);
+  --ring:                 var(--navy);
+
+  /* Shadows (referenced by .shadow-* utilities in components.css) */
+  --shadow-luxury: 0 30px 80px -20px color-mix(in oklab, var(--navy-deep) 35%, transparent);
+  --shadow-soft:   0 10px 40px -10px color-mix(in oklab, var(--navy) 20%, transparent);
+  --shadow-glow:   0 0 60px color-mix(in oklab, var(--primary) 35%, transparent);
+}
+
+/* Map tokens onto Tailwind utilities (inline = keep the var reference). */
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+
+  --color-background:           var(--background);
+  --color-foreground:           var(--foreground);
+  --color-card:                 var(--card);
+  --color-card-foreground:      var(--card-foreground);
+  --color-popover:              var(--popover);
+  --color-popover-foreground:   var(--popover-foreground);
+  --color-primary:              var(--primary);
+  --color-primary-foreground:   var(--primary-foreground);
+  --color-secondary:            var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted:                var(--muted);
+  --color-muted-foreground:     var(--muted-foreground);
+  --color-accent:               var(--accent);
+  --color-accent-foreground:    var(--accent-foreground);
+  --color-destructive:          var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border:               var(--border);
+  --color-input:                var(--input);
+  --color-ring:                 var(--ring);
+  --color-navy:                 var(--navy);
+  --color-navy-deep:            var(--navy-deep);
+  --color-gold:                 var(--gold);
+  --color-cream:                var(--cream);
+  --color-leaf:                 var(--leaf);
+
+  --font-display: "Tajawal", "Playfair Display", "Cormorant Garamond", serif;
+  --font-arabic:  "Tajawal", "Cairo", system-ui, sans-serif;
+  --font-sans:    "Tajawal", "Inter", system-ui, sans-serif;
+}

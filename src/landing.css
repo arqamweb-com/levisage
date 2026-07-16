@@ -1,0 +1,189 @@
+/**
+ * VIGILANT landing page — Tailwind source.
+ *
+ * Edit this file (and template/landing-page.php), then run:
+ *   npm run watch:css     — rebuild on every save
+ *   npm run build:css     — one-off build
+ *
+ * The build compiles Tailwind, then scopes every selector under `.lv-page`
+ * (tools/scope-css.mjs) so the reset can never touch the Astra theme, and
+ * writes css/landing-vigilant.css. Never edit that output by hand.
+ */
+
+/* source(none) disables Tailwind's automatic project-wide scanning, so ONLY
+   the explicit @source files below are scanned for class names. Without it,
+   Tailwind v4 scans the whole theme (every template + even its own compiled
+   CSS), which pulls in stray classes and bloats the landing build. */
+@import "tailwindcss" source(none);
+
+/* The only files Tailwind scans for class names. */
+@source "../template/landing-page.php";
+@source "../js/landing-vigilant.js";
+
+@theme {
+    --font-arabic: "Tajawal", "Cairo", system-ui, sans-serif;
+    --font-sans: "Tajawal", "Inter", system-ui, sans-serif;
+
+    /* shadcn-style semantic colours used across the design */
+    --color-background: #fdfbf9;
+    --color-foreground: #111114;
+    --color-card: #ffffff;
+    --color-primary: #0079c4;
+    --color-primary-foreground: #fbfbfb;
+    --color-secondary: #ebf3f7;
+    --color-muted: #edf3f6;
+    --color-muted-foreground: #4d5660;
+    --color-accent: #23a136;
+    --color-destructive: #dc2626;
+    --color-border: #d8dfe3;
+    --color-input: #e1e9ed;
+    --color-ring: #0079c4;
+
+    --radius: 0.75rem;
+
+    /* custom shadows → .shadow-luxury / .shadow-soft / .shadow-glow */
+    --shadow-luxury: 0 30px 80px -20px color-mix(in oklab, var(--navy-deep) 35%, transparent);
+    --shadow-soft: 0 10px 40px -10px color-mix(in oklab, var(--navy) 20%, transparent);
+    --shadow-glow: 0 0 60px color-mix(in oklab, var(--primary) 35%, transparent);
+
+    /* custom animations → .animate-float / .animate-pulse-glow */
+    --animate-float: float-slow 7s ease-in-out infinite;
+    --animate-pulse-glow: pulse-glow 3s ease-out infinite;
+    --animate-accordion-down: accordion-down 0.2s ease-out;
+    --animate-accordion-up: accordion-up 0.2s ease-out;
+}
+
+/* Brand palette. Referenced through the design as bg-[color:var(--gold)] etc. */
+:root {
+    --navy: #0079c4;
+    --navy-deep: #002332;
+    --leaf: #23a136;
+    --gold: #e8be62;
+    --cream: #fcf8f0;
+    --ink: #111114;
+}
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        background-color: var(--color-background);
+        color: var(--color-foreground);
+        font-family: var(--font-sans);
+        -webkit-font-smoothing: antialiased;
+    }
+}
+
+@layer components {
+    .font-arabic {
+        font-family: var(--font-arabic);
+        line-height: 1.7;
+    }
+
+    .container-luxury {
+        max-width: 1320px;
+        margin-inline: auto;
+        padding-inline: 1.5rem;
+    }
+
+    /* hero: layered radial + conic wash over deep navy */
+    .bg-hero-cinematic {
+        background-color: var(--navy-deep);
+        background-image:
+            radial-gradient(70% 60% at 15% 25%, color-mix(in oklab, #0b71b7 55%, transparent), transparent 65%),
+            radial-gradient(60% 55% at 85% 75%, color-mix(in oklab, #125376 65%, transparent), transparent 65%),
+            radial-gradient(55% 50% at 50% 110%, color-mix(in oklab, #1b191a 85%, transparent), transparent 70%),
+            conic-gradient(from 200deg at 70% 30%, color-mix(in oklab, #082b3a 85%, transparent), transparent 45%),
+            linear-gradient(#125376, #082b3a 45%, #1b191a);
+    }
+
+    .bg-aurora {
+        background:
+            radial-gradient(60% 50% at 20% 30%, color-mix(in oklab, var(--navy) 55%, transparent) 0%, transparent 60%),
+            radial-gradient(50% 50% at 80% 70%, color-mix(in oklab, var(--leaf) 35%, transparent) 0%, transparent 60%),
+            linear-gradient(135deg, var(--navy-deep) 0%, #061a24 100%);
+    }
+
+    .glass {
+        background: color-mix(in oklab, #ffffff 70%, transparent);
+        backdrop-filter: blur(20px) saturate(140%);
+        border: 1px solid color-mix(in oklab, #ffffff 60%, transparent);
+    }
+
+    .glass-dark {
+        background: color-mix(in oklab, var(--navy-deep) 55%, transparent);
+        backdrop-filter: blur(24px) saturate(140%);
+        border: 1px solid color-mix(in oklab, #ffffff 12%, transparent);
+    }
+
+    .text-gradient-luxury {
+        background: linear-gradient(120deg, #fff, color-mix(in oklab, var(--gold) 70%, white), #fff);
+        background-clip: text;
+        color: transparent;
+    }
+
+    .text-gradient-brand {
+        background: linear-gradient(120deg, var(--navy-deep), var(--navy) 60%, var(--leaf));
+        background-clip: text;
+        color: transparent;
+    }
+
+    /* revealed by CSS alone — no observer needed */
+    .fade-up {
+        opacity: 0;
+        transform: translateY(24px);
+        animation: fadeUp 0.9s ease-out forwards;
+    }
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes float-slow {
+    0%,
+    100% {
+        transform: translateY(0) rotate(0);
+    }
+
+    50% {
+        transform: translateY(-18px) rotate(1deg);
+    }
+}
+
+@keyframes pulse-glow {
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 color-mix(in oklab, var(--navy) 45%, transparent);
+    }
+
+    50% {
+        box-shadow: 0 0 0 18px transparent;
+    }
+}
+
+/* the accordion JS measures the panel and sets this height */
+@keyframes accordion-down {
+    from {
+        height: 0;
+    }
+
+    to {
+        height: var(--radix-accordion-content-height, auto);
+    }
+}
+
+@keyframes accordion-up {
+    from {
+        height: var(--radix-accordion-content-height, auto);
+    }
+
+    to {
+        height: 0;
+    }
+}

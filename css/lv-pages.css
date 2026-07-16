@@ -1,0 +1,364 @@
+/* =====================================================================
+   LeVisage — Inner pages (About / Pharmacies / Contact)
+   Matches the visage-luxe-atelier reference. Uses the shared tokens
+   defined in header-footer.css (--lv-gold, --lv-dark, --lv-font ...).
+   ===================================================================== */
+
+:root {
+  --lv-cream: #fbfaf8;
+  --lv-navy: #0a2733;
+  --lv-hero-base: #082b3a;
+  --lv-card-shadow: 0 24px 60px -24px rgba(10, 40, 55, .18);
+}
+
+.lv-page { font-family: var(--lv-font); background: var(--lv-cream); }
+.lv-page * { box-sizing: border-box; }
+.lv-wrap {
+  max-width: 1240px;
+  margin-inline: auto;
+  padding-inline: var(--lv-pad);
+}
+
+/* ===================== HERO ========================================= */
+.lv-hero {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(4rem, 9vw, 7.5rem);
+  /* thin concentric rings behind the badge (right) + reference gradient stack */
+  background:
+    radial-gradient(circle at 82% 33%, transparent 208px, rgba(255, 255, 255, .09) 210px, transparent 212px),
+    radial-gradient(circle at 82% 33%, transparent 148px, rgba(255, 255, 255, .07) 150px, transparent 152px),
+    radial-gradient(70% 60% at 15% 25%, rgba(11, 113, 183, .55), transparent 65%),
+    radial-gradient(60% 55% at 85% 75%, rgba(18, 83, 118, .65), transparent 65%),
+    radial-gradient(55% 50% at 50% 110%, rgba(27, 25, 26, .85), transparent 70%),
+    conic-gradient(from 200deg at 70% 30%, rgba(8, 43, 58, .85), transparent 45%),
+    linear-gradient(rgb(18, 83, 118), rgb(8, 43, 58) 45%, rgb(27, 25, 26));
+}
+/* subtle sparkle dots */
+.lv-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(1.5px 1.5px at 20% 30%, rgba(255,255,255,.35), transparent),
+    radial-gradient(1.5px 1.5px at 70% 20%, rgba(255,255,255,.25), transparent),
+    radial-gradient(1.5px 1.5px at 45% 65%, rgba(255,255,255,.22), transparent),
+    radial-gradient(1.5px 1.5px at 85% 55%, rgba(255,255,255,.28), transparent),
+    radial-gradient(1.5px 1.5px at 30% 80%, rgba(255,255,255,.20), transparent);
+  pointer-events: none;
+}
+/* soft curved fade at the bottom into the cream section */
+.lv-hero::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -1px;
+  height: 120px;
+  background: linear-gradient(to top, var(--lv-cream), transparent);
+  pointer-events: none;
+}
+.lv-hero__inner {
+  position: relative;
+  z-index: 2;
+  max-width: 620px;
+  margin-inline-start: 0;
+  margin-inline-end: auto; /* push the block to the start (right in RTL) */
+  text-align: center;
+}
+.lv-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .5rem 1.15rem;
+  border-radius: 999px;
+  background: rgba(10, 32, 39, .55);
+  border: 1px solid rgba(255, 255, 255, .14);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  backdrop-filter: blur(4px);
+}
+.lv-badge svg { width: 16px; height: 16px; color: var(--lv-gold); }
+.lv-hero__title {
+  margin: 1.5rem 0 0;
+  font-size: clamp(2.4rem, 5vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.15;
+  background: linear-gradient(180deg, #fdf6e6 0%, #e4d0a4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.lv-hero__subtitle {
+  margin: 1.25rem 0 0;
+  font-size: clamp(1.25rem, 2.4vw, 1.6rem);
+  font-weight: 700;
+  color: #ecdfc4;
+}
+.lv-hero__text {
+  margin: 1rem 0 0;
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: rgba(255, 255, 255, .72);
+}
+
+/* ===================== SECTION HEADINGS ============================= */
+.lv-section { padding-block: clamp(3rem, 7vw, 5.5rem); }
+.lv-section__head { text-align: center; margin-bottom: 3rem; }
+.lv-label {
+  display: inline-block;
+  padding: .4rem 1.1rem;
+  border-radius: 999px;
+  background: rgba(226, 184, 102, .14);
+  color: #b98a2e;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .03em;
+  margin-bottom: 1rem;
+}
+.lv-section__title {
+  margin: 0;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 800;
+  color: var(--lv-navy);
+}
+
+/* ===================== ABOUT — mission cards ======================== */
+.lv-mission {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  align-items: stretch;
+}
+.lv-mcard {
+  position: relative;
+  padding: 3rem 2.5rem;
+  border-radius: 24px;
+  background: #fff;
+  border: 1px solid rgba(10, 40, 55, .08);
+  box-shadow: var(--lv-card-shadow);
+}
+.lv-mcard--dark {
+  color: #fff;
+  border: 0;
+  background: linear-gradient(140deg, #0a2430 0%, #124e74 100%);
+}
+.lv-mcard__icon {
+  width: 58px; height: 58px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  background: rgba(226, 184, 102, .15);
+  color: var(--lv-gold);
+  margin-bottom: 1.5rem;
+}
+.lv-mcard--dark .lv-mcard__icon { background: rgba(226, 184, 102, .18); }
+.lv-mcard__icon svg { width: 28px; height: 28px; }
+.lv-mcard h3 {
+  margin: 0 0 1rem;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--lv-navy);
+}
+.lv-mcard--dark h3 { color: #fff; }
+.lv-mcard p {
+  margin: 0;
+  font-size: 1.02rem;
+  line-height: 2;
+  color: #52616b;
+}
+.lv-mcard--dark p { color: rgba(255, 255, 255, .82); }
+
+/* ===================== PHARMACIES grid ============================== */
+.lv-pharm-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+.lv-pharm {
+  padding: 2.5rem 2rem;
+  border-radius: 20px;
+  background: #fff;
+  border: 1px solid rgba(10, 40, 55, .07);
+  box-shadow: var(--lv-card-shadow);
+  text-align: center;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.lv-pharm:hover { transform: translateY(-4px); box-shadow: 0 30px 60px -24px rgba(10, 40, 55, .28); }
+.lv-pharm__pin {
+  width: 56px; height: 56px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  background: rgba(226, 184, 102, .14);
+  color: var(--lv-gold);
+  margin-bottom: 1.25rem;
+}
+.lv-pharm__pin svg { width: 26px; height: 26px; }
+.lv-pharm__name {
+  margin: 0 0 .6rem;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--lv-navy);
+}
+.lv-pharm__addr {
+  margin: 0 0 1rem;
+  font-size: .98rem;
+  color: #0b71b7;
+}
+.lv-pharm__phones {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .4rem 1.25rem;
+}
+.lv-pharm__phones a {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  color: var(--lv-navy);
+  font-weight: 700;
+  font-size: 1.02rem;
+  text-decoration: none;
+  direction: ltr;
+}
+.lv-pharm__phones a:hover { color: var(--lv-gold); }
+.lv-pharm__phones svg { width: 16px; height: 16px; color: var(--lv-gold); }
+.lv-pharm__branch { display: block; margin-top: .9rem; font-size: .9rem; color: #8a97a0; }
+
+/* ===================== CONTACT ===================================== */
+.lv-contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+.lv-card {
+  padding: 2.75rem 2.5rem;
+  border-radius: 24px;
+  background: #fff;
+  border: 1px solid rgba(10, 40, 55, .08);
+  box-shadow: var(--lv-card-shadow);
+}
+.lv-card__head { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; }
+.lv-card__icon {
+  width: 52px; height: 52px; flex: 0 0 auto;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  background: rgba(226, 184, 102, .15);
+  color: var(--lv-gold);
+}
+.lv-card__icon svg { width: 26px; height: 26px; }
+.lv-card__title { margin: 0; font-size: 1.6rem; font-weight: 800; color: var(--lv-navy); }
+.lv-card--dark {
+  color: #fff;
+  border: 0;
+  background: linear-gradient(140deg, #0a2430 0%, #124e74 100%);
+}
+.lv-card--dark .lv-card__title { color: #fff; }
+
+/* contact info rows */
+.lv-cinfo { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.5rem; }
+.lv-cinfo li { display: flex; align-items: center; gap: 1rem; }
+.lv-cinfo__ic {
+  width: 46px; height: 46px; flex: 0 0 auto;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  background: rgba(226, 184, 102, .16);
+  color: var(--lv-gold);
+}
+.lv-cinfo__ic svg { width: 20px; height: 20px; }
+.lv-cinfo__label { display: block; font-size: .85rem; color: rgba(255, 255, 255, .55); margin-bottom: .15rem; }
+.lv-cinfo__val { font-size: 1.05rem; font-weight: 700; color: #fff; text-decoration: none; direction: ltr; unicode-bidi: plaintext; }
+a.lv-cinfo__val:hover { color: var(--lv-gold); }
+.lv-cinfo__val--rtl { direction: rtl; }
+
+.lv-csocial { margin-top: 2.25rem; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, .12); }
+.lv-csocial__label { font-size: .9rem; color: rgba(255, 255, 255, .55); margin-bottom: 1rem; }
+.lv-csocial__row { display: flex; gap: .85rem; }
+.lv-csocial__row a {
+  width: 44px; height: 44px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .08);
+  color: #fff;
+  transition: background .2s ease, color .2s ease;
+}
+.lv-csocial__row a:hover { background: var(--lv-gold); color: #0a2430; }
+.lv-csocial__row svg { width: 20px; height: 20px; }
+
+.lv-contact__intro {
+  max-width: 820px;
+  margin: 0 auto 3rem;
+  text-align: center;
+  font-size: 1.05rem;
+  line-height: 2;
+  color: #52616b;
+}
+
+/* ---- Contact Form 7 styling ---- */
+.lv-form .wpcf7-form p { margin: 0 0 1.25rem; }
+.lv-form label {
+  display: block;
+  font-size: .95rem;
+  font-weight: 700;
+  color: var(--lv-navy);
+  margin-bottom: .5rem;
+}
+.lv-form input[type=text],
+.lv-form input[type=email],
+.lv-form input[type=tel],
+.lv-form input[type=url],
+.lv-form input[type=number],
+.lv-form textarea,
+.lv-form select {
+  width: 100%;
+  padding: .95rem 1.1rem;
+  border: 1px solid rgba(10, 40, 55, .15);
+  border-radius: 12px;
+  background: #fbfbfa;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--lv-navy);
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+.lv-form textarea { min-height: 150px; resize: vertical; }
+.lv-form input:focus,
+.lv-form textarea:focus,
+.lv-form select:focus {
+  outline: none;
+  border-color: var(--lv-gold);
+  box-shadow: 0 0 0 3px rgba(226, 184, 102, .18);
+}
+.lv-form input::placeholder,
+.lv-form textarea::placeholder { color: #9aa6ad; }
+.lv-form .wpcf7-submit,
+.lv-form button[type=submit] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .6rem;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border: 0;
+  border-radius: 12px;
+  background: #0b71b7;
+  color: #fff;
+  font-family: inherit;
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .2s ease, transform .15s ease;
+}
+.lv-form .wpcf7-submit:hover,
+.lv-form button[type=submit]:hover { background: #095a92; transform: translateY(-1px); }
+
+/* ===================== RESPONSIVE ================================== */
+@media (max-width: 992px) {
+  .lv-pharm-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .lv-mission,
+  .lv-contact-grid { grid-template-columns: 1fr; }
+  .lv-hero__inner { max-width: none; }
+}
+@media (max-width: 560px) {
+  .lv-pharm-grid { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,372 @@
+/* =====================================================================
+   LeVisage — Home / Front page. Matches visage-luxe-atelier reference.
+   Depends on tokens from header-footer.css + lv-pages.css.
+   ===================================================================== */
+
+.lv-home { font-family: var(--lv-font); background: var(--lv-cream); overflow-x: hidden; }
+.lv-home * { box-sizing: border-box; }
+
+/* ---------- buttons ---------- */
+.lv-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .55rem;
+  padding: .95rem 1.9rem; border-radius: 12px; border: 1px solid transparent;
+  font-family: inherit; font-size: 1rem; font-weight: 700; cursor: pointer;
+  text-decoration: none; transition: transform .15s ease, background .2s ease, color .2s ease, border-color .2s ease;
+}
+.lv-btn svg { width: 18px; height: 18px; }
+.lv-btn:hover { transform: translateY(-2px); }
+.lv-btn--dark  { background: #0a2027; color: #fff; }
+.lv-btn--dark:hover { background: #071a20; }
+.lv-btn--blue  { background: #0b71b7; color: #fff; }
+.lv-btn--blue:hover { background: #095a92; }
+.lv-btn--gold  { background: var(--lv-gold); color: #0a2027; }
+.lv-btn--gold:hover { background: #d3a54e; }
+.lv-btn--wa    { background: #1fa855; color: #fff; }
+.lv-btn--wa:hover { background: #178544; }
+.lv-btn--light { background: #fff; color: #0a2027; }
+.lv-btn--ghost { background: transparent; color: #fff; border-color: rgba(255,255,255,.4); }
+.lv-btn--ghost:hover { background: rgba(255,255,255,.1); }
+.lv-btn--ghost-dark { background: transparent; color: #0a2027; border-color: rgba(10,32,39,.25); }
+.lv-btn--block { width: 100%; }
+
+/* ============================================================
+   1. HERO (cinematic — matches the reference)
+   ============================================================ */
+.lv-hhero {
+  position: relative; overflow: hidden; isolation: isolate; color: #fff;
+  padding-block: clamp(3.5rem, 7vw, 7rem);
+  background:
+    radial-gradient(70% 60% at 15% 25%, rgba(11,113,183,.55), transparent 65%),
+    radial-gradient(60% 55% at 85% 75%, rgba(18,83,118,.65), transparent 65%),
+    radial-gradient(55% 50% at 50% 110%, rgba(27,25,26,.85), transparent 70%),
+    conic-gradient(from 200deg at 70% 30%, rgba(8,43,58,.85), transparent 45%),
+    linear-gradient(rgb(18,83,118), rgb(8,43,58) 45%, rgb(27,25,26));
+}
+
+/* decorative layers */
+.lv-hhero__decor { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.lv-hhero__glow { position: absolute; border-radius: 50%; filter: blur(120px); opacity: .7; animation: lv-drift 18s ease-in-out infinite; }
+.lv-hhero__glow--leaf { top: -12rem; inset-inline-end: -10%; width: 680px; height: 680px;
+  background: radial-gradient(circle, rgba(43,152,34,.55), transparent 70%); }
+.lv-hhero__glow--navy { bottom: -14rem; inset-inline-start: -10%; width: 720px; height: 720px;
+  background: radial-gradient(circle, rgba(11,113,183,.7), transparent 70%); filter: blur(140px); animation-delay: 2s; }
+.lv-hhero__glow--gold { inset: 0; margin: auto; width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(226,184,102,.22), transparent 70%); animation-duration: 24s; }
+.lv-hhero__lines { position: absolute; inset: 0; width: 100%; height: 100%; opacity: .18; }
+.lv-hhero__ring { position: absolute; top: 6rem; inset-inline-end: 5%; width: 176px; height: 176px;
+  color: rgba(255,255,255,.15); animation: lv-float 9s ease-in-out infinite; }
+.lv-hhero__particles span {
+  position: absolute; border-radius: 50%; background: rgba(255,255,255,.7);
+  box-shadow: 0 0 12px 2px rgba(255,255,255,.6); filter: blur(.3px);
+  animation: lv-float 7s ease-in-out infinite;
+}
+.lv-hhero__wave { position: absolute; inset-inline: 0; bottom: 0; width: 100%; height: 16rem; opacity: .4; }
+
+/* vertical side labels */
+.lv-hhero__side {
+  position: absolute; top: 50%; z-index: 1; writing-mode: vertical-rl;
+  letter-spacing: .45em; font-size: 11px; color: rgba(255,255,255,.4); transform: translateY(-50%);
+}
+.lv-hhero__side--r { inset-inline-end: 1.5rem; }
+.lv-hhero__side--l { inset-inline-start: 1.5rem; transform: translateY(-50%) rotate(180deg); }
+@media (max-width: 1100px) { .lv-hhero__side { display: none; } }
+
+/* content */
+.lv-hhero .lv-wrap { position: relative; z-index: 3; }
+.lv-hhero__grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 3rem; align-items: center; }
+.lv-hhero__content { text-align: start; }
+.lv-hhero__title {
+  margin: 1.6rem 0 0; font-size: clamp(2.2rem, 4.4vw, 3.4rem); font-weight: 800; line-height: 1.4;
+  background: linear-gradient(180deg, #fdf6e6 0%, #e4d0a4 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.lv-hhero__subrow { display: flex; align-items: center; gap: 1rem; margin-top: 1.6rem; }
+.lv-hairline { flex: 0 0 auto; height: 1px; width: 4rem; opacity: .6;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.6), transparent); }
+.lv-hhero__sub { margin: 0; font-size: clamp(1.2rem, 2.2vw, 1.5rem); font-weight: 300; letter-spacing: .02em; color: rgba(255,255,255,.9); }
+.lv-hhero__text { margin: 1.2rem 0 0; font-size: 1.05rem; line-height: 2; color: rgba(255,255,255,.72); max-width: 540px; }
+.lv-hhero__btns { margin-top: 2.25rem; display: flex; gap: 1rem; flex-wrap: wrap; }
+
+/* visual: product with spinning rings + glow */
+.lv-hhero__visual { position: relative; min-height: 460px; display: flex; align-items: center; justify-content: center; }
+.lv-hhero__vglow { position: absolute; inset: 0; margin: auto; width: 78%; aspect-ratio: 1; border-radius: 50%;
+  background: radial-gradient(circle, rgba(43,152,34,.4), transparent 65%); filter: blur(60px); animation: lv-pulse 6s ease-in-out infinite; }
+.lv-hhero__spin { position: absolute; inset: 0; margin: auto; border-radius: 50%; }
+.lv-hhero__spin--1 { width: 82%; aspect-ratio: 1; border: 1px solid rgba(255,255,255,.15); animation: lv-spin 40s linear infinite; }
+.lv-hhero__spin--2 { width: 98%; aspect-ratio: 1; border: 1px solid rgba(255,255,255,.08); animation: lv-spin 60s linear infinite reverse; }
+.lv-hhero__prod { position: relative; z-index: 2; width: 68%; max-width: 340px; border-radius: 20px; display: block;
+  box-shadow: 0 40px 80px -30px rgba(0,0,0,.6); animation: lv-float 8s ease-in-out infinite; }
+.lv-hchip {
+  position: absolute; z-index: 3; display: inline-flex; align-items: center; gap: .5rem;
+  padding: .5rem 1rem; border-radius: 999px; background: rgba(10,32,39,.72); color: #fff;
+  font-size: 12px; font-weight: 600; letter-spacing: .05em; backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,.15); animation: lv-float 7s ease-in-out infinite;
+}
+.lv-hchip::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--lv-gold); }
+.lv-hchip--tl { top: 4%; inset-inline-end: 6%; animation-delay: .8s; }
+.lv-hchip--br { bottom: 12%; inset-inline-start: 2%; animation-delay: 1.6s; }
+
+/* hero keyframes */
+@keyframes lv-drift { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-24px, 20px); } }
+@keyframes lv-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
+@keyframes lv-spin  { to { transform: rotate(360deg); } }
+@keyframes lv-pulse { 0%,100% { opacity: .5; transform: scale(1); } 50% { opacity: .85; transform: scale(1.06); } }
+@media (prefers-reduced-motion: reduce) {
+  .lv-hhero__glow, .lv-hhero__ring, .lv-hhero__particles span,
+  .lv-hhero__prod, .lv-hchip, .lv-hhero__spin, .lv-hhero__vglow { animation: none; }
+}
+
+/* ============================================================
+   2. PRODUCTS (best sellers) + generic product card
+   ============================================================ */
+.lv-prod-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+.lv-prod {
+  position: relative; display: flex; flex-direction: column;
+  background: #fff; border: 1px solid rgba(10,40,55,.07); border-radius: 18px; overflow: hidden;
+  box-shadow: var(--lv-card-shadow); transition: transform .25s ease, box-shadow .25s ease;
+}
+.lv-prod:hover { transform: translateY(-5px); box-shadow: 0 30px 60px -24px rgba(10,40,55,.26); }
+.lv-prod__media { position: relative; background: #f4f6f5; aspect-ratio: 1/1; }
+.lv-prod__imglink { display: block; height: 100%; }
+.lv-prod__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.lv-prod__wish {
+  position: absolute; top: .8rem; inset-inline-start: .8rem;
+  width: 38px; height: 38px; display: inline-flex; align-items: center; justify-content: center;
+  border: 0; border-radius: 50%; background: rgba(255,255,255,.9); color: #0a2027; cursor: pointer;
+  transition: background .2s ease, color .2s ease;
+}
+.lv-prod__wish:hover { background: var(--lv-gold); color: #fff; }
+.lv-prod__wish svg { width: 18px; height: 18px; }
+.lv-prod__badge {
+  position: absolute; top: .8rem; inset-inline-end: .8rem;
+  padding: .3rem .8rem; border-radius: 999px; background: #0a2027; color: #fff;
+  font-size: 12px; font-weight: 700;
+}
+.lv-prod__body { padding: 1.25rem 1.25rem .5rem; text-align: center; flex: 1; }
+.lv-prod__cat { display: block; font-size: .82rem; color: #0b71b7; margin-bottom: .4rem; }
+.lv-prod__name { margin: 0 0 .75rem; font-size: 1.08rem; font-weight: 700; line-height: 1.5; }
+.lv-prod__name a { color: var(--lv-navy); text-decoration: none; }
+.lv-prod__name a:hover { color: var(--lv-gold); }
+.lv-prod__meta { display: flex; align-items: center; justify-content: space-between; }
+.lv-prod__price { font-size: 1.1rem; font-weight: 800; color: var(--lv-navy); }
+.lv-prod__price del { color: #9aa6ad; font-weight: 500; font-size: .9rem; margin-inline-start: .35rem; }
+.lv-prod__rating { display: inline-flex; align-items: center; gap: .25rem; font-size: .9rem; font-weight: 700; color: #52616b; }
+.lv-prod__rating svg { width: 15px; height: 15px; color: var(--lv-gold); }
+.lv-prod__cta {
+  display: flex; align-items: center; justify-content: center; gap: .5rem;
+  margin: .75rem 1.25rem 1.25rem; padding: .75rem; border-radius: 10px;
+  background: #f2f5f4; color: var(--lv-navy); font-weight: 700; font-size: .95rem; text-decoration: none;
+  transition: background .2s ease, color .2s ease;
+}
+.lv-prod__cta:hover { background: #0a2027; color: #fff; }
+.lv-prod__cta svg { width: 18px; height: 18px; }
+.lv-center-cta { text-align: center; margin-top: 3rem; }
+
+/* AJAX add-to-cart states (home cards) */
+.lv-prod .added_to_cart,
+.lv-bundle .added_to_cart { display: none !important; }
+.lv-prod__cta.loading,
+.lv-bundle__cta.loading { opacity: .6; pointer-events: none; }
+.lv-prod__cta.added,
+.lv-bundle__cta.added { background: #1fa855; color: #fff; }
+
+/* ============================================================
+   3. ROUTINE promo
+   ============================================================ */
+.lv-routine__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+.lv-routine__title { margin: 0 0 1rem; font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; color: var(--lv-navy); }
+.lv-routine__title em { font-style: normal; color: #0b71b7; }
+.lv-routine__text { margin: 0 0 2rem; font-size: 1.05rem; line-height: 1.95; color: #52616b; }
+.lv-checklist { list-style: none; margin: 0 0 2rem; padding: 0; display: grid; gap: 1rem; }
+.lv-checklist li {
+  display: flex; align-items: center; gap: 1rem; padding: 1.1rem 1.4rem;
+  background: #fff; border: 1px solid rgba(10,40,55,.08); border-radius: 16px; box-shadow: var(--lv-card-shadow);
+}
+.lv-checklist__ic {
+  flex: 0 0 auto; width: 34px; height: 34px; display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 50%; background: rgba(31,168,85,.14); color: #1fa855;
+}
+.lv-checklist__ic svg { width: 18px; height: 18px; }
+.lv-checklist h4 { margin: 0 0 .2rem; font-size: 1.1rem; font-weight: 700; color: var(--lv-navy); }
+.lv-checklist p { margin: 0; font-size: .95rem; color: #6a7780; }
+.lv-routine__media { border-radius: 24px; overflow: hidden; background: linear-gradient(140deg,#0a2430,#124e74); }
+.lv-routine__media img { width: 100%; display: block; }
+
+/* ============================================================
+   4. BUNDLES (dark section)
+   ============================================================ */
+.lv-bundles { background: linear-gradient(180deg,#0a1f28 0%, #0b2a3a 100%); color: #fff; padding-block: clamp(3.5rem,7vw,5.5rem); }
+.lv-bundles .lv-section__title { color: #fdf6e6; }
+.lv-bundles .lv-section__title--grad { background: linear-gradient(180deg,#fdf6e6,#e4d0a4); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.lv-bundles .lv-section__sub { color: rgba(255,255,255,.7); text-align: center; margin: 1rem auto 0; max-width: 640px; }
+.lv-bundle-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; margin-top: 3rem; }
+.lv-bundle {
+  position: relative; display: flex; flex-direction: column; overflow: hidden;
+  background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); border-radius: 20px;
+  transition: transform .25s ease, border-color .25s ease;
+}
+.lv-bundle:hover { transform: translateY(-5px); border-color: rgba(226,184,102,.5); }
+.lv-bundle__save {
+  position: absolute; top: 1rem; inset-inline-start: 1rem; z-index: 2;
+  padding: .4rem .9rem; border-radius: 999px; background: var(--lv-gold); color: #0a2027;
+  font-size: 13px; font-weight: 800;
+}
+.lv-bundle__media { display: block; aspect-ratio: 4/3; background: #0e2b3a; }
+.lv-bundle__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.lv-bundle__body { padding: 1.5rem; display: flex; flex-direction: column; gap: .5rem; flex: 1; }
+.lv-bundle__name { margin: 0; font-size: 1.3rem; font-weight: 800; }
+.lv-bundle__name a { color: #fff; text-decoration: none; }
+.lv-bundle__name a:hover { color: var(--lv-gold); }
+.lv-bundle__sub { margin: 0; font-size: .95rem; color: rgba(255,255,255,.6); }
+.lv-bundle__foot { margin-top: auto; padding-top: 1rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.lv-bundle__price { font-size: 1.25rem; font-weight: 800; color: var(--lv-gold); }
+.lv-bundle__price del { display: block; font-size: .85rem; color: rgba(255,255,255,.5); font-weight: 500; }
+.lv-bundle__cta {
+  padding: .6rem 1.2rem; border-radius: 10px; background: #fff; color: #0a2027;
+  font-weight: 700; font-size: .9rem; text-decoration: none; white-space: nowrap; transition: background .2s ease;
+}
+.lv-bundle__cta:hover { background: var(--lv-gold); }
+
+/* ============================================================
+   5. FEATURES
+   ============================================================ */
+.lv-feat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.lv-feat {
+  padding: 2.25rem; background: #fff; border: 1px solid rgba(10,40,55,.07); border-radius: 20px;
+  box-shadow: var(--lv-card-shadow); text-align: center;
+}
+.lv-feat__ic {
+  width: 60px; height: 60px; margin: 0 auto 1.25rem; display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 16px; background: linear-gradient(140deg,#0a2430,#124e74); color: #fff;
+}
+.lv-feat__ic svg { width: 28px; height: 28px; }
+.lv-feat h3 { margin: 0 0 .6rem; font-size: 1.25rem; font-weight: 800; color: var(--lv-navy); }
+.lv-feat p { margin: 0; font-size: .98rem; line-height: 1.8; color: #6a7780; }
+
+/* ============================================================
+   6. STEPS (6-month routine)
+   ============================================================ */
+.lv-steps__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+.lv-steps__title { margin: 0 0 1rem; font-size: clamp(1.8rem,4vw,2.6rem); font-weight: 800; color: var(--lv-navy); }
+.lv-steps__text { margin: 0 0 2rem; font-size: 1.05rem; line-height: 1.9; color: #52616b; }
+.lv-step { display: flex; align-items: center; gap: 1.25rem; padding: 1.2rem 1.4rem; background: #fff; border: 1px solid rgba(10,40,55,.08); border-radius: 16px; box-shadow: var(--lv-card-shadow); margin-bottom: 1rem; }
+.lv-step__num { flex: 0 0 auto; width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center; border-radius: 12px; background: linear-gradient(140deg,#0a2430,#124e74); color: #fff; font-weight: 800; }
+.lv-step h4 { margin: 0 0 .2rem; font-size: 1.15rem; font-weight: 800; color: var(--lv-navy); }
+.lv-step p { margin: 0; font-size: .95rem; color: #6a7780; }
+.lv-steps__media { position: relative; border-radius: 24px; overflow: hidden; background: linear-gradient(140deg,#0a2430,#124e74); }
+.lv-steps__media img { width: 100%; display: block; }
+
+/* ============================================================
+   7. TESTIMONIALS
+   ============================================================ */
+.lv-testi__head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 2rem; margin-bottom: 3rem; }
+.lv-testi__stats { display: flex; gap: 2.5rem; }
+.lv-stat__num { font-size: 2.4rem; font-weight: 800; color: var(--lv-navy); line-height: 1; }
+.lv-stat__lbl { font-size: .95rem; color: #6a7780; margin-top: .35rem; }
+.lv-testi__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.lv-testi__card { padding: 2rem; background: #fff; border: 1px solid rgba(10,40,55,.07); border-radius: 20px; box-shadow: var(--lv-card-shadow); }
+.lv-testi__quote { color: rgba(226,184,102,.4); font-size: 2.2rem; line-height: 1; margin-bottom: .5rem; }
+.lv-testi__stars { color: var(--lv-gold); letter-spacing: 2px; margin-bottom: 1rem; }
+.lv-testi__text { margin: 0 0 1.5rem; font-size: 1.02rem; line-height: 1.9; color: #43525b; }
+.lv-testi__author { display: flex; align-items: center; gap: .85rem; }
+.lv-testi__avatar { width: 44px; height: 44px; border-radius: 50%; background: #1c8f6b; color: #fff; display: inline-flex; align-items: center; justify-content: center; font-weight: 800; }
+.lv-testi__name { font-weight: 800; color: var(--lv-navy); }
+.lv-testi__city { font-size: .85rem; color: #8a97a0; }
+
+/* ============================================================
+   8. INGREDIENTS
+   ============================================================ */
+.lv-ingredients { background: linear-gradient(180deg,#0a1f28,#0b2a3a); color: #fff; padding-block: clamp(3.5rem,7vw,5.5rem); }
+.lv-ing__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+.lv-ing__title { margin: 0 0 1rem; font-size: clamp(1.8rem,4vw,2.6rem); font-weight: 800; background: linear-gradient(180deg,#fdf6e6,#e4d0a4); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.lv-ing__text { margin: 0 0 2rem; font-size: 1.05rem; line-height: 1.9; color: rgba(255,255,255,.7); }
+.lv-ing__list { display: grid; gap: 0; }
+.lv-ing__row { display: flex; align-items: center; gap: 1.25rem; padding: 1.1rem 0; border-bottom: 1px solid rgba(255,255,255,.1); }
+.lv-ing__pct { flex: 0 0 auto; min-width: 58px; font-size: 1.5rem; font-weight: 800; color: var(--lv-gold); }
+.lv-ing__info h4 { margin: 0 0 .2rem; font-size: 1.1rem; font-weight: 800; }
+.lv-ing__info p { margin: 0; font-size: .92rem; color: rgba(255,255,255,.6); }
+.lv-ing__media { border-radius: 24px; overflow: hidden; }
+.lv-ing__media img { width: 100%; display: block; }
+
+/* ============================================================
+   9. SPOTLIGHT
+   ============================================================ */
+.lv-spot { position: relative; overflow: hidden; padding-block: clamp(4rem,8vw,6.5rem); background: radial-gradient(60% 60% at 80% 40%, rgba(29,107,79,.4), transparent 60%), var(--lv-hero-base); text-align: center; }
+.lv-spot__title { margin: 1rem 0 0; font-size: clamp(2rem,4.6vw,3.2rem); font-weight: 800; background: linear-gradient(180deg,#fdf6e6,#e4d0a4); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.lv-spot__sub { margin: 1rem auto 2.5rem; max-width: 560px; color: rgba(255,255,255,.72); font-size: 1.05rem; }
+.lv-spot__media { position: relative; max-width: 420px; margin: 0 auto; }
+.lv-spot__media img { width: 100%; display: block; border-radius: 20px; }
+.lv-spot__chip { position: absolute; display: inline-flex; align-items: center; gap: .5rem; padding: .5rem 1rem; border-radius: 999px; background: rgba(10,32,39,.72); border: 1px solid rgba(255,255,255,.12); color: #fff; font-size: 13px; font-weight: 600; }
+.lv-spot__chip::before { content:""; width: 8px; height: 8px; border-radius: 50%; background: var(--lv-gold); }
+.lv-spot__chip--l { top: 30%; inset-inline-start: -1rem; }
+.lv-spot__chip--r { top: 45%; inset-inline-end: -1rem; }
+
+/* ============================================================
+   10. FAQ
+   ============================================================ */
+.lv-faq__grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 3rem; align-items: start; }
+.lv-faq__aside .lv-section__title { text-align: start; }
+.lv-faq__intro { margin: 1rem 0 1.75rem; color: #52616b; font-size: 1.05rem; line-height: 1.8; }
+.lv-acc { display: grid; gap: 1rem; }
+.lv-acc__item { background: #fff; border: 1px solid rgba(10,40,55,.08); border-radius: 14px; box-shadow: var(--lv-card-shadow); overflow: hidden; }
+.lv-acc__item summary { list-style: none; cursor: pointer; padding: 1.25rem 1.5rem; font-size: 1.1rem; font-weight: 700; color: var(--lv-navy); display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.lv-acc__item summary::-webkit-details-marker { display: none; }
+.lv-acc__item summary::after { content: "+"; font-size: 1.5rem; font-weight: 400; color: var(--lv-gold); transition: transform .2s ease; }
+.lv-acc__item[open] summary::after { content: "\2013"; }
+.lv-acc__body { padding: 0 1.5rem 1.4rem; color: #5a6870; line-height: 1.9; }
+
+/* ============================================================
+   11. ARTICLES
+   ============================================================ */
+.lv-art-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.lv-art { background: #fff; border: 1px solid rgba(10,40,55,.07); border-radius: 20px; overflow: hidden; box-shadow: var(--lv-card-shadow); transition: transform .25s ease; }
+.lv-art:hover { transform: translateY(-5px); }
+.lv-art__media { position: relative; aspect-ratio: 4/3; background: #f4f6f5; }
+.lv-art__media img { width: 100%; height: 100%; object-fit: cover; }
+.lv-art__tag { position: absolute; top: 1rem; inset-inline-end: 1rem; padding: .3rem .85rem; border-radius: 999px; background: rgba(255,255,255,.92); color: #0a2027; font-size: 12px; font-weight: 700; }
+.lv-art__body { padding: 1.5rem; }
+.lv-art__body h3 { margin: 0 0 .5rem; font-size: 1.15rem; font-weight: 800; color: var(--lv-navy); line-height: 1.5; }
+.lv-art__body p { margin: 0; font-size: .95rem; color: #6a7780; line-height: 1.8; }
+
+/* ============================================================
+   12. CONSULTATION
+   ============================================================ */
+.lv-consult { background: radial-gradient(60% 60% at 15% 30%, rgba(11,113,183,.35), transparent 60%), var(--lv-hero-base); color: #fff; padding-block: clamp(3.5rem,7vw,5.5rem); }
+.lv-consult__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+.lv-consult__title { margin: 1rem 0; font-size: clamp(1.9rem,4.2vw,3rem); font-weight: 800; background: linear-gradient(180deg,#fdf6e6,#e4d0a4); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.lv-consult__text { margin: 0 0 2rem; color: rgba(255,255,255,.75); font-size: 1.05rem; line-height: 1.9; }
+.lv-consult__btns { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
+.lv-consult__social { display: flex; gap: .85rem; }
+.lv-consult__social a { width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,.08); color: #fff; display: inline-flex; align-items: center; justify-content: center; transition: background .2s ease, color .2s ease; }
+.lv-consult__social a:hover { background: var(--lv-gold); color: #0a2027; }
+.lv-consult__social svg { width: 20px; height: 20px; }
+.lv-consult__form { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.12); border-radius: 24px; padding: 2.5rem; }
+.lv-consult__form .lv-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+.lv-consult__form input,
+.lv-consult__form select,
+.lv-consult__form textarea {
+  width: 100%; padding: .9rem 1.1rem; margin-bottom: 1rem; border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.16); background: rgba(255,255,255,.04); color: #fff;
+  font-family: inherit; font-size: 1rem;
+}
+.lv-consult__form .lv-form-row input { margin-bottom: 0; }
+.lv-consult__form input::placeholder, .lv-consult__form textarea::placeholder { color: rgba(255,255,255,.5); }
+.lv-consult__form textarea { min-height: 120px; resize: vertical; }
+.lv-consult__form select option { color: #0a2027; }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1024px) {
+  .lv-prod-grid { grid-template-columns: repeat(2, 1fr); }
+  .lv-bundle-grid, .lv-feat-grid, .lv-testi__grid, .lv-art-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 900px) {
+  .lv-hhero__grid, .lv-routine__grid, .lv-steps__grid, .lv-ing__grid, .lv-faq__grid, .lv-consult__grid { grid-template-columns: 1fr; }
+  .lv-hhero__visual { order: -1; min-height: 380px; }
+}
+@media (max-width: 640px) {
+  .lv-prod-grid, .lv-bundle-grid, .lv-feat-grid, .lv-testi__grid, .lv-art-grid { grid-template-columns: 1fr; }
+  .lv-consult__form .lv-form-row { grid-template-columns: 1fr; }
+  .lv-testi__head { flex-direction: column; align-items: flex-start; }
+}

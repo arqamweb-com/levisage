@@ -1,0 +1,75 @@
+/* GLOBAL */
+:root {
+  --main-padding: 50px;
+  --main-margin: 50px;
+  --main-font-size-text: 20px;
+  --main-color: var(--ast-global-color-0);
+  --main-color-alt: var(--ast-global-color-0);
+  --main-transition: 0.3s;
+}
+
+/* WooCommerce product badge (shop / single product) */
+.summary .custom-badge {
+  display: inline-block;
+  background-color: var(--ast-global-color-0);
+  color: #fff;
+  padding: 5px 10px;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.astra-shop-thumbnail-wrap .custom-badge {
+  position: absolute;
+  z-index: 2;
+  color: red;
+  padding: 5px 8px 5px 15px;
+  right: 0;
+  bottom: 20px;
+  top: 4px;
+  font-weight: bold;
+}
+
+/* Site content background */
+.site-content {
+  background-color: #f9fafb;
+}
+
+/* WooCommerce cart overlay */
+.woocommerce-cart .cart_totals .blockOverlay::before,
+.woocommerce-cart .woocommerce-cart-form .blockOverlay::before {
+  left: 0;
+}
+
+/* WPML */
+#block-8 {
+  p {
+    margin-bottom: 0.25rem;
+  }
+}
+
+/* WooCommerce product grid columns */
+.woocommerce ul.products:not(.elementor-grid),
+.woocommerce-page ul.products:not(.elementor-grid) {
+  grid-template-columns: repeat(2, 1fr);
+
+  @media (min-width: 992px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (min-width: 1200px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Hide default tab title for the custom product-tabs plugin */
+.yikes-custom-woo-tab-title {
+  display: none;
+}
+
+/* List reset */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+/* End GLOBAL */

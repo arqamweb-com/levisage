@@ -1,0 +1,19 @@
+{
+  "name": "arqamweb-landing",
+  "version": "1.0.0",
+  "private": true,
+  "description": "CSS build for the ArqamWeb (LeVisage) theme. build:css bundles the whole theme into css/main.min.css; build:landing builds the VIGILANT landing template.",
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/theme.css -o ./css/main.min.css --minify",
+    "watch:css": "tailwindcss -i ./src/theme.css -o ./css/main.min.css --watch",
+    "build:landing": "tailwindcss -i ./src/landing.css -o ./css/.landing-vigilant.build.css --minify && node tools/scope-css.mjs",
+    "watch:landing": "concurrently -n tailwind,scope -c blue,green \"tailwindcss -i ./src/landing.css -o ./css/.landing-vigilant.build.css --watch\" \"chokidar './css/.landing-vigilant.build.css' -c 'node tools/scope-css.mjs'\"",
+    "build": "npm run build:css && npm run build:landing"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.18",
+    "chokidar-cli": "^3.0.0",
+    "concurrently": "^9.2.1",
+    "tailwindcss": "^4.1.18"
+  }
+}
