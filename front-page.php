@@ -94,7 +94,7 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
                     <img alt="<?php echo esc_attr__('روتين علاج تساقط الشعر', 'arqamweb'); ?>"
                          class="absolute inset-0 h-full w-full object-contain p-10 animate-float"
                          src="https://levisage-pharma.com/wp-content/uploads/2026/07/ampoules-free-shampoo-DJiGURUk.png">
-                    <div class="absolute top-6 right-6 glass-dark rounded-2xl px-4 py-2 text-white text-xs tracking-widest">
+                    <div class="absolute top-6 start-6 glass-dark rounded-2xl px-4 py-2 text-white text-xs tracking-widest">
                         <?php esc_html_e('عرض متكامل', 'arqamweb'); ?>
                     </div>
                 </div>
@@ -170,8 +170,8 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
     <?php if (!empty($bundles)) : ?>
         <section class="py-28 bg-[var(--navy-deep)] text-white relative overflow-hidden">
             <div class="absolute inset-0 bg-aurora opacity-60"></div>
-            <div class="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-[color:var(--leaf)]/20 blur-[140px]"></div>
-            <div class="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-[color:var(--navy)]/30 blur-[140px]"></div>
+            <div class="absolute -top-32 -start-32 h-96 w-96 rounded-full bg-[color:var(--leaf)]/20 blur-[140px]"></div>
+            <div class="absolute -bottom-32 -end-32 h-96 w-96 rounded-full bg-[color:var(--navy)]/30 blur-[140px]"></div>
             <div class="container-luxury relative">
                 <div class="text-center max-w-2xl mx-auto">
                     <span class="text-xs tracking-[0.3em] text-[color:var(--gold)]"><?php echo esc_html(__('عروض حصرية', 'arqamweb')); ?></span>
@@ -286,7 +286,7 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
                     <div class="relative aspect-[4/3] rounded-[2rem] overflow-hidden bg-gradient-to-br from-white to-[color:var(--cream)] shadow-luxury">
                         <img alt="<?php echo esc_attr__('روتين ٦ شهور', 'arqamweb'); ?>" class="h-full w-full object-contain p-8 fade-up"
                              src="https://levisage-pharma.com/wp-content/uploads/2026/07/routine-6m-DPuX1TUG.png">
-                        <div class="absolute top-6 right-6 glass rounded-full px-4 py-2 text-xs font-bold tracking-widest text-[var(--navy-deep)]">
+                        <div class="absolute top-6 start-6 glass rounded-full px-4 py-2 text-xs font-bold tracking-widest text-[var(--navy-deep)]">
                             <?php esc_html_e('روتين ٦ شهور', 'arqamweb'); ?>
                         </div>
                     </div>
@@ -593,8 +593,8 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
     <!-- ============ 9. SPOTLIGHT ============ -->
     <section class="py-28 bg-[var(--navy-deep)] text-white relative overflow-hidden">
         <div class="absolute inset-0 bg-aurora opacity-90"></div>
-        <div class="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-[color:var(--leaf)]/30 blur-[140px]"></div>
-        <div class="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-[color:var(--navy)]/40 blur-[140px]"></div>
+        <div class="absolute -top-32 -start-32 h-96 w-96 rounded-full bg-[color:var(--leaf)]/30 blur-[140px]"></div>
+        <div class="absolute -bottom-32 -end-32 h-96 w-96 rounded-full bg-[color:var(--navy)]/40 blur-[140px]"></div>
         <div class="container-luxury relative">
             <div class="text-center max-w-2xl mx-auto"><span class="text-xs tracking-[0.3em] text-[color:var(--gold)]"><?php esc_html_e('المنتج الأيقوني', 'arqamweb'); ?></span>
                 <h2 class="mt-3 text-4xl md:text-6xl text-gradient-luxury font-bold"><?php esc_html_e('سيروم علاج الشيب', 'arqamweb'); ?></h2>
@@ -608,16 +608,16 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
                      class="relative h-[480px] object-contain animate-float drop-shadow-[0_30px_80px_rgba(11,113,183,0.5)]"
                      src="<?php echo esc_url($spot_img); ?>">
                 <div class="absolute glass-dark rounded-full px-4 py-2 text-xs tracking-widest"
-                     style="left: 10%; top: 20%;"><span class="text-[color:var(--gold)] ml-2">●</span><?php esc_html_e('تركيبة نظيفة', 'arqamweb'); ?>
+                     style="left: 10%; top: 20%;"><span class="text-[color:var(--gold)] me-2">●</span><?php esc_html_e('تركيبة نظيفة', 'arqamweb'); ?>
                 </div>
                 <div class="absolute glass-dark rounded-full px-4 py-2 text-xs tracking-widest"
-                     style="left: 78%; top: 15%;"><span class="text-[color:var(--gold)] ml-2">●</span><?php esc_html_e('مركّب حصري', 'arqamweb'); ?>
+                     style="left: 78%; top: 15%;"><span class="text-[color:var(--gold)] me-2">●</span><?php esc_html_e('مركّب حصري', 'arqamweb'); ?>
                 </div>
                 <div class="absolute glass-dark rounded-full px-4 py-2 text-xs tracking-widest"
-                     style="left: 12%; top: 75%;"><span class="text-[color:var(--gold)] ml-2">●</span><?php esc_html_e('نباتي وآمن', 'arqamweb'); ?>
+                     style="left: 12%; top: 75%;"><span class="text-[color:var(--gold)] me-2">●</span><?php esc_html_e('نباتي وآمن', 'arqamweb'); ?>
                 </div>
                 <div class="absolute glass-dark rounded-full px-4 py-2 text-xs tracking-widest"
-                     style="left: 80%; top: 78%;"><span class="text-[color:var(--gold)] ml-2">●</span><?php esc_html_e('مختبر جلدياً', 'arqamweb'); ?>
+                     style="left: 80%; top: 78%;"><span class="text-[color:var(--gold)] me-2">●</span><?php esc_html_e('مختبر جلدياً', 'arqamweb'); ?>
                 </div>
             </div>
             <div class="mt-12 flex justify-center">
@@ -637,7 +637,7 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
 
 
     <!-- ============ 10. FAQ ============ -->
-    <section class="py-28 bg-background">
+    <section id="faq" class="py-28 bg-background">
         <div class="container-luxury grid lg:grid-cols-12 gap-12">
             <div class="lg:col-span-4">
                 <span class="text-xs tracking-[0.3em] text-[var(--navy)]"><?php echo esc_html(__('الدعم', 'arqamweb')); ?></span>
@@ -732,7 +732,7 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
                                      class="block h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                                      src="<?php echo esc_url($thumb); ?>">
                                 <?php if (!empty($cats) && $cats[0]->slug !== 'uncategorized') : ?>
-                                    <span class="absolute top-4 right-4 rounded-full glass px-3 py-1 text-xs tracking-widest"><?php echo esc_html($cats[0]->name); ?></span>
+                                    <span class="absolute top-4 start-4 rounded-full glass px-3 py-1 text-xs tracking-widest"><?php echo esc_html($cats[0]->name); ?></span>
                                 <?php endif; ?>
                             </div>
                             <h3 class="mt-5 font-display text-2xl font-bold group-hover:text-[var(--navy)] transition-colors"><?php the_title(); ?></h3>

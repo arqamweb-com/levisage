@@ -1,7 +1,7 @@
 <section class="relative overflow-hidden bg-hero-cinematic text-white">
     <div class="pointer-events-none absolute inset-0">
-        <div class="absolute -top-48 right-[-10%] h-[680px] w-[680px] rounded-full bg-[radial-gradient(circle,color-mix(in_oklab,var(--leaf)_55%,transparent),transparent_70%)] blur-[120px] animate-drift"></div>
-        <div class="absolute -bottom-56 left-[-10%] h-[720px] w-[720px] rounded-full bg-[radial-gradient(circle,color-mix(in_oklab,var(--navy)_70%,transparent),transparent_70%)] blur-[140px] animate-drift"
+        <div class="absolute -top-48 start-[-10%] h-[680px] w-[680px] rounded-full bg-[radial-gradient(circle,color-mix(in_oklab,var(--leaf)_55%,transparent),transparent_70%)] blur-[120px] animate-drift"></div>
+        <div class="absolute -bottom-56 end-[-10%] h-[720px] w-[720px] rounded-full bg-[radial-gradient(circle,color-mix(in_oklab,var(--navy)_70%,transparent),transparent_70%)] blur-[140px] animate-drift"
              style="animation-delay: 2s;">
         </div>
         <div class="absolute top-1/3 left-1/2 -translate-x-1/2 h-[520px] w-[520px] rounded-full bg-[radial-gradient(circle,color-mix(in_oklab,var(--gold)_22%,transparent),transparent_70%)] blur-[120px]"></div>
@@ -74,7 +74,7 @@
         <path d="M-50 600 C 340 720, 700 560, 1020 720 S 1500 820, 1500 820" stroke="white" stroke-width="0.4"
               fill="none"></path>
     </svg>
-    <svg class="pointer-events-none absolute top-24 right-[5%] h-44 w-44 text-white/15 animate-float"
+    <svg class="pointer-events-none absolute top-24 start-[5%] h-44 w-44 text-white/15 animate-float"
          viewBox="0 0 200 200" fill="none">
         <circle cx="100" cy="100" r="80" stroke="currentColor" stroke-width="0.8"></circle>
         <circle cx="100" cy="100" r="50" stroke="currentColor" stroke-width="0.8"></circle>
@@ -83,14 +83,14 @@
         <circle cx="100" cy="180" r="4" fill="currentColor"></circle>
         <circle cx="20" cy="100" r="4" fill="currentColor"></circle>
     </svg>
-    <div class="hidden lg:flex absolute top-1/2 right-6 -translate-y-1/2 flex-col items-center gap-3 text-[11px] tracking-[0.45em] text-white/40 rotate-180"
+    <div class="hidden lg:flex absolute top-1/2 start-6 -translate-y-1/2 flex-col items-center gap-3 text-[11px] tracking-[0.45em] text-white/40 rotate-180"
          style="writing-mode: vertical-rl;">EST · 2018 — PHARMA · GRADE
     </div>
-    <div class="hidden lg:flex absolute top-1/2 left-6 -translate-y-1/2 flex-col items-center gap-3 text-[11px] tracking-[0.45em] text-white/40"
+    <div class="hidden lg:flex absolute top-1/2 end-6 -translate-y-1/2 flex-col items-center gap-3 text-[11px] tracking-[0.45em] text-white/40"
          style="writing-mode: vertical-rl;">LEVESAGE · LUXURY · HAIR · CARE
     </div>
     <div class="container-luxury relative grid lg:grid-cols-12 gap-10 items-center py-24 lg:py-32">
-        <div class="lg:col-span-7 fade-up text-center lg:text-right">
+        <div class="lg:col-span-7 fade-up text-center lg:text-start">
             <span
                     class="inline-flex items-center gap-2 rounded-full glass-dark px-5 py-2.5 text-[13px] tracking-[0.3em] text-white border border-white/15"><svg
                         xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -134,18 +134,18 @@
                  class="relative z-10 block mx-auto h-full w-auto object-contain drop-shadow-[0_40px_80px_rgba(43,152,34,0.35)] animate-float"
                  src="https://levisage-pharma.com/wp-content/uploads/2026/07/serum-laU65o2l.png">
             <img alt="LeVesage Ampoules"
-                 class="absolute z-20 -bottom-2 -right-2 lg:-right-6 h-44 lg:h-60 object-contain drop-shadow-[0_20px_40px_rgba(11,113,183,0.45)] animate-float"
+                 class="absolute z-20 -bottom-2 -start-2 lg:-start-6 h-44 lg:h-60 object-contain drop-shadow-[0_20px_40px_rgba(11,113,183,0.45)] animate-float"
                  src="https://levisage-pharma.com/wp-content/uploads/2026/07/ampoules-B8cXqfCl.png"
                  style="animation-delay: 1.2s;">
             <img alt="LeVesage Shampoo"
-                 class="absolute z-20 top-4 -left-2 lg:-left-6 h-40 lg:h-56 object-contain drop-shadow-[0_20px_40px_rgba(11,113,183,0.4)] animate-float"
+                 class="absolute z-20 top-4 -end-2 lg:-end-6 h-40 lg:h-56 object-contain drop-shadow-[0_20px_40px_rgba(11,113,183,0.4)] animate-float"
                  src="https://levisage-pharma.com/wp-content/uploads/2026/07/shampoo-N6nZrQBd.png"
                  style="animation-delay: 0.6s;">
-            <div class="absolute z-30 top-10 right-2 glass-dark rounded-full px-4 py-2 text-[11px] tracking-[0.25em] text-white border border-white/15 animate-float"
-                 style="animation-delay: 0.8s;"><span class="text-[color:var(--gold)] ml-2">●</span> Pharma Grade
+            <div class="absolute z-30 top-10 start-2 glass-dark rounded-full px-4 py-2 text-[11px] tracking-[0.25em] text-white border border-white/15 animate-float"
+                 style="animation-delay: 0.8s;"><span class="text-[color:var(--gold)] me-2">●</span> Pharma Grade
             </div>
-            <div class="absolute z-30 bottom-16 left-0 glass-dark rounded-full px-4 py-2 text-[11px] tracking-[0.25em] text-white border border-white/15 animate-float"
-                 style="animation-delay: 1.6s;"><span class="text-[color:var(--gold)] ml-2">●</span> Clinically Tested
+            <div class="absolute z-30 bottom-16 end-0 glass-dark rounded-full px-4 py-2 text-[11px] tracking-[0.25em] text-white border border-white/15 animate-float"
+                 style="animation-delay: 1.6s;"><span class="text-[color:var(--gold)] me-2">●</span> Clinically Tested
             </div>
         </div>
     </div>

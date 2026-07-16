@@ -168,6 +168,20 @@ function lv_cart_count_fragment($fragments)
 add_filter('woocommerce_add_to_cart_fragments', 'lv_cart_count_fragment');
 
 /**
+ * Ensure the <html> tag always carries an explicit text direction so the
+ * theme's logical CSS (text-start/inset-inline/margin-inline …) resolves
+ * correctly on every language — LTR on English, RTL on Arabic.
+ */
+function lv_force_html_dir($output)
+{
+    if (strpos($output, 'dir=') === false) {
+        $output = 'dir="' . (is_rtl() ? 'rtl' : 'ltr') . '" ' . $output;
+    }
+    return $output;
+}
+add_filter('language_attributes', 'lv_force_html_dir');
+
+/**
  * Inject the Radiance announcement top bar above the Astra header.
  */
 function lv_render_top_bar()

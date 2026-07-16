@@ -20,7 +20,7 @@
             <div class="grid md:grid-cols-2 gap-8">
                 <div class="group relative rounded-3xl p-8 md:p-10 bg-gradient-to-br from-[var(--navy-deep)] to-[var(--navy)] text-white overflow-hidden shadow-luxury transition-transform hover:-translate-y-1">
                     <div class="absolute inset-0 bg-noise opacity-10 pointer-events-none"></div>
-                    <div class="absolute -top-10 -right-10 h-40 w-40 rounded-full bg-[color:var(--gold)]/20 blur-2xl pointer-events-none"></div>
+                    <div class="absolute -top-10 -start-10 h-40 w-40 rounded-full bg-[color:var(--gold)]/20 blur-2xl pointer-events-none"></div>
                     <div class="relative">
                         <div class="h-14 w-14 rounded-full bg-[color:var(--gold)]/20 flex items-center justify-center mb-6">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -40,7 +40,7 @@
                     </div>
                 </div>
                 <div class="group relative rounded-3xl p-8 md:p-10 bg-white border border-border shadow-soft overflow-hidden transition-transform hover:-translate-y-1">
-                    <div class="absolute -top-10 -right-10 h-40 w-40 rounded-full bg-[color:var(--gold)]/20 blur-2xl pointer-events-none"></div>
+                    <div class="absolute -top-10 -start-10 h-40 w-40 rounded-full bg-[color:var(--gold)]/20 blur-2xl pointer-events-none"></div>
                     <div class="relative">
                         <div class="h-14 w-14 rounded-full bg-[color:var(--gold)]/20 flex items-center justify-center mb-6">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"

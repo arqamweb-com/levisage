@@ -32,7 +32,7 @@ astra_footer_after();
 <!-- Start Footer -->
 <footer class="bg-[#0a1a22] text-white/70">
     <div class="container-luxury py-20 grid lg:grid-cols-12 gap-12">
-        <div class="lg:col-span-4"><img src="/assets/logo-Dydz-xGQ.svg" alt="لوفيزاج" class="h-12 brightness-0 invert">
+        <div class="lg:col-span-4"><img src="https://levisage-pharma.com/wp-content/uploads/2023/09/logo.svg" alt="لوفيزاج" class="h-12 brightness-0 invert">
             <p class="mt-5 text-white/60 max-w-sm leading-loose">عناية صيدلانية فاخرة — مهندسة بالعلم، ومصمَّمة
                 للثقة.</p>
             <div class="mt-7 space-y-3 text-sm">
@@ -69,41 +69,32 @@ astra_footer_after();
         <div class="lg:col-span-2">
             <div class="text-xs tracking-[0.3em] text-white/40 mb-4">المتجر</div>
             <ul class="space-y-2.5">
-                <li><a href="#" class="text-white/70 hover:text-white transition-colors">علاج التساقط</a></li>
-                <li><a href="#" class="text-white/70 hover:text-white transition-colors">علاج الشيب</a></li>
-                <li><a href="#" class="text-white/70 hover:text-white transition-colors">الترطيب</a></li>
-                <li><a href="#" class="text-white/70 hover:text-white transition-colors">البندلات</a></li>
-                <li><a href="#" class="text-white/70 hover:text-white transition-colors">الجديد</a></li>
+                <li><a href="<?php echo esc_url(get_term_link(40, 'product_cat')); ?>" class="text-white/70 hover:text-white transition-colors">علاج التساقط</a></li>
+                <li><a href="<?php echo esc_url(get_term_link(39, 'product_cat')); ?>" class="text-white/70 hover:text-white transition-colors">علاج الشيب</a></li>
+                <li><a href="<?php echo esc_url(get_term_link(36, 'product_cat')); ?>" class="text-white/70 hover:text-white transition-colors">الترطيب</a></li>
             </ul>
         </div>
         <div class="lg:col-span-2">
             <div class="text-xs tracking-[0.3em] text-white/40 mb-4">عن الشركة</div>
             <ul class="space-y-2.5">
-                <li><a href="#" class="text-white/70 hover:text-white transition-colors">قصتنا</a></li>
-                <li><a href="#" class="text-white/70 hover:text-white transition-colors">العلم</a></li>
-                <li><a href="#" class="text-white/70 hover:text-white transition-colors">الصحافة</a></li>
-                <li><a href="#" class="text-white/70 hover:text-white transition-colors">الاستدامة</a></li>
-                <li><a href="#" class="text-white/70 hover:text-white transition-colors">الوظائف</a></li>
+                <li><a href="<?php echo esc_url(get_permalink(52)); ?>" class="text-white/70 hover:text-white transition-colors">قصتنا</a></li>
             </ul>
         </div>
         <div class="lg:col-span-2">
             <div class="text-xs tracking-[0.3em] text-white/40 mb-4">الدعم</div>
             <ul class="space-y-2.5">
-                <li><a href="#" class="text-white/70 hover:text-white transition-colors">تواصل معنا</a></li>
-                <li><a href="#" class="text-white/70 hover:text-white transition-colors">الشحن</a></li>
-                <li><a href="#" class="text-white/70 hover:text-white transition-colors">الإرجاع</a></li>
-                <li><a href="#" class="text-white/70 hover:text-white transition-colors">الأسئلة الشائعة</a></li>
-                <li><a href="#" class="text-white/70 hover:text-white transition-colors">تتبع الطلب</a></li>
+                <li><a href="<?php echo esc_url(get_permalink(58)); ?>" class="text-white/70 hover:text-white transition-colors">تواصل معنا</a></li>
+                <li><a href="<?php echo esc_url(get_permalink(577)); ?>" class="text-white/70 hover:text-white transition-colors">الشحن</a></li>
+                <li><a href="<?php echo esc_url(get_permalink(566)); ?>" class="text-white/70 hover:text-white transition-colors">الإرجاع</a></li>
+                <li><a href="<?php echo esc_url(home_url('/#faq')); ?>" class="text-white/70 hover:text-white transition-colors">الأسئلة الشائعة</a></li>
             </ul>
         </div>
         <div class="lg:col-span-2">
             <div class="text-xs tracking-[0.3em] text-white/40 mb-4">تواصل</div>
             <ul class="space-y-2.5">
-                <li><a href="#" class="text-white/70 hover:text-white transition-colors">إنستجرام</a></li>
-                <li><a href="#" class="text-white/70 hover:text-white transition-colors">فيسبوك</a></li>
-                <li><a href="#" class="text-white/70 hover:text-white transition-colors">واتساب</a></li>
-                <li><a href="#" class="text-white/70 hover:text-white transition-colors">تيك توك</a></li>
-                <li><a href="#" class="text-white/70 hover:text-white transition-colors">يوتيوب</a></li>
+                <li><a href="https://www.instagram.com/levisage.pharma/?igshid=MWZjMTM2ODFkZg%3D%3D" target="_blank" rel="noopener noreferrer" class="text-white/70 hover:text-white transition-colors">إنستجرام</a></li>
+                <li><a href="https://www.facebook.com/levisagepharma?mibextid=nW3QTL" target="_blank" rel="noopener noreferrer" class="text-white/70 hover:text-white transition-colors">فيسبوك</a></li>
+                <li><a href="https://wa.me/201004025435" target="_blank" rel="noopener noreferrer" class="text-white/70 hover:text-white transition-colors">واتساب</a></li>
             </ul>
         </div>
     </div>
@@ -114,9 +105,8 @@ astra_footer_after();
                                                    rel="noopener noreferrer"
                                                    class="text-[color:var(--gold)] hover:text-white transition-colors font-bold">أرقام
                     ويب</a></div>
-            <div class="flex gap-6"><a href="#" class="text-white/70 hover:text-white">الخصوصية</a><a href="#"
-                                                                                        class="text-white/70 hover:text-white">الشروط</a><a
-                        href="#" class="text-white/70 hover:text-white">ملفات الكوكيز</a></div>
+            <div class="flex gap-6"><a href="<?php echo esc_url(get_permalink(572)); ?>" class="text-white/70 hover:text-white">الخصوصية</a><a href="<?php echo esc_url(get_permalink(562)); ?>"
+                                                                                        class="text-white/70 hover:text-white">الشروط</a></div>
         </div>
     </div>
 </footer>

@@ -7,8 +7,8 @@ $description = get_query_var('description');
 
 <section class="relative overflow-hidden bg-hero-cinematic text-white">
     <div class="pointer-events-none absolute inset-0">
-        <div class="absolute -top-48 right-[-10%] h-[520px] w-[520px] rounded-full bg-[radial-gradient(circle,color-mix(in_oklab,var(--leaf)_55%,transparent),transparent_70%)] blur-[120px] animate-drift"></div>
-        <div class="absolute -bottom-56 left-[-10%] h-[560px] w-[560px] rounded-full bg-[radial-gradient(circle,color-mix(in_oklab,var(--navy)_70%,transparent),transparent_70%)] blur-[140px] animate-drift"
+        <div class="absolute -top-48 start-[-10%] h-[520px] w-[520px] rounded-full bg-[radial-gradient(circle,color-mix(in_oklab,var(--leaf)_55%,transparent),transparent_70%)] blur-[120px] animate-drift"></div>
+        <div class="absolute -bottom-56 end-[-10%] h-[560px] w-[560px] rounded-full bg-[radial-gradient(circle,color-mix(in_oklab,var(--navy)_70%,transparent),transparent_70%)] blur-[140px] animate-drift"
              style="animation-delay: 2s;"></div>
         <div class="absolute top-1/3 left-1/2 -translate-x-1/2 h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle,color-mix(in_oklab,var(--gold)_22%,transparent),transparent_70%)] blur-[120px]"></div>
     </div>
@@ -49,7 +49,7 @@ $description = get_query_var('description');
                 class="absolute rounded-full bg-white/70 animate-float"
                 style="top: 1%; left: 29%; width: 3px; height: 3px; opacity: 0.51; filter: blur(0.3px); box-shadow: rgba(255, 255, 255, 0.6) 0px 0px 12px 2px; animation-delay: 1.2s; animation-duration: 8s;"></span>
     </div>
-    <svg class="pointer-events-none absolute top-24 right-[5%] h-44 w-44 text-white/15 animate-float"
+    <svg class="pointer-events-none absolute top-24 start-[5%] h-44 w-44 text-white/15 animate-float"
          viewBox="0 0 200 200" fill="none">
         <circle cx="100" cy="100" r="80" stroke="currentColor" stroke-width="0.8"></circle>
         <circle cx="100" cy="100" r="50" stroke="currentColor" stroke-width="0.8"></circle>
@@ -58,7 +58,7 @@ $description = get_query_var('description');
         <circle cx="100" cy="180" r="4" fill="currentColor"></circle>
         <circle cx="20" cy="100" r="4" fill="currentColor"></circle>
     </svg>
-    <div class="container-luxury relative py-24 lg:py-32 text-center lg:text-right">
+    <div class="container-luxury relative py-24 lg:py-32 text-center lg:text-start">
         <div class="max-w-3xl mx-auto lg:mx-0"><span
                     class="inline-flex items-center gap-2 rounded-full glass-dark px-5 py-2.5 text-[13px] tracking-[0.3em] text-white border border-white/15"><svg
                         xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"

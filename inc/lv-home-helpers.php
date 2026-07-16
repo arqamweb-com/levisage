@@ -145,9 +145,9 @@ function lv_bestseller_card($product, $badge = '')
           <img alt="<?php echo esc_attr($product->get_name()); ?>" loading="lazy" class="block h-full w-full object-contain p-6 transition-transform duration-700 group-hover:scale-110" src="<?php echo esc_url($img); ?>">
         </a>
         <?php if ($badge) : ?>
-          <span class="absolute top-4 right-4 rounded-full bg-[var(--navy-deep)] text-white text-[10px] tracking-widest px-3 py-1"><?php echo esc_html($badge); ?></span>
+          <span class="absolute top-4 start-4 rounded-full bg-[var(--navy-deep)] text-white text-[10px] tracking-widest px-3 py-1"><?php echo esc_html($badge); ?></span>
         <?php endif; ?>
-        <button type="button" class="absolute top-4 left-4 h-9 w-9 rounded-full glass flex items-center justify-center hover:bg-white" aria-label="<?php esc_attr_e('Add to wishlist', 'arqamweb'); ?>">
+        <button type="button" class="absolute top-4 end-4 h-9 w-9 rounded-full glass flex items-center justify-center hover:bg-white" aria-label="<?php esc_attr_e('Add to wishlist', 'arqamweb'); ?>">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" aria-hidden="true"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"/></svg>
         </button>
         <div class="absolute inset-x-4 bottom-4 translate-y-6 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
@@ -242,7 +242,7 @@ function lv_bundle_card_lux($product)
     ?>
     <article class="group relative glass-dark rounded-3xl p-6 hover:shadow-luxury transition-all overflow-hidden">
       <?php if ($savings > 0) : ?>
-        <div class="absolute top-4 left-4 z-10 rounded-full bg-[color:var(--gold)] text-[var(--navy-deep)] text-[10px] font-bold px-3 py-1 tracking-widest"><?php echo esc_html(__('وفّر', 'arqamweb') . ' ' . wp_strip_all_tags(wc_price($savings))); ?></div>
+        <div class="absolute top-4 end-4 z-10 rounded-full bg-[color:var(--gold)] text-[var(--navy-deep)] text-[10px] font-bold px-3 py-1 tracking-widest"><?php echo esc_html(__('وفّر', 'arqamweb') . ' ' . wp_strip_all_tags(wc_price($savings))); ?></div>
       <?php endif; ?>
       <a href="<?php echo esc_url($link); ?>" class="block relative aspect-square rounded-2xl bg-gradient-to-br from-white/5 to-transparent overflow-hidden">
         <img alt="<?php echo esc_attr($product->get_name()); ?>" loading="lazy" class="block h-full w-full object-contain p-4 transition-transform duration-700 group-hover:scale-110" src="<?php echo esc_url($img); ?>">

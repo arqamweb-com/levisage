@@ -637,6 +637,48 @@ a[class*="text-[var(--navy-deep)]"]:hover, a[class*="text-[var(--navy-deep)]"]:f
 .inset-x-4 {
   inset-inline: calc(var(--spacing) * 4);
 }
+.-start-2 {
+  inset-inline-start: calc(var(--spacing) * -2);
+}
+.-start-10 {
+  inset-inline-start: calc(var(--spacing) * -10);
+}
+.-start-32 {
+  inset-inline-start: calc(var(--spacing) * -32);
+}
+.start-2 {
+  inset-inline-start: calc(var(--spacing) * 2);
+}
+.start-4 {
+  inset-inline-start: calc(var(--spacing) * 4);
+}
+.start-6 {
+  inset-inline-start: calc(var(--spacing) * 6);
+}
+.start-\[-10\%\] {
+  inset-inline-start: -10%;
+}
+.start-\[5\%\] {
+  inset-inline-start: 5%;
+}
+.-end-2 {
+  inset-inline-end: calc(var(--spacing) * -2);
+}
+.-end-32 {
+  inset-inline-end: calc(var(--spacing) * -32);
+}
+.end-0 {
+  inset-inline-end: calc(var(--spacing) * 0);
+}
+.end-4 {
+  inset-inline-end: calc(var(--spacing) * 4);
+}
+.end-6 {
+  inset-inline-end: calc(var(--spacing) * 6);
+}
+.end-\[-10\%\] {
+  inset-inline-end: -10%;
+}
 .-top-10 {
   top: calc(var(--spacing) * -10);
 }
@@ -765,6 +807,9 @@ a[class*="text-[var(--navy-deep)]"]:hover, a[class*="text-[var(--navy-deep)]"]:f
 }
 .my-8 {
   margin-block: calc(var(--spacing) * 8);
+}
+.me-2 {
+  margin-inline-end: calc(var(--spacing) * 2);
 }
 .mt-1 {
   margin-top: var(--spacing);
@@ -2055,6 +2100,16 @@ a[class*="text-[var(--navy-deep)]"]:hover, a[class*="text-[var(--navy-deep)]"]:f
     line-height: var(--tw-leading, var(--text-6xl--line-height));
   }
 }
+.lg\:-start-6 {
+  @media (width >= 64rem) {
+    inset-inline-start: calc(var(--spacing) * -6);
+  }
+}
+.lg\:-end-6 {
+  @media (width >= 64rem) {
+    inset-inline-end: calc(var(--spacing) * -6);
+  }
+}
 .lg\:-right-6 {
   @media (width >= 64rem) {
     right: calc(var(--spacing) * -6);
@@ -2178,6 +2233,11 @@ a[class*="text-[var(--navy-deep)]"]:hover, a[class*="text-[var(--navy-deep)]"]:f
 .lg\:text-right {
   @media (width >= 64rem) {
     text-align: right;
+  }
+}
+.lg\:text-start {
+  @media (width >= 64rem) {
+    text-align: start;
   }
 }
 .\[\&\:\:-webkit-details-marker\]\:hidden {
