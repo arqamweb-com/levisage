@@ -93,7 +93,7 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
                     <div class="absolute inset-0 bg-aurora opacity-80"></div>
                     <img alt="<?php echo esc_attr__('روتين علاج تساقط الشعر', 'arqamweb'); ?>"
                          class="absolute inset-0 h-full w-full object-contain p-10 animate-float"
-                         src="/assets/ampoules-free-shampoo-DJiGURUk.png">
+                         src="https://levisage-pharma.com/wp-content/uploads/2026/07/ampoules-free-shampoo-DJiGURUk.png">
                     <div class="absolute top-6 right-6 glass-dark rounded-2xl px-4 py-2 text-white text-xs tracking-widest">
                         <?php esc_html_e('عرض متكامل', 'arqamweb'); ?>
                     </div>
