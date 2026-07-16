@@ -65,7 +65,7 @@ $description = get_query_var('description');
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                         class="lucide lucide-sparkles h-3.5 w-3.5 text-[color:var(--gold)]" aria-hidden="true"><path
                             d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path><path
-                            d="M20 2v4"></path><path d="M22 4h-4"></path><circle cx="4" cy="20" r="2"></circle></svg> لوفيزاج</span>
+                            d="M20 2v4"></path><path d="M22 4h-4"></path><circle cx="4" cy="20" r="2"></circle></svg> <?php esc_html_e('لوفيزاج', 'arqamweb'); ?></span>
             <h1 class="font-arabic mt-8 font-black text-gradient-luxury"
                 style="font-size: 3rem; line-height: 1.5; padding-block: 0.2em;">
 
@@ -76,7 +76,7 @@ $description = get_query_var('description');
             <?php if ($description) : ?>
                 <div class="mt-8 flex items-center justify-center lg:justify-start gap-4">
                     <div class="hairline w-24 opacity-60"></div>
-                    <p class="text-xl md:text-2xl text-white/90 font-light tracking-wide" style="line-height: 1.9;">
+                    <p class="text-xl md:text-2xl text-white/90 font-light tracking-wide mb-0" style="line-height: 1.9;">
                         <?php echo esc_html(__($description, 'arqamweb')); ?>
                     </p>
                     <div class="hairline w-24 opacity-60"></div>

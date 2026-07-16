@@ -72,4 +72,42 @@ ul {
   padding: 0;
   margin: 0;
 }
+
+/* Hide Astra's built-in above-header bar — the custom Radiance top bar
+   (injected via astra_header_before) replaces it. */
+.ast-above-header-wrap {
+  display: none !important;
+}
+
+/* --- Button / link hover fixes ---------------------------------------
+   Astra applies a global dark `a:hover` colour that turns light-on-dark
+   buttons invisible (dark text on a dark background). Keep each button's
+   own text colour stable on hover instead. */
+
+/* Light-text buttons/links stay white on hover (works with text-white,
+   text-white/90, etc.). */
+a[class*="text-white"]:hover,
+a[class*="text-white"]:focus,
+button[class*="text-white"]:hover,
+button[class*="text-white"]:focus {
+  color: #fff !important;
+}
+
+/* Gold-text buttons/links stay gold on hover. */
+a[class*="text-[color:var(--gold)]"]:hover,
+a[class*="text-[color:var(--gold)]"]:focus,
+a[class*="text-[var(--gold)]"]:hover,
+a[class*="text-[var(--gold)]"]:focus {
+  color: var(--gold) !important;
+}
+
+/* Dark-text buttons/links (e.g. white "اطلب الآن" bundle button) keep their
+   dark text on hover instead of shifting to Astra's accent colour. */
+a[class*="text-[var(--navy-deep)]"]:hover,
+a[class*="text-[var(--navy-deep)]"]:focus,
+a[class*="text-[var(--navy)]"]:hover,
+a[class*="text-[var(--navy)]"]:focus {
+  color: var(--navy-deep) !important;
+}
+
 /* End GLOBAL */

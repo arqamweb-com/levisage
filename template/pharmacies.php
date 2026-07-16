@@ -3,31 +3,31 @@
 <?php
 $lv_pharmacies = array(
         array(
-                'name' => lv_t('صيدلية كبسولة', 'Capsula Pharmacies'),
-                'address' => lv_t('ش الاديب متفرع من ش الترعة - المنصورة', 'El Adeeb St, branching from El Tera\'a St - Mansoura'),
+                'name' => __('صيدلية كبسولة', 'arqamweb'),
+                'address' => __('ش الاديب متفرع من ش الترعة - المنصورة', 'arqamweb'),
                 'phones' => array('01010501112', '01011880055'),
         ),
         array(
-                'name' => lv_t('صيدلية الافندي', 'Alafandy Pharmacies'),
-                'address' => lv_t('حدائق الاهرام البوابة الثالثة - الهرم', 'Pyramids Gardens, Gate 3 - Al Haram'),
+                'name' => __('صيدلية الافندي', 'arqamweb'),
+                'address' => __('حدائق الاهرام البوابة الثالثة - الهرم', 'arqamweb'),
                 'phones' => array('01101234518', '01033770015'),
         ),
         array(
-                'name' => lv_t('صيدلية وائل سمير', 'Wael Samir Pharmacy'),
+                'name' => __('صيدلية وائل سمير', 'arqamweb'),
                 'address' => '',
                 'phones' => array('19300'),
         ),
         array(
-                'name' => lv_t('صيدليات العماوي', 'El Amawy Pharmacies'),
+                'name' => __('صيدليات العماوي', 'arqamweb'),
                 'address' => '',
                 'phones' => array('15656'),
         ),
         array(
-                'name' => lv_t('صيدلية علاء الدين', 'Aladdin Pharmacy'),
+                'name' => __('صيدلية علاء الدين', 'arqamweb'),
                 'address' => '',
                 'branches' => array(
-                        array('label' => lv_t('فرع طوخ', 'Toukh branch'), 'phones' => array('01012358123', '01002825050')),
-                        array('label' => lv_t('فرع بنها', 'Banha branch'), 'phones' => array('01029998558', '01091400800')),
+                        array('label' => __('فرع طوخ', 'arqamweb'), 'phones' => array('01012358123', '01002825050')),
+                        array('label' => __('فرع بنها', 'arqamweb'), 'phones' => array('01029998558', '01091400800')),
                 ),
         ),
 );
@@ -56,11 +56,211 @@ if (!function_exists('lv_phone_link')) {
 
 
     <!-- Pharmacies list -->
+
+    <section class="py-28 bg-background">
+        <div class="container-luxury">
+            <div class="text-center mb-16"><span class="lv-label"><?php esc_html_e('نقاط البيع', 'arqamweb'); ?></span>
+                <h2 class="mt-3 text-4xl md:text-5xl font-bold text-gradient-brand">
+                    <?php esc_html_e('تجد منتجات لوفيزاج في الصيدليات التالية', 'arqamweb'); ?>
+                </h2>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="group relative rounded-3xl p-7 md:p-8 bg-white border border-border shadow-soft overflow-hidden transition-transform hover:-translate-y-1">
+                    <div class="absolute -top-10 -right-10 h-40 w-40 rounded-full bg-[color:var(--gold)]/10 blur-2xl pointer-events-none"></div>
+                    <div class="relative">
+                        <div class="h-14 w-14 rounded-full bg-[color:var(--gold)]/10 flex items-center justify-center mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                 stroke-linejoin="round" class="lucide lucide-map-pin h-7 w-7 text-[color:var(--gold)]"
+                                 aria-hidden="true">
+                                <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl md:text-3xl font-bold text-[var(--navy-deep)] mb-4"><?php esc_html_e('صيدلية كبسولة', 'arqamweb'); ?></h3>
+                        <p class="text-muted-foreground leading-relaxed mb-5"><?php esc_html_e('ش الاديب متفرع من ش الترعة - المنصورة', 'arqamweb'); ?></p>
+                        <div class="flex flex-wrap items-center gap-4"><a href="tel:01010501112"
+                                                                          class="inline-flex items-center gap-2 text-[var(--navy-deep)] font-semibold hover:text-[var(--leaf)] transition-colors"
+                                                                          dir="ltr">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                     stroke-linejoin="round"
+                                     class="lucide lucide-phone h-4 w-4 text-[color:var(--gold)]" aria-hidden="true">
+                                    <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path>
+                                </svg>
+                                01010501112</a><a href="tel:01011880055"
+                                                  class="inline-flex items-center gap-2 text-[var(--navy-deep)] font-semibold hover:text-[var(--leaf)] transition-colors"
+                                                  dir="ltr">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                     stroke-linejoin="round"
+                                     class="lucide lucide-phone h-4 w-4 text-[color:var(--gold)]" aria-hidden="true">
+                                    <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path>
+                                </svg>
+                                01011880055</a></div>
+                    </div>
+                </div>
+                <div class="group relative rounded-3xl p-7 md:p-8 bg-white border border-border shadow-soft overflow-hidden transition-transform hover:-translate-y-1">
+                    <div class="absolute -top-10 -right-10 h-40 w-40 rounded-full bg-[color:var(--gold)]/10 blur-2xl pointer-events-none"></div>
+                    <div class="relative">
+                        <div class="h-14 w-14 rounded-full bg-[color:var(--gold)]/10 flex items-center justify-center mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                 stroke-linejoin="round" class="lucide lucide-map-pin h-7 w-7 text-[color:var(--gold)]"
+                                 aria-hidden="true">
+                                <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl md:text-3xl font-bold text-[var(--navy-deep)] mb-4"><?php esc_html_e('صيدلية الافندي', 'arqamweb'); ?></h3>
+                        <p class="text-muted-foreground leading-relaxed mb-5"><?php esc_html_e('حدائق الاهرام البوابة الثالثة - الهرم', 'arqamweb'); ?></p>
+                        <div class="flex flex-wrap items-center gap-4"><a href="tel:01101234518"
+                                                                          class="inline-flex items-center gap-2 text-[var(--navy-deep)] font-semibold hover:text-[var(--leaf)] transition-colors"
+                                                                          dir="ltr">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                     stroke-linejoin="round"
+                                     class="lucide lucide-phone h-4 w-4 text-[color:var(--gold)]" aria-hidden="true">
+                                    <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path>
+                                </svg>
+                                01101234518</a><a href="tel:01033770015"
+                                                  class="inline-flex items-center gap-2 text-[var(--navy-deep)] font-semibold hover:text-[var(--leaf)] transition-colors"
+                                                  dir="ltr">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                     stroke-linejoin="round"
+                                     class="lucide lucide-phone h-4 w-4 text-[color:var(--gold)]" aria-hidden="true">
+                                    <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path>
+                                </svg>
+                                01033770015</a></div>
+                    </div>
+                </div>
+                <div class="group relative rounded-3xl p-7 md:p-8 bg-white border border-border shadow-soft overflow-hidden transition-transform hover:-translate-y-1">
+                    <div class="absolute -top-10 -right-10 h-40 w-40 rounded-full bg-[color:var(--gold)]/10 blur-2xl pointer-events-none"></div>
+                    <div class="relative">
+                        <div class="h-14 w-14 rounded-full bg-[color:var(--gold)]/10 flex items-center justify-center mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                 stroke-linejoin="round" class="lucide lucide-map-pin h-7 w-7 text-[color:var(--gold)]"
+                                 aria-hidden="true">
+                                <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl md:text-3xl font-bold text-[var(--navy-deep)] mb-4"><?php esc_html_e('صيدلية وائل سمير', 'arqamweb'); ?></h3>
+                        <div class="flex flex-wrap items-center gap-4"><a href="tel:19300"
+                                                                          class="inline-flex items-center gap-2 text-[var(--navy-deep)] font-semibold hover:text-[var(--leaf)] transition-colors"
+                                                                          dir="ltr">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                     stroke-linejoin="round"
+                                     class="lucide lucide-phone h-4 w-4 text-[color:var(--gold)]" aria-hidden="true">
+                                    <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path>
+                                </svg>
+                                19300</a></div>
+                    </div>
+                </div>
+                <div class="group relative rounded-3xl p-7 md:p-8 bg-white border border-border shadow-soft overflow-hidden transition-transform hover:-translate-y-1">
+                    <div class="absolute -top-10 -right-10 h-40 w-40 rounded-full bg-[color:var(--gold)]/10 blur-2xl pointer-events-none"></div>
+                    <div class="relative">
+                        <div class="h-14 w-14 rounded-full bg-[color:var(--gold)]/10 flex items-center justify-center mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                 stroke-linejoin="round" class="lucide lucide-map-pin h-7 w-7 text-[color:var(--gold)]"
+                                 aria-hidden="true">
+                                <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl md:text-3xl font-bold text-[var(--navy-deep)] mb-4"><?php esc_html_e('صيدليات العماوي', 'arqamweb'); ?></h3>
+                        <div class="flex flex-wrap items-center gap-4"><a href="tel:15656"
+                                                                          class="inline-flex items-center gap-2 text-[var(--navy-deep)] font-semibold hover:text-[var(--leaf)] transition-colors"
+                                                                          dir="ltr">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                     stroke-linejoin="round"
+                                     class="lucide lucide-phone h-4 w-4 text-[color:var(--gold)]" aria-hidden="true">
+                                    <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path>
+                                </svg>
+                                15656</a></div>
+                    </div>
+                </div>
+                <div class="group relative rounded-3xl p-7 md:p-8 bg-white border border-border shadow-soft overflow-hidden transition-transform hover:-translate-y-1">
+                    <div class="absolute -top-10 -right-10 h-40 w-40 rounded-full bg-[color:var(--gold)]/10 blur-2xl pointer-events-none"></div>
+                    <div class="relative">
+                        <div class="h-14 w-14 rounded-full bg-[color:var(--gold)]/10 flex items-center justify-center mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                 stroke-linejoin="round" class="lucide lucide-map-pin h-7 w-7 text-[color:var(--gold)]"
+                                 aria-hidden="true">
+                                <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl md:text-3xl font-bold text-[var(--navy-deep)] mb-4"><?php esc_html_e('صيدلية علاء الدين', 'arqamweb'); ?></h3>
+                        <div class="space-y-4">
+                            <div class="border-t border-border pt-3 first:border-t-0 first:pt-0"><span
+                                        class="block text-sm font-bold text-[var(--navy)] mb-2"><?php esc_html_e('فرع طوخ', 'arqamweb'); ?></span>
+                                <div class="flex flex-wrap items-center gap-4"><a href="tel:01012358123"
+                                                                                  class="inline-flex items-center gap-2 text-[var(--navy-deep)] font-semibold hover:text-[var(--leaf)] transition-colors"
+                                                                                  dir="ltr">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                             stroke-linecap="round" stroke-linejoin="round"
+                                             class="lucide lucide-phone h-4 w-4 text-[color:var(--gold)]"
+                                             aria-hidden="true">
+                                            <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path>
+                                        </svg>
+                                        01012358123</a><a href="tel:01002825050"
+                                                          class="inline-flex items-center gap-2 text-[var(--navy-deep)] font-semibold hover:text-[var(--leaf)] transition-colors"
+                                                          dir="ltr">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                             stroke-linecap="round" stroke-linejoin="round"
+                                             class="lucide lucide-phone h-4 w-4 text-[color:var(--gold)]"
+                                             aria-hidden="true">
+                                            <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path>
+                                        </svg>
+                                        01002825050</a></div>
+                            </div>
+                            <div class="border-t border-border pt-3 first:border-t-0 first:pt-0"><span
+                                        class="block text-sm font-bold text-[var(--navy)] mb-2"><?php esc_html_e('فرع بنها', 'arqamweb'); ?></span>
+                                <div class="flex flex-wrap items-center gap-4"><a href="tel:01029998558"
+                                                                                  class="inline-flex items-center gap-2 text-[var(--navy-deep)] font-semibold hover:text-[var(--leaf)] transition-colors"
+                                                                                  dir="ltr">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                             stroke-linecap="round" stroke-linejoin="round"
+                                             class="lucide lucide-phone h-4 w-4 text-[color:var(--gold)]"
+                                             aria-hidden="true">
+                                            <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path>
+                                        </svg>
+                                        01029998558</a><a href="tel:01091400800"
+                                                          class="inline-flex items-center gap-2 text-[var(--navy-deep)] font-semibold hover:text-[var(--leaf)] transition-colors"
+                                                          dir="ltr">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                             stroke-linecap="round" stroke-linejoin="round"
+                                             class="lucide lucide-phone h-4 w-4 text-[color:var(--gold)]"
+                                             aria-hidden="true">
+                                            <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path>
+                                        </svg>
+                                        01091400800</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
     <section class="lv-section">
         <div class="lv-wrap">
             <div class="lv-section__head">
-                <span class="lv-label"><?php echo esc_html(lv_t('نقاط البيع', 'Points of Sale')); ?></span>
-                <h2 class="lv-section__title"><?php echo esc_html(lv_t('تجد منتجات لوفيزاج في الصيدليات التالية', 'Find LeVisage products at the following pharmacies')); ?></h2>
+                <span class="lv-label"><?php echo esc_html(__('نقاط البيع', 'arqamweb')); ?></span>
+                <h2 class="lv-section__title"><?php echo esc_html(__('تجد منتجات لوفيزاج في الصيدليات التالية', 'arqamweb')); ?></h2>
             </div>
 
             <div class="lv-pharm-grid">

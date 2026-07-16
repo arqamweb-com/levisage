@@ -168,14 +168,13 @@ function lv_cart_count_fragment($fragments)
 add_filter('woocommerce_add_to_cart_fragments', 'lv_cart_count_fragment');
 
 /**
- * Tiny bilingual helper: returns the Arabic string on RTL (Arabic) pages,
- * otherwise the English string. Used by the custom header & footer so the
- * layout matches the reference on both language versions of the site.
+ * Inject the Radiance announcement top bar above the Astra header.
  */
-function lv_t($ar, $en)
+function lv_render_top_bar()
 {
-    return is_rtl() ? $ar : $en;
+    get_template_part('template/components/top-bar');
 }
+add_action('astra_header_before', 'lv_render_top_bar');
 
 /**
  * Register the primary menu location used by the custom LeVisage header.
