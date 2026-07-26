@@ -303,7 +303,7 @@ function lv_get_best_sellers($limit = 4)
 }
 
 /**
- * Query bundle / offer products. Prefers the "أحدث العروض" (offers) category
+ * Query bundle / offer products. Prefers the "البندلات" (offers) category
  * — where the real bundles live — and falls back to any on-sale products.
  */
 function lv_get_bundles($limit = 6)
@@ -319,7 +319,7 @@ function lv_get_bundles($limit = 6)
         'tax_query'           => array(array(
             'taxonomy' => 'product_cat',
             'field'    => 'name',
-            'terms'    => array('أحدث العروض'),
+            'terms'    => array('البندلات'),
         )),
     ));
     if (!empty($q->posts)) {
