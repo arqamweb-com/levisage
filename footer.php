@@ -33,8 +33,9 @@ astra_footer_after();
 <footer class="bg-[#0a1a22] text-white/70">
     <div class="container-luxury py-20 grid lg:grid-cols-12 gap-12">
         <div class="lg:col-span-4"><img src="https://levisage-pharma.com/wp-content/uploads/2023/09/logo.svg" alt="لوفيزاج" class="h-12 brightness-0 invert">
-            <p class="mt-5 text-white/60 max-w-sm leading-loose">عناية صيدلانية فاخرة — مهندسة بالعلم، ومصمَّمة
-                للثقة.</p>
+            <p class="mt-5 text-white/60 max-w-sm leading-loose">
+                عناية تجميلة مبتكرة -مهندسة بالعلم ومصممة للثقة
+            </p>
             <div class="mt-7 space-y-3 text-sm">
                 <a href="tel:01004025435"
                    class="flex items-center gap-3 text-white/70 hover:text-white transition-colors"><span
@@ -95,6 +96,7 @@ astra_footer_after();
                 <li><a href="https://www.instagram.com/levisage.pharma/?igshid=MWZjMTM2ODFkZg%3D%3D" target="_blank" rel="noopener noreferrer" class="text-white/70 hover:text-white transition-colors">إنستجرام</a></li>
                 <li><a href="https://www.facebook.com/levisagepharma?mibextid=nW3QTL" target="_blank" rel="noopener noreferrer" class="text-white/70 hover:text-white transition-colors">فيسبوك</a></li>
                 <li><a href="https://wa.me/201004025435" target="_blank" rel="noopener noreferrer" class="text-white/70 hover:text-white transition-colors">واتساب</a></li>
+                <li><a href="https://www.tiktok.com/@levisage.pharma?_r=1&_t=ZS-98DG3DgYNCX" target="_blank" rel="noopener noreferrer" class="text-white/70 hover:text-white transition-colors">تيك توك</a></li>
             </ul>
         </div>
     </div>

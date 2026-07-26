@@ -23,6 +23,31 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
 ?>
 <div id="primary" class="lv-home" style="margin-top:0;margin-bottom:0" <?php astra_primary_class(); ?>>
 
+    <style id="lv-home-typography">
+        /* العناوين العربية محتاجة line-height أوسع من افتراضي Tailwind (=1)
+           عشان أطراف الحروف (ق/س/ش) والنقط ما تتقصّش. */
+        .lv-home h1,
+        .lv-home h2 {
+            line-height: 1.4;
+        }
+
+        .lv-home h3 {
+            line-height: 1.5;
+        }
+
+        /* النصوص المتدرّجة اللون بتعمل background-clip:text — يعني الحروف
+           بتاخد لونها من الجراديينت اللي وراها. النقط العلوية (زي نقط "ش")
+           والحروف النازلة بتطلع بره منطقة الجراديينت فبتختفي. نوسّع منطقة
+           الجراديينت رأسياً بـ padding عشان تغطّي كل أطراف الحروف. */
+        .lv-home .text-gradient-brand,
+        .lv-home .text-gradient-luxury {
+            line-height: 1.5;
+            padding-block: 0.3em;
+            -webkit-box-decoration-break: clone;
+            box-decoration-break: clone;
+        }
+    </style>
+
     <!-- ============ 1. HERO ============ -->
     <?php
 
@@ -48,7 +73,7 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
                                  class="h-3.5 w-3.5 text-[var(--leaf)]" aria-hidden="true"><path
                                         d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path
                                         d="m9 12 2 2 4-4"/></svg>
-                            <?php echo esc_html(__('مضمون أصلي', 'arqamweb')); ?>
+                            <?php echo esc_html(__('مختبر عمليا', 'arqamweb')); ?>
                         </span>
                         <span class="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 border border-border shadow-soft">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
@@ -60,9 +85,9 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
                         </span>
                     </div>
                 </div>
-                <div class="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-7">
+                <div class="mt-14 grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-7">
                     <?php
-                    $bs_badges = array(__('الأكثر مبيعاً', 'arqamweb'), __('كلاسيكي', 'arqamweb'), __('حصري', 'arqamweb'), '');
+                    $bs_badges = array(__('الأكثر مبيعاً', 'arqamweb'), __('كلاسيكي', 'arqamweb'), '');
                     foreach ($best as $i => $post) {
                         lv_bestseller_card(wc_get_product($post->ID), isset($bs_badges[$i]) ? $bs_badges[$i] : '');
                     }
@@ -119,7 +144,7 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
                         </div>
                         <div>
                             <div class="font-bold text-foreground"><?php esc_html_e('أمبولات Vigilant', 'arqamweb'); ?></div>
-                            <div class="text-sm text-muted-foreground mt-1"><?php esc_html_e('تعزز نمو الشعر وتقوّي البصيلات من العمق.', 'arqamweb'); ?>
+                            <div class="text-sm text-muted-foreground mt-1"><?php esc_html_e('تعزز نمو الشعر من الجذور.', 'arqamweb'); ?>
                             </div>
                         </div>
                     </div>
@@ -176,9 +201,9 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
                 <div class="text-center max-w-2xl mx-auto">
                     <span class="text-xs tracking-[0.3em] text-[color:var(--gold)]"><?php echo esc_html(__('عروض حصرية', 'arqamweb')); ?></span>
                     <h2 class="mt-4 text-4xl md:text-6xl text-gradient-luxury font-bold"><?php echo esc_html(__('البندلات الموفّرة', 'arqamweb')); ?></h2>
-                    <p class="mt-4 text-white/70"><?php echo esc_html(__('وفّر حتى ٣٠٪ عند اقتناء التركيبة كاملة، وابدأ رحلة تحوّل شعرك اليوم.', 'arqamweb')); ?></p>
+                    <p class="mt-4 text-white/70"><?php echo esc_html(__('وفر حتى 30% عند شراء المجموعة كاملة.', 'arqamweb')); ?></p>
                 </div>
-                <div class="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="mt-16 grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
                     <?php foreach ($bundles as $post) {
                         lv_bundle_card_lux(wc_get_product($post->ID));
                     } ?>
@@ -192,10 +217,12 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
     <section class="py-28 bg-background">
         <div class="container-luxury">
             <div class="max-w-2xl"><span class="text-xs tracking-[0.3em] text-[var(--navy)]"><?php esc_html_e('لماذا لوفيزاج', 'arqamweb'); ?></span>
-                <h2 class="mt-3 text-4xl md:text-6xl font-bold leading-tight"><?php esc_html_e('معيار جديد في', 'arqamweb'); ?> <span
-                            class="text-gradient-brand"><?php esc_html_e('العناية الصيدلانية', 'arqamweb'); ?></span></h2></div>
-            <div class="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="group p-8 rounded-3xl bg-white border border-border hover:border-[var(--navy)]/30 hover:shadow-luxury transition-all">
+                <h2 class="mt-3 text-4xl md:text-6xl font-bold leading-tight"><?php esc_html_e('مفهوم جديد', 'arqamweb'); ?>
+                    <span
+                            class="text-gradient-brand"><?php esc_html_e('فى العناية المتقدمة', 'arqamweb'); ?></span>
+                </h2></div>
+            <div class="mt-14 grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
+                <div class="group p-5 sm:p-8 rounded-3xl bg-white border border-border hover:border-[var(--navy)]/30 hover:shadow-luxury transition-all">
                     <div class="h-14 w-14 rounded-2xl bg-gradient-to-br from-[var(--navy)] to-[var(--navy-deep)] text-white flex items-center justify-center shadow-soft group-hover:scale-110 transition-transform">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -208,7 +235,7 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
                     <h3 class="mt-6 font-display text-2xl font-bold"><?php esc_html_e('تركيبات موثوقة', 'arqamweb'); ?></h3>
                     <p class="mt-2 text-muted-foreground leading-relaxed"><?php esc_html_e('مطوّرة بالتعاون مع أطباء الجلدية والكيميائيين
                         الصيدليين.', 'arqamweb'); ?></p></div>
-                <div class="group p-8 rounded-3xl bg-white border border-border hover:border-[var(--navy)]/30 hover:shadow-luxury transition-all">
+                <div class="group p-5 sm:p-8 rounded-3xl bg-white border border-border hover:border-[var(--navy)]/30 hover:shadow-luxury transition-all">
                     <div class="h-14 w-14 rounded-2xl bg-gradient-to-br from-[var(--navy)] to-[var(--navy-deep)] text-white flex items-center justify-center shadow-soft group-hover:scale-110 transition-transform">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -218,9 +245,9 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
                         </svg>
                     </div>
                     <h3 class="mt-6 font-display text-2xl font-bold"><?php esc_html_e('طبيعية بقوة', 'arqamweb'); ?></h3>
-                    <p class="mt-2 text-muted-foreground leading-relaxed"><?php esc_html_e('٪٩٤ من مكونات طبيعية، خالية من القسوة على
-                        الشعر.', 'arqamweb'); ?></p></div>
-                <div class="group p-8 rounded-3xl bg-white border border-border hover:border-[var(--navy)]/30 hover:shadow-luxury transition-all">
+                    <p class="mt-2 text-muted-foreground leading-relaxed"><?php esc_html_e('٪٩٤ من مكونات طبيعية، خالية من القسوة على الشعر.', 'arqamweb'); ?></p>
+                </div>
+                <div class="group p-5 sm:p-8 rounded-3xl bg-white border border-border hover:border-[var(--navy)]/30 hover:shadow-luxury transition-all">
                     <div class="h-14 w-14 rounded-2xl bg-gradient-to-br from-[var(--navy)] to-[var(--navy-deep)] text-white flex items-center justify-center shadow-soft group-hover:scale-110 transition-transform">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -232,7 +259,7 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
                     <h3 class="mt-6 font-display text-2xl font-bold"><?php esc_html_e('مختبرة جلدياً', 'arqamweb'); ?></h3>
                     <p class="mt-2 text-muted-foreground leading-relaxed"><?php esc_html_e('آمنة على فروة الرأس الحساسة والشعر
                         المعالَج.', 'arqamweb'); ?></p></div>
-                <div class="group p-8 rounded-3xl bg-white border border-border hover:border-[var(--navy)]/30 hover:shadow-luxury transition-all">
+                <div class="group p-5 sm:p-8 rounded-3xl bg-white border border-border hover:border-[var(--navy)]/30 hover:shadow-luxury transition-all">
                     <div class="h-14 w-14 rounded-2xl bg-gradient-to-br from-[var(--navy)] to-[var(--navy-deep)] text-white flex items-center justify-center shadow-soft group-hover:scale-110 transition-transform">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -243,9 +270,9 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
                             <circle cx="4" cy="20" r="2"></circle>
                         </svg>
                     </div>
-                    <h3 class="mt-6 font-display text-2xl font-bold"><?php esc_html_e('نتائج سريعة وملموسة', 'arqamweb'); ?></h3>
-                    <p class="mt-2 text-muted-foreground leading-relaxed"><?php esc_html_e('فرق واضح خلال ١٤ يوماً من الاستخدام.', 'arqamweb'); ?></p></div>
-                <div class="group p-8 rounded-3xl bg-white border border-border hover:border-[var(--navy)]/30 hover:shadow-luxury transition-all">
+                    <h3 class="mt-6 font-display text-2xl font-bold"><?php esc_html_e('نتائج ظاهرة وملموسة', 'arqamweb'); ?></h3>
+                    <p class="mt-2 text-muted-foreground leading-relaxed"><?php esc_html_e('نتائج تزداد مع روتينك اليومى.', 'arqamweb'); ?></p></div>
+                <div class="group p-5 sm:p-8 rounded-3xl bg-white border border-border hover:border-[var(--navy)]/30 hover:shadow-luxury transition-all">
                     <div class="h-14 w-14 rounded-2xl bg-gradient-to-br from-[var(--navy)] to-[var(--navy-deep)] text-white flex items-center justify-center shadow-soft group-hover:scale-110 transition-transform">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -255,8 +282,8 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
                         </svg>
                     </div>
                     <h3 class="mt-6 font-display text-2xl font-bold"><?php esc_html_e('جودة بريميوم', 'arqamweb'); ?></h3>
-                    <p class="mt-2 text-muted-foreground leading-relaxed"><?php esc_html_e('معايير تصنيع صيدلانية معتمدة.', 'arqamweb'); ?></p></div>
-                <div class="group p-8 rounded-3xl bg-white border border-border hover:border-[var(--navy)]/30 hover:shadow-luxury transition-all">
+                    <p class="mt-2 text-muted-foreground leading-relaxed"><?php esc_html_e('صنع وفق أعلى معايير الجودة الأوروبية.', 'arqamweb'); ?></p></div>
+                <div class="group p-5 sm:p-8 rounded-3xl bg-white border border-border hover:border-[var(--navy)]/30 hover:shadow-luxury transition-all">
                     <div class="h-14 w-14 rounded-2xl bg-gradient-to-br from-[var(--navy)] to-[var(--navy-deep)] text-white flex items-center justify-center shadow-soft group-hover:scale-110 transition-transform">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -268,8 +295,8 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
                             <circle cx="7" cy="18" r="2"></circle>
                         </svg>
                     </div>
-                    <h3 class="mt-6 font-display text-2xl font-bold"><?php esc_html_e('توصيل فاخر مجاني', 'arqamweb'); ?></h3>
-                    <p class="mt-2 text-muted-foreground leading-relaxed"><?php esc_html_e('لطلبات +١٫٥٠٠ ج.م في جميع المحافظات.', 'arqamweb'); ?></p></div>
+                    <h3 class="mt-6 font-display text-2xl font-bold"><?php esc_html_e('توصيل لكل المحافظات', 'arqamweb'); ?></h3>
+                    <p class="mt-2 text-muted-foreground leading-relaxed"><?php esc_html_e('التوصيل متاح لجميع المحافظات ودفع عند الاستلام.', 'arqamweb'); ?></p></div>
             </div>
         </div>
     </section>
@@ -279,7 +306,7 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
         <div class="container-luxury">
             <div class="text-center max-w-2xl mx-auto"><span class="text-xs tracking-[0.3em] text-[var(--navy)]"><?php esc_html_e('روتينك المثالي', 'arqamweb'); ?></span>
                 <h2 class="mt-3 text-4xl md:text-6xl font-bold"><?php esc_html_e('طقوسٌ مصمَّمة لأهدافك', 'arqamweb'); ?></h2>
-                <p class="mt-4 text-muted-foreground"><?php esc_html_e('بروتوكول علاجي متكامل لاستعادة كثافة وقوّة شعرك خلال ستة أشهر.', 'arqamweb'); ?></p>
+                <p class="mt-4 text-muted-foreground"><?php esc_html_e('بروتوكول متكامل لاستعادة كثافة وقوّة شعرك خلال ستة أشهر.', 'arqamweb'); ?></p>
             </div>
             <div class="mt-14 grid lg:grid-cols-12 gap-10 items-center">
                 <div class="lg:col-span-7 relative">
@@ -292,8 +319,7 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
                     </div>
                 </div>
                 <div class="lg:col-span-5"><h3 class="font-display text-3xl md:text-4xl font-bold"><?php esc_html_e('روتين ٦ شهور', 'arqamweb'); ?></h3>
-                    <p class="mt-4 text-muted-foreground leading-relaxed text-lg"><?php esc_html_e('بروتوكول طويل المدى للنتائج العميقة
-                        والمتراكمة — مصمَّم لإعادة بناء كثافة الشعر وتقوية البصيلات على مدى ٦ أشهر كاملة.', 'arqamweb'); ?></p>
+                    <p class="mt-4 text-muted-foreground leading-relaxed text-lg"><?php esc_html_e('بروتوكول متكامل للنتائج العميقة والمتراكمة - لإعادة بناء كثافة الشعر وتقوية البصيلات على مدى ٦ أشهر كاملة..', 'arqamweb'); ?></p>
                     <div class="mt-8 space-y-4">
                         <div class="flex items-start gap-4 bg-white rounded-2xl p-5 border border-border">
                             <div class="h-10 w-10 rounded-full bg-[var(--navy-deep)] text-white font-bold flex items-center justify-center shrink-0">
@@ -310,7 +336,7 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
                             </div>
                             <div>
                                 <div class="font-bold text-lg"><?php esc_html_e('عالج', 'arqamweb'); ?></div>
-                                <div class="text-sm text-muted-foreground"><?php esc_html_e('ضع الأمبول أو السيروم على الجذور مباشرة.', 'arqamweb'); ?>
+                                <div class="text-sm text-muted-foreground"><?php esc_html_e('ضع الأمبول على الجذور مباشرة.', 'arqamweb'); ?>
                                 </div>
                             </div>
                         </div>
@@ -319,8 +345,8 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
                                 <?php esc_html_e('٠٣', 'arqamweb'); ?>
                             </div>
                             <div>
-                                <div class="font-bold text-lg"><?php esc_html_e('غذِّ', 'arqamweb'); ?></div>
-                                <div class="text-sm text-muted-foreground"><?php esc_html_e('أنهِ بالبلسم لترطيب وحماية الأطراف.', 'arqamweb'); ?></div>
+                                <div class="font-bold text-lg"><?php esc_html_e('غذى', 'arqamweb'); ?></div>
+                                <div class="text-sm text-muted-foreground"><?php esc_html_e('وَزِّع البلسم على الأطراف لترطيبها وحمايتها.', 'arqamweb'); ?></div>
                             </div>
                         </div>
                     </div>
@@ -357,8 +383,8 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
                     </div>
                 </div>
             </div>
-            <div class="mt-12 grid lg:grid-cols-3 gap-6">
-                <div class="relative p-8 bg-white rounded-3xl border border-border shadow-soft hover:shadow-luxury transition-all">
+            <div class="mt-12 grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
+                <div class="relative p-5 sm:p-8 bg-white rounded-3xl border border-border shadow-soft hover:shadow-luxury transition-all">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                          class="lucide lucide-quote h-8 w-8 text-[var(--navy)]/20 scale-x-[-1]" aria-hidden="true">
@@ -397,8 +423,9 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
                             <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
                         </svg>
                     </div>
-                    <p class="mt-4 text-lg text-foreground leading-relaxed"><?php esc_html_e('"شعري لم يكن بهذه الصحة من قبل. لاحظت نمو
-                        جديد بعد ٦ أسابيع فقط من استخدام الأمبولات!"', 'arqamweb'); ?></p>
+                    <p class="mt-4 text-lg text-foreground leading-relaxed">
+                        <?php esc_html_e('"شعرى اتحسن جدا وبدأت الاحظ بيبى هير بعد 6 اسابيع من استخدام الامبولات"', 'arqamweb'); ?>
+                    </p>
                     <div class="mt-6 flex items-center gap-3">
                         <div class="h-10 w-10 rounded-full bg-gradient-to-br from-[var(--navy)] to-[var(--leaf)] text-white flex items-center justify-center font-bold">
                             <?php esc_html_e('م', 'arqamweb'); ?>
@@ -409,7 +436,7 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
                         </div>
                     </div>
                 </div>
-                <div class="relative p-8 bg-white rounded-3xl border border-border shadow-soft hover:shadow-luxury transition-all">
+                <div class="relative p-5 sm:p-8 bg-white rounded-3xl border border-border shadow-soft hover:shadow-luxury transition-all">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                          class="lucide lucide-quote h-8 w-8 text-[var(--navy)]/20 scale-x-[-1]" aria-hidden="true">
@@ -448,8 +475,9 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
                             <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
                         </svg>
                     </div>
-                    <p class="mt-4 text-lg text-foreground leading-relaxed"><?php esc_html_e('"علاج الشيب من ڤيجيلانت رائع. النتائج تظهر
-                        تدريجياً وبدون أي مواد كيميائية ضارة."', 'arqamweb'); ?></p>
+                    <p class="mt-4 text-lg text-foreground leading-relaxed">
+                        <?php esc_html_e('"منتج الشيب ممتاز والنتايج ظهرت بعد 4 شهور بس."', 'arqamweb'); ?>
+                    </p>
                     <div class="mt-6 flex items-center gap-3">
                         <div class="h-10 w-10 rounded-full bg-gradient-to-br from-[var(--navy)] to-[var(--leaf)] text-white flex items-center justify-center font-bold">
                             <?php esc_html_e('س', 'arqamweb'); ?>
@@ -460,7 +488,7 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
                         </div>
                     </div>
                 </div>
-                <div class="relative p-8 bg-white rounded-3xl border border-border shadow-soft hover:shadow-luxury transition-all">
+                <div class="relative p-5 sm:p-8 bg-white rounded-3xl border border-border shadow-soft hover:shadow-luxury transition-all">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                          class="lucide lucide-quote h-8 w-8 text-[var(--navy)]/20 scale-x-[-1]" aria-hidden="true">
@@ -499,8 +527,8 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
                             <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
                         </svg>
                     </div>
-                    <p class="mt-4 text-lg text-foreground leading-relaxed"><?php esc_html_e('"البلسم أنقذ شعري الجاف تماماً. ترطيب عميق
-                        ولمعان طبيعي من أول استخدام."', 'arqamweb'); ?></p>
+                    <p class="mt-4 text-lg text-foreground leading-relaxed">
+                        <?php esc_html_e('"البلسم فرق جدا فى ترطيب شعرى وبقيت استخدمه ليف ان بعد الشاور."', 'arqamweb'); ?></p>
                     <div class="mt-6 flex items-center gap-3">
                         <div class="h-10 w-10 rounded-full bg-gradient-to-br from-[var(--navy)] to-[var(--leaf)] text-white flex items-center justify-center font-bold">
                             <?php esc_html_e('ل', 'arqamweb'); ?>
@@ -529,14 +557,14 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
             <div class="bg-[var(--navy-deep)] text-white p-10 md:p-20 flex flex-col justify-center"><span
                         class="text-xs tracking-[0.3em] text-[color:var(--gold)]"><?php esc_html_e('العلم في كل قطرة', 'arqamweb'); ?></span>
                 <h2 class="mt-3 text-4xl md:text-6xl text-gradient-luxury font-bold"><?php esc_html_e('مكونات نشطة تُحدث الفرق', 'arqamweb'); ?></h2>
-                <p class="mt-5 text-white/70 max-w-md leading-relaxed"><?php esc_html_e('كل تركيبة مبنية على مكونات نشطة مدعومة سريرياً،
-                    بتركيزات مدروسة لنتائج بدون أي تنازل.', 'arqamweb'); ?></p>
+                <p class="mt-5 text-white/70 max-w-md leading-relaxed">
+                    <?php esc_html_e('بتركيزات مدروسة وموصى بها لأفضل أداء وأسرع نتيجة.', 'arqamweb'); ?></p>
                 <div class="mt-10 space-y-5">
                     <div class="flex items-center gap-5 border-b border-white/10 pb-4"><span
                                 class="font-display text-3xl text-[color:var(--gold)] w-16 font-bold"><?php esc_html_e('٪٥', 'arqamweb'); ?></span>
                         <div class="flex-1">
-                            <div class="font-bold"><?php esc_html_e('مركّب البيوتين', 'arqamweb'); ?></div>
-                            <div class="text-sm text-white/60"><?php esc_html_e('يقوّي الجذور ويزيد كثافة الشعر.', 'arqamweb'); ?></div>
+                            <div class="font-bold"><?php esc_html_e('Darkenyl', 'arqamweb'); ?></div>
+                            <div class="text-sm text-white/60"><?php esc_html_e('علاج وتأخير الشيب واستعادة لون الشعر الطبيعي بدون صبغة.', 'arqamweb'); ?></div>
                         </div>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -548,8 +576,8 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
                     <div class="flex items-center gap-5 border-b border-white/10 pb-4"><span
                                 class="font-display text-3xl text-[color:var(--gold)] w-16 font-bold"><?php esc_html_e('٪١٢', 'arqamweb'); ?></span>
                         <div class="flex-1">
-                            <div class="font-bold"><?php esc_html_e('زيت الأرغان والحبة السوداء', 'arqamweb'); ?></div>
-                            <div class="text-sm text-white/60"><?php esc_html_e('تغذية عميقة ولمعان مستعاد.', 'arqamweb'); ?></div>
+                            <div class="font-bold"><?php esc_html_e('procapil', 'arqamweb'); ?></div>
+                            <div class="text-sm text-white/60"><?php esc_html_e('لعلاج تساقط الشعر وتقوية البصيلات.', 'arqamweb'); ?></div>
                         </div>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -561,8 +589,8 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
                     <div class="flex items-center gap-5 border-b border-white/10 pb-4"><span
                                 class="font-display text-3xl text-[color:var(--gold)] w-16 font-bold"><?php esc_html_e('٪١٠', 'arqamweb'); ?></span>
                         <div class="flex-1">
-                            <div class="font-bold"><?php esc_html_e('النياسيناميد', 'arqamweb'); ?></div>
-                            <div class="text-sm text-white/60"><?php esc_html_e('توحيد لون فروة الرأس وتنقيتها.', 'arqamweb'); ?></div>
+                            <div class="font-bold"><?php esc_html_e('anagain', 'arqamweb'); ?></div>
+                            <div class="text-sm text-white/60"><?php esc_html_e('لعلاج تساقط الشعر وفراغات الرأس.', 'arqamweb'); ?></div>
                         </div>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -608,7 +636,7 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
                      class="relative h-[480px] object-contain animate-float drop-shadow-[0_30px_80px_rgba(11,113,183,0.5)]"
                      src="<?php echo esc_url($spot_img); ?>">
                 <div class="absolute glass-dark rounded-full px-4 py-2 text-xs tracking-widest"
-                     style="left: 10%; top: 20%;"><span class="text-[color:var(--gold)] me-2">●</span><?php esc_html_e('تركيبة نظيفة', 'arqamweb'); ?>
+                     style="left: 10%; top: 20%;"><span class="text-[color:var(--gold)] me-2">●</span><?php esc_html_e('تركيبة أوروبية', 'arqamweb'); ?>
                 </div>
                 <div class="absolute glass-dark rounded-full px-4 py-2 text-xs tracking-widest"
                      style="left: 78%; top: 15%;"><span class="text-[color:var(--gold)] me-2">●</span><?php esc_html_e('مركّب حصري', 'arqamweb'); ?>
@@ -642,7 +670,7 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
             <div class="lg:col-span-4">
                 <span class="text-xs tracking-[0.3em] text-[var(--navy)]"><?php echo esc_html(__('الدعم', 'arqamweb')); ?></span>
                 <h2 class="mt-3 text-4xl md:text-5xl font-bold"><?php echo esc_html(__('الأسئلة الشائعة', 'arqamweb')); ?></h2>
-                <p class="mt-4 text-muted-foreground leading-relaxed"><?php echo esc_html(__('تحتاج مساعدة أكثر؟ استشاريو لوفيزاج على بعد ضغطة زر.', 'arqamweb')); ?></p>
+                <p class="mt-4 text-muted-foreground leading-relaxed"><?php echo esc_html(__('تحتاج مساعدة أكثر؟ استشارى لوفيزاج على بعد ضغطة زر.', 'arqamweb')); ?></p>
                 <a href="https://wa.me/+201004025435" target="_blank" rel="noopener"
                    class="mt-6 inline-flex items-center gap-2 rounded-full bg-[var(--navy-deep)] text-white px-5 py-3 text-sm font-bold">
                     <?php echo esc_html(__('تحدّث مع استشاري', 'arqamweb')); ?>
@@ -659,7 +687,7 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
                 $faqs = array(
                         array(
                                 __('متى تظهر النتائج؟', 'arqamweb'),
-                                __('معظم العملاء يلاحظون فرقاً واضحاً خلال ٢-٤ أسابيع، والنتائج الكاملة تظهر عادةً بعد ١٢ أسبوعاً من الاستخدام المنتظم.', 'arqamweb'),
+                                __('معظم العملاء يلاحظون فرقاً واضحاً خلال 8 أسابيع، والنتائج الكاملة تظهر عادةً بعد 16 أسبوعاً من الاستخدام المنتظم.', 'arqamweb'),
                         ),
                         array(
                                 __('هل المنتجات آمنة على الشعر المصبوغ؟', 'arqamweb'),
@@ -671,7 +699,7 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
                         ),
                         array(
                                 __('هل تشحنون لجميع المحافظات؟', 'arqamweb'),
-                                __('نعم، نشحن لكل محافظات مصر، والتوصيل مجاني للطلبات فوق ١٫٥٠٠ ج.م. كما نشحن لدول الخليج وشمال إفريقيا.', 'arqamweb'),
+                                __('نعم، نشحن لكل محافظات مصر،كما نشحن لدول الخليج وشمال إفريقيا.', 'arqamweb'),
                         ),
                 );
                 foreach ($faqs as $idx => $fq) : ?>
@@ -719,7 +747,7 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
                         </svg>
                     </a>
                 </div>
-                <div class="grid md:grid-cols-3 gap-7">
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-7">
                     <?php while ($posts_q->have_posts()) : $posts_q->the_post();
                         $cats = get_the_category();
                         $thumb = has_post_thumbnail() ? get_the_post_thumbnail_url(get_the_ID(), 'large') : $spot_img;

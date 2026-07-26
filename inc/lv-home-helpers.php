@@ -132,6 +132,17 @@ function lv_bestseller_card($product, $badge = '')
     $rating  = round((float) $product->get_average_rating(), 1);
     $on_sale = $product->is_on_sale();
 
+    // Gallery images shown on hover (like the ladytabtab reference). The main
+    // image is first, then the WooCommerce product gallery images.
+    $slides = array($img);
+    foreach ($product->get_gallery_image_ids() as $gid) {
+        $g_url = wp_get_attachment_image_url($gid, 'woocommerce_thumbnail');
+        if ($g_url && !in_array($g_url, $slides, true)) {
+            $slides[] = $g_url;
+        }
+    }
+    $slides = array_slice($slides, 0, 5);
+
     $cart_svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" aria-hidden="true"><path d="M16 10a4 4 0 0 1-8 0"/><path d="M3.103 6.034h17.794"/><path d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z"/></svg>';
     $atc = lv_add_to_cart_link(
         $product,
@@ -141,15 +152,23 @@ function lv_bestseller_card($product, $badge = '')
     ?>
     <article class="group relative bg-white rounded-3xl overflow-hidden shadow-soft hover:shadow-luxury transition-all duration-500">
       <div class="relative aspect-[4/5] overflow-hidden bg-gradient-to-br from-[color:var(--cream)] to-white">
-        <a href="<?php echo esc_url($link); ?>" class="block h-full w-full">
-          <img alt="<?php echo esc_attr($product->get_name()); ?>" loading="lazy" class="block h-full w-full object-contain p-6 transition-transform duration-700 group-hover:scale-110" src="<?php echo esc_url($img); ?>">
+        <a href="<?php echo esc_url($link); ?>" class="lv-hover-gallery block h-full w-full" data-count="<?php echo esc_attr(count($slides)); ?>">
+          <?php foreach ($slides as $s_i => $s_url) : ?>
+            <img alt="<?php echo esc_attr($product->get_name()); ?>" loading="lazy"
+                 class="lv-hg-img<?php echo 0 === $s_i ? ' is-active' : ''; ?> absolute inset-0 h-full w-full object-contain p-6 transition-transform duration-700 group-hover:scale-110"
+                 src="<?php echo esc_url($s_url); ?>">
+          <?php endforeach; ?>
         </a>
+        <?php if (count($slides) > 1) : ?>
+          <div class="lv-hg-dots absolute inset-x-0 bottom-3 z-20 flex justify-center gap-1.5 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+            <?php foreach ($slides as $d_i => $d_url) : ?>
+              <span class="lv-hg-dot<?php echo 0 === $d_i ? ' is-active' : ''; ?>"></span>
+            <?php endforeach; ?>
+          </div>
+        <?php endif; ?>
         <?php if ($badge) : ?>
           <span class="absolute top-4 start-4 rounded-full bg-[var(--navy-deep)] text-white text-[10px] tracking-widest px-3 py-1"><?php echo esc_html($badge); ?></span>
         <?php endif; ?>
-        <button type="button" class="absolute top-4 end-4 h-9 w-9 rounded-full glass flex items-center justify-center hover:bg-white" aria-label="<?php esc_attr_e('Add to wishlist', 'arqamweb'); ?>">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" aria-hidden="true"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"/></svg>
-        </button>
         <div class="absolute inset-x-4 bottom-4 translate-y-6 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
           <?php echo $atc; // phpcs:ignore WordPress.Security.EscapeOutput ?>
         </div>
@@ -240,7 +259,7 @@ function lv_bundle_card_lux($product)
         esc_html(__('اطلب الآن', 'arqamweb'))
     );
     ?>
-    <article class="group relative glass-dark rounded-3xl p-6 hover:shadow-luxury transition-all overflow-hidden">
+    <article class="group relative glass-dark rounded-3xl p-4 sm:p-6 hover:shadow-luxury transition-all overflow-hidden">
       <?php if ($savings > 0) : ?>
         <div class="absolute top-4 end-4 z-10 rounded-full bg-[color:var(--gold)] text-[var(--navy-deep)] text-[10px] font-bold px-3 py-1 tracking-widest"><?php echo esc_html(__('وفّر', 'arqamweb') . ' ' . wp_strip_all_tags(wc_price($savings))); ?></div>
       <?php endif; ?>
@@ -347,3 +366,85 @@ function lv_category_image($cat_name, $fallback = '')
     }
     return $fallback;
 }
+
+/**
+ * Print the CSS + JS that powers the product-card hover gallery (once).
+ * On hover the card cross-fades through the product's gallery images,
+ * matching the ladytabtab reference behaviour.
+ */
+function lv_hover_gallery_assets()
+{
+    ?>
+    <style id="lv-hover-gallery-css">
+        .lv-hover-gallery { position: relative; display: block; }
+        .lv-hg-img {
+            opacity: 0;
+            transition: opacity .7s ease, transform .7s ease;
+            will-change: opacity;
+        }
+        .lv-hg-img.is-active { opacity: 1; }
+        /* keep the group-hover zoom in sync across all stacked images */
+        .group:hover .lv-hg-img { transform: scale(1.1); }
+
+        .lv-hg-dots { pointer-events: none; }
+        .lv-hg-dot {
+            width: 6px; height: 6px; border-radius: 9999px;
+            background: color-mix(in oklab, var(--navy-deep, #0b2a4a) 30%, transparent);
+            transition: width .3s ease, background-color .3s ease;
+        }
+        .lv-hg-dot.is-active {
+            width: 18px;
+            background: var(--navy-deep, #0b2a4a);
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .lv-hg-img { transition: none; }
+        }
+    </style>
+    <script id="lv-hover-gallery-js">
+        (function () {
+            var galleries = document.querySelectorAll('.lv-hover-gallery');
+            galleries.forEach(function (gallery) {
+                var imgs = gallery.querySelectorAll('.lv-hg-img');
+                if (imgs.length < 2) return;
+
+                var card = gallery.closest('article') || gallery.parentElement;
+                var dots = card ? card.querySelectorAll('.lv-hg-dot') : [];
+                var index = 0;
+                var timer = null;
+
+                function show(n) {
+                    imgs.forEach(function (im, k) { im.classList.toggle('is-active', k === n); });
+                    if (dots.length) {
+                        dots.forEach(function (d, k) { d.classList.toggle('is-active', k === n); });
+                    }
+                }
+
+                function start() {
+                    if (timer) return;
+                    timer = setInterval(function () {
+                        index = (index + 1) % imgs.length;
+                        show(index);
+                    }, 1100);
+                }
+
+                function stop() {
+                    clearInterval(timer);
+                    timer = null;
+                    index = 0;
+                    show(0);
+                }
+
+                var hoverTarget = card || gallery;
+                hoverTarget.addEventListener('mouseenter', start);
+                hoverTarget.addEventListener('mouseleave', stop);
+                // touch: advance one on tap without blocking the link
+                gallery.addEventListener('touchstart', function () {
+                    index = (index + 1) % imgs.length;
+                    show(index);
+                }, { passive: true });
+            });
+        })();
+    </script>
+    <?php
+}
+add_action('wp_footer', 'lv_hover_gallery_assets', 99);
