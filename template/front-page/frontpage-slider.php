@@ -132,7 +132,6 @@
             <div class="absolute inset-0 m-auto h-[460px] w-[460px] lg:h-[620px] lg:w-[620px] rounded-full border border-white/8 animate-spin"
                  style="animation-duration: 60s; animation-direction: reverse;"></div>
             <?php
-            // صور السلايدر — غيّر الروابط دي بالصور اللي تحبها (٣ صور)
             $hero_serum_slides = array(
                     'https://levisage-pharma.com/wp-content/uploads/2026/07/serum-laU65o2l.png',
                     'https://levisage-pharma.com/wp-content/uploads/2026/07/serum-laU65o2l.png',
@@ -147,14 +146,6 @@
                          src="<?php echo esc_url($slide_src); ?>">
                 <?php endforeach; ?>
             </div>
-            <img alt="Le visage Ampoules"
-                 class="absolute z-20 -bottom-2 -start-2 lg:-start-6 h-44 lg:h-60 object-contain drop-shadow-[0_20px_40px_rgba(11,113,183,0.45)] animate-float"
-                 src="https://levisage-pharma.com/wp-content/uploads/2026/07/ampoules-B8cXqfCl.png"
-                 style="animation-delay: 1.2s;">
-            <img alt="Le visage Shampoo"
-                 class="absolute z-20 top-4 -end-2 lg:-end-6 h-40 lg:h-56 object-contain drop-shadow-[0_20px_40px_rgba(11,113,183,0.4)] animate-float"
-                 src="https://levisage-pharma.com/wp-content/uploads/2026/07/shampoo-N6nZrQBd.png"
-                 style="animation-delay: 0.6s;">
             <div class="absolute z-30 top-10 start-2 glass-dark rounded-full px-4 py-2 text-[11px] tracking-[0.25em] text-white border border-white/15 animate-float"
                  style="animation-delay: 0.8s;"><span class="text-[color:var(--gold)] me-2">●</span> Premium Quality
             </div>

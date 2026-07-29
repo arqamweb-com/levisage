@@ -109,8 +109,58 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
         </section>
     <?php endif; ?>
 
-    <!-- ============ 3. ROUTINE promo ============ -->
+    <!-- ============ 3. SPOTLIGHT ============ -->
+    <section class="py-28 bg-[var(--navy-deep)] text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-aurora opacity-90"></div>
+        <div class="absolute -top-32 -start-32 h-96 w-96 rounded-full bg-[color:var(--leaf)]/30 blur-[140px]"></div>
+        <div class="absolute -bottom-32 -end-32 h-96 w-96 rounded-full bg-[color:var(--navy)]/40 blur-[140px]"></div>
+        <div class="container-luxury relative">
+            <div class="text-center max-w-2xl mx-auto"><span
+                        class="text-xs tracking-[0.3em] text-[color:var(--gold)]"><?php esc_html_e('المنتج الأيقوني', 'arqamweb'); ?></span>
+                <h2 class="mt-3 text-4xl md:text-6xl text-gradient-luxury font-bold"><?php esc_html_e('سيروم علاج الشيب', 'arqamweb'); ?></h2>
+                <p class="mt-4 text-white/70"><?php esc_html_e('تجربة بصرية ٣٦٠ لتركيبتنا الرائدة — قوة العلم وأناقة التصميم.', 'arqamweb'); ?></p>
+            </div>
+            <div class="mt-16 relative h-[520px] flex items-center justify-center">
+                <div class="absolute h-[400px] w-[400px] rounded-full border border-white/10 animate-spin"
+                     style="animation-duration: 30s;"></div>
+                <div class="absolute h-[520px] w-[520px] rounded-full border border-white/5 animate-spin"
+                     style="animation-duration: 50s; animation-direction: reverse;"></div>
+                <img alt="<?php echo esc_attr__('سيروم ڤيجيلانت', 'arqamweb'); ?>"
+                     class="relative h-[480px] object-contain animate-float drop-shadow-[0_30px_80px_rgba(11,113,183,0.5)]"
+                     src="<?php echo esc_url($spot_img); ?>">
+                <div class="absolute glass-dark rounded-full px-4 py-2 text-xs tracking-widest"
+                     style="left: 10%; top: 20%;"><span
+                            class="text-[color:var(--gold)] me-2">●</span><?php esc_html_e('تركيبة أوروبية', 'arqamweb'); ?>
+                </div>
+                <div class="absolute glass-dark rounded-full px-4 py-2 text-xs tracking-widest"
+                     style="left: 78%; top: 15%;"><span
+                            class="text-[color:var(--gold)] me-2">●</span><?php esc_html_e('مركّب حصري', 'arqamweb'); ?>
+                </div>
+                <div class="absolute glass-dark rounded-full px-4 py-2 text-xs tracking-widest"
+                     style="left: 12%; top: 75%;"><span
+                            class="text-[color:var(--gold)] me-2">●</span><?php esc_html_e('نباتي وآمن', 'arqamweb'); ?>
+                </div>
+                <div class="absolute glass-dark rounded-full px-4 py-2 text-xs tracking-widest"
+                     style="left: 80%; top: 78%;"><span
+                            class="text-[color:var(--gold)] me-2">●</span><?php esc_html_e('مختبر جلدياً', 'arqamweb'); ?>
+                </div>
+            </div>
+            <div class="mt-12 flex justify-center">
+                <a href="<?php echo esc_url(get_permalink(apply_filters('wpml_object_id', 141, 'product', true))); ?>"
+                   class="group inline-flex items-center gap-2 rounded-full bg-[color:var(--gold)] text-[var(--navy-deep)] px-10 py-4 text-sm font-bold hover:shadow-glow transition-all"><?php esc_html_e('اطلبه
+                    الآن', 'arqamweb'); ?>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                         class="lucide lucide-arrow-left h-4 w-4 group-hover:-translate-x-1 transition-transform"
+                         aria-hidden="true">
+                        <path d="m12 19-7-7 7-7"></path>
+                        <path d="M19 12H5"></path>
+                    </svg>
+                </a></div>
+        </div>
+    </section>
 
+    <!-- ============ 4. ROUTINE promo ============ -->
     <section id="story" class="py-28 bg-background">
         <div class="container-luxury grid lg:grid-cols-12 gap-12 items-center">
             <div class="lg:col-span-6 relative">
@@ -178,7 +228,7 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
                         </div>
                     </div>
                 </div>
-                <a href="#"
+                <a href="<?php echo esc_url(get_permalink(apply_filters('wpml_object_id', 4137, 'product', true))); ?>"
                    class="mt-8 inline-flex items-center gap-2 rounded-full bg-[var(--navy-deep)] text-white px-7 py-3.5 text-sm font-bold hover:shadow-glow transition-shadow"><?php esc_html_e('اطلب
                     الروتين الآن', 'arqamweb'); ?>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -187,10 +237,12 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
                         <path d="m12 19-7-7 7-7"></path>
                         <path d="M19 12H5"></path>
                     </svg>
-                </a></div>
+                </a>
+            </div>
         </div>
     </section>
-    <!-- ============ 4. BUNDLES (WooCommerce) ============ -->
+
+    <!-- ============ 5. BUNDLES (WooCommerce) ============ -->
     <?php $bundles = lv_get_bundles(6); ?>
     <?php if (!empty($bundles)) : ?>
         <section class="py-28 bg-[var(--navy-deep)] text-white relative overflow-hidden">
@@ -212,8 +264,7 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
         </section>
     <?php endif; ?>
 
-    <!-- ============ 5. FEATURES ============ -->
-
+    <!-- ============ 6. FEATURES ============ -->
     <section class="py-28 bg-background">
         <div class="container-luxury">
             <div class="max-w-2xl"><span class="text-xs tracking-[0.3em] text-[var(--navy)]"><?php esc_html_e('لماذا لوفيزاج', 'arqamweb'); ?></span>
@@ -300,8 +351,8 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
             </div>
         </div>
     </section>
-    <!-- ============ 6. STEPS (6-month routine) ============ -->
 
+    <!-- ============ 7. STEPS (6-month routine) ============ -->
     <section class="py-28 bg-[color:var(--cream)] relative overflow-hidden">
         <div class="container-luxury">
             <div class="text-center max-w-2xl mx-auto"><span class="text-xs tracking-[0.3em] text-[var(--navy)]"><?php esc_html_e('روتينك المثالي', 'arqamweb'); ?></span>
@@ -350,7 +401,7 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
                             </div>
                         </div>
                     </div>
-                    <a href="#"
+                    <a href="<?php echo esc_url(get_permalink(apply_filters('wpml_object_id', 2077, 'product', true))); ?>"
                        class="mt-8 inline-flex items-center gap-2 rounded-full bg-[var(--navy-deep)] text-white px-7 py-3.5 text-sm font-bold hover:shadow-glow transition-shadow"><?php esc_html_e('اطلب
                         الروتين كاملاً', 'arqamweb'); ?>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -359,13 +410,13 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
                             <path d="m12 19-7-7 7-7"></path>
                             <path d="M19 12H5"></path>
                         </svg>
-                    </a></div>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- ============ 7. TESTIMONIALS ============ -->
-
+    <!-- ============ 8. TESTIMONIALS ============ -->
     <section class="py-28 bg-background">
         <div class="container-luxury">
             <div class="flex flex-wrap items-end justify-between gap-6">
@@ -543,7 +594,7 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
         </div>
     </section>
 
-    <!-- ============ 8. INGREDIENTS ============ -->
+    <!-- ============ 9. INGREDIENTS ============ -->
     <section class="relative overflow-hidden">
         <div class="grid lg:grid-cols-2 min-h-[600px]">
             <div class="relative bg-gradient-to-br from-[color:var(--cream)] via-white to-[color:var(--cream)] flex items-center justify-center overflow-hidden">
@@ -616,53 +667,6 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
             </div>
         </div>
     </section>
-
-
-    <!-- ============ 9. SPOTLIGHT ============ -->
-    <section class="py-28 bg-[var(--navy-deep)] text-white relative overflow-hidden">
-        <div class="absolute inset-0 bg-aurora opacity-90"></div>
-        <div class="absolute -top-32 -start-32 h-96 w-96 rounded-full bg-[color:var(--leaf)]/30 blur-[140px]"></div>
-        <div class="absolute -bottom-32 -end-32 h-96 w-96 rounded-full bg-[color:var(--navy)]/40 blur-[140px]"></div>
-        <div class="container-luxury relative">
-            <div class="text-center max-w-2xl mx-auto"><span class="text-xs tracking-[0.3em] text-[color:var(--gold)]"><?php esc_html_e('المنتج الأيقوني', 'arqamweb'); ?></span>
-                <h2 class="mt-3 text-4xl md:text-6xl text-gradient-luxury font-bold"><?php esc_html_e('سيروم علاج الشيب', 'arqamweb'); ?></h2>
-                <p class="mt-4 text-white/70"><?php esc_html_e('تجربة بصرية ٣٦٠ لتركيبتنا الرائدة — قوة العلم وأناقة التصميم.', 'arqamweb'); ?></p></div>
-            <div class="mt-16 relative h-[520px] flex items-center justify-center">
-                <div class="absolute h-[400px] w-[400px] rounded-full border border-white/10 animate-spin"
-                     style="animation-duration: 30s;"></div>
-                <div class="absolute h-[520px] w-[520px] rounded-full border border-white/5 animate-spin"
-                     style="animation-duration: 50s; animation-direction: reverse;"></div>
-                <img alt="<?php echo esc_attr__('سيروم ڤيجيلانت', 'arqamweb'); ?>"
-                     class="relative h-[480px] object-contain animate-float drop-shadow-[0_30px_80px_rgba(11,113,183,0.5)]"
-                     src="<?php echo esc_url($spot_img); ?>">
-                <div class="absolute glass-dark rounded-full px-4 py-2 text-xs tracking-widest"
-                     style="left: 10%; top: 20%;"><span class="text-[color:var(--gold)] me-2">●</span><?php esc_html_e('تركيبة أوروبية', 'arqamweb'); ?>
-                </div>
-                <div class="absolute glass-dark rounded-full px-4 py-2 text-xs tracking-widest"
-                     style="left: 78%; top: 15%;"><span class="text-[color:var(--gold)] me-2">●</span><?php esc_html_e('مركّب حصري', 'arqamweb'); ?>
-                </div>
-                <div class="absolute glass-dark rounded-full px-4 py-2 text-xs tracking-widest"
-                     style="left: 12%; top: 75%;"><span class="text-[color:var(--gold)] me-2">●</span><?php esc_html_e('نباتي وآمن', 'arqamweb'); ?>
-                </div>
-                <div class="absolute glass-dark rounded-full px-4 py-2 text-xs tracking-widest"
-                     style="left: 80%; top: 78%;"><span class="text-[color:var(--gold)] me-2">●</span><?php esc_html_e('مختبر جلدياً', 'arqamweb'); ?>
-                </div>
-            </div>
-            <div class="mt-12 flex justify-center">
-                <a href="#"
-                   class="group inline-flex items-center gap-2 rounded-full bg-[color:var(--gold)] text-[var(--navy-deep)] px-10 py-4 text-sm font-bold hover:shadow-glow transition-all"><?php esc_html_e('اطلبه
-                    الآن', 'arqamweb'); ?>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                         class="lucide lucide-arrow-left h-4 w-4 group-hover:-translate-x-1 transition-transform"
-                         aria-hidden="true">
-                        <path d="m12 19-7-7 7-7"></path>
-                        <path d="M19 12H5"></path>
-                    </svg>
-                </a></div>
-        </div>
-    </section>
-
 
     <!-- ============ 10. FAQ ============ -->
     <section id="faq" class="py-28 bg-background">
@@ -774,7 +778,6 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
     <?php endif; ?>
 
     <!-- ============ 12. CONSULTATION ============ -->
-
     <section id="contact" class="py-28 bg-[var(--navy-deep)] text-white relative overflow-hidden">
         <div class="absolute inset-0 bg-aurora opacity-70"></div>
         <div class="container-luxury relative grid lg:grid-cols-2 gap-12 items-center">
