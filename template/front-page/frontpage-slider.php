@@ -111,19 +111,25 @@
             </div>
             <p class="mt-6 text-white/70 text-lg max-w-xl mx-auto lg:mx-0" style="line-height: 2;">
                 <?php esc_html_e('تركيبات  LE VISAGE - من علاج تساقط الشعر إلى استعادة لونه الطبيعي — تركيبة أوروبية فاخرة مصنعة وفقا لأعلى معايير الجودة العالمية.', 'arqamweb'); ?></p>
-            <div class="mt-10 flex flex-wrap justify-center lg:justify-start gap-3"><a href="#bestsellers"
-                                                                                       class="group inline-flex items-center gap-2 rounded-full bg-white text-[var(--navy-deep)] px-9 py-4 text-base font-bold hover:shadow-glow transition-all"><?php esc_html_e('تسوّق
-                    المجموعة', 'arqamweb'); ?>
+            <div class="mt-10 flex flex-wrap justify-center lg:justify-start gap-3">
+                <a href="#bestsellers"
+                   class="group inline-flex items-center gap-2 rounded-full bg-white text-[var(--navy-deep)] px-9 py-4 text-base font-bold hover:shadow-glow transition-all"><?php esc_html_e('تسوّق المجموعة', 'arqamweb'); ?>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                         class="lucide lucide-arrow-left h-4 w-4 group-hover:-translate-x-1 transition-transform"
+                         class="lucide lucide-arrow-right lv-arrow h-4 w-4 shrink-0"
                          aria-hidden="true">
-                        <path d="m12 19-7-7 7-7"></path>
-                        <path d="M19 12H5"></path>
+                        <path d="M5 12h14"></path>
+                        <path d="m12 5 7 7-7 7"></path>
                     </svg>
-                </a><a href="#story"
-                       class="inline-flex items-center gap-2 rounded-full border border-white/30 glass-dark px-9 py-4 text-base font-medium text-white hover:bg-white/10 transition-all"><?php esc_html_e('اكتشف
-                    روتينك', 'arqamweb'); ?></a></div>
+                </a>
+
+                <?php $product_routine = wc_get_product(2665); ?>
+
+                <a href="<?php echo $product_routine->get_permalink(); ?>"
+                   class="inline-flex items-center gap-2 rounded-full border border-white/30 glass-dark px-9 py-4 text-base font-medium text-white hover:bg-white/10 transition-all">
+                    <?php esc_html_e('اكتشف روتينك', 'arqamweb'); ?>
+                </a>
+            </div>
         </div>
         <div class="lg:col-span-5 relative h-[420px] lg:h-[520px]">
             <div class="absolute inset-0 m-auto h-[420px] w-[420px] lg:h-[560px] lg:w-[560px] rounded-full bg-[radial-gradient(circle,color-mix(in_oklab,var(--leaf)_45%,transparent),transparent_65%)] blur-3xl animate-pulse-glow"></div>

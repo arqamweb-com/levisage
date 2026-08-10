@@ -24,6 +24,15 @@
   color: transparent;
 }
 
+/* Directional arrow icon inside a button / link.
+   Markup uses the LTR "arrow-right" icon; in RTL (Arabic) it is mirrored so it
+   always points forward in the reading direction, and the hover slide follows
+   the same direction. Put `.group` on the button when the icon is nested. */
+.lv-arrow { transition: transform .3s ease; }
+[dir="rtl"] .lv-arrow { transform: scaleX(-1); }
+.group:hover .lv-arrow { transform: translateX(.25rem); }
+[dir="rtl"] .group:hover .lv-arrow { transform: scaleX(-1) translateX(.25rem); }
+
 .glass {
   background: color-mix(in oklab, white 70%, transparent);
   backdrop-filter: blur(20px) saturate(140%);

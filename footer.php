@@ -45,7 +45,7 @@ astra_footer_after();
                                 stroke-linejoin="round" class="lucide lucide-phone h-4 w-4 text-[color:var(--gold)]"
                                 aria-hidden="true"><path
                                     d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path></svg></span><span
-                            dir="ltr">01004025435</span></a><a href="mailto:Info@levesage-pharma.com"
+                            dir="ltr">01004025435</span></a><a href="mailto:Info@levisage-pharma.com"
                                                                class="flex items-center gap-3 text-white/70 hover:text-white transition-colors"><span
                             class="h-9 w-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center"><svg
                                 xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -55,7 +55,7 @@ astra_footer_after();
                                                                                                                   y="4"
                                                                                                                   width="20"
                                                                                                                   height="16"
-                                                                                                                  rx="2"></rect></svg></span><span>Info@levesage-pharma.com</span></a>
+                                                                                                                  rx="2"></rect></svg></span><span>Info@levisage-pharma.com</span></a>
                 <div class="flex items-center gap-3"><span
                             class="h-9 w-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center"><svg
                                 xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"

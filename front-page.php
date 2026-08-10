@@ -99,9 +99,9 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
                         <?php echo esc_html(__('عرض كل المنتجات', 'arqamweb')); ?>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                              stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                             class="h-4 w-4 group-hover:-translate-x-1 transition-transform" aria-hidden="true">
-                            <path d="m12 19-7-7 7-7"/>
-                            <path d="M19 12H5"/>
+                             class="lv-arrow h-4 w-4 shrink-0" aria-hidden="true">
+                            <path d="m12 5 7 7-7 7"/>
+                            <path d="M5 12h14"/>
                         </svg>
                     </a>
                 </div>
@@ -115,8 +115,8 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
         <div class="absolute -top-32 -start-32 h-96 w-96 rounded-full bg-[color:var(--leaf)]/30 blur-[140px]"></div>
         <div class="absolute -bottom-32 -end-32 h-96 w-96 rounded-full bg-[color:var(--navy)]/40 blur-[140px]"></div>
         <div class="container-luxury relative">
-            <div class="text-center max-w-2xl mx-auto"><span
-                        class="text-xs tracking-[0.3em] text-[color:var(--gold)]"><?php esc_html_e('المنتج الأيقوني', 'arqamweb'); ?></span>
+            <div class="text-center max-w-2xl mx-auto">
+                <span class="text-xs tracking-[0.3em] text-[color:var(--gold)]"><?php esc_html_e('المنتج الأيقوني', 'arqamweb'); ?></span>
                 <h2 class="mt-3 text-4xl md:text-6xl text-gradient-luxury font-bold"><?php esc_html_e('سيروم علاج الشيب', 'arqamweb'); ?></h2>
                 <p class="mt-4 text-white/70"><?php esc_html_e('تجربة بصرية ٣٦٠ لتركيبتنا الرائدة — قوة العلم وأناقة التصميم.', 'arqamweb'); ?></p>
             </div>
@@ -127,22 +127,22 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
                      style="animation-duration: 50s; animation-direction: reverse;"></div>
                 <img alt="<?php echo esc_attr__('سيروم ڤيجيلانت', 'arqamweb'); ?>"
                      class="relative h-[480px] object-contain animate-float drop-shadow-[0_30px_80px_rgba(11,113,183,0.5)]"
-                     src="<?php echo esc_url($spot_img); ?>">
+                     src="<?php echo esc_url('https://levisage-pharma.com/wp-content/uploads/2026/07/serum-laU65o2l.png'); ?>">
                 <div class="absolute glass-dark rounded-full px-4 py-2 text-xs tracking-widest"
-                     style="left: 10%; top: 20%;"><span
-                            class="text-[color:var(--gold)] me-2">●</span><?php esc_html_e('تركيبة أوروبية', 'arqamweb'); ?>
+                     style="left: 10%; top: 20%;">
+                    <span class="text-[color:var(--gold)] me-2">●</span><?php esc_html_e('تركيبة أوروبية', 'arqamweb'); ?>
                 </div>
                 <div class="absolute glass-dark rounded-full px-4 py-2 text-xs tracking-widest"
-                     style="left: 78%; top: 15%;"><span
-                            class="text-[color:var(--gold)] me-2">●</span><?php esc_html_e('مركّب حصري', 'arqamweb'); ?>
+                     style="left: 78%; top: 15%;">
+                    <span class="text-[color:var(--gold)] me-2">●</span><?php esc_html_e('مركّب حصري', 'arqamweb'); ?>
                 </div>
                 <div class="absolute glass-dark rounded-full px-4 py-2 text-xs tracking-widest"
-                     style="left: 12%; top: 75%;"><span
-                            class="text-[color:var(--gold)] me-2">●</span><?php esc_html_e('نباتي وآمن', 'arqamweb'); ?>
+                     style="left: 12%; top: 75%;">
+                    <span class="text-[color:var(--gold)] me-2">●</span><?php esc_html_e('نباتي وآمن', 'arqamweb'); ?>
                 </div>
                 <div class="absolute glass-dark rounded-full px-4 py-2 text-xs tracking-widest"
-                     style="left: 80%; top: 78%;"><span
-                            class="text-[color:var(--gold)] me-2">●</span><?php esc_html_e('مختبر جلدياً', 'arqamweb'); ?>
+                     style="left: 80%; top: 78%;">
+                    <span class="text-[color:var(--gold)] me-2">●</span><?php esc_html_e('مختبر جلدياً', 'arqamweb'); ?>
                 </div>
             </div>
             <div class="mt-12 flex justify-center">
@@ -151,10 +151,10 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
                     الآن', 'arqamweb'); ?>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                         class="lucide lucide-arrow-left h-4 w-4 group-hover:-translate-x-1 transition-transform"
+                         class="lucide lucide-arrow-right lv-arrow h-4 w-4 shrink-0"
                          aria-hidden="true">
-                        <path d="m12 19-7-7 7-7"></path>
-                        <path d="M19 12H5"></path>
+                        <path d="m12 5 7 7-7 7"></path>
+                        <path d="M5 12h14"></path>
                     </svg>
                 </a></div>
         </div>
@@ -229,13 +229,13 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
                     </div>
                 </div>
                 <a href="<?php echo esc_url(get_permalink(apply_filters('wpml_object_id', 4137, 'product', true))); ?>"
-                   class="mt-8 inline-flex items-center gap-2 rounded-full bg-[var(--navy-deep)] text-white px-7 py-3.5 text-sm font-bold hover:shadow-glow transition-shadow"><?php esc_html_e('اطلب
+                   class="group mt-8 inline-flex items-center gap-2 rounded-full bg-[var(--navy-deep)] text-white px-7 py-3.5 text-sm font-bold hover:shadow-glow transition-shadow"><?php esc_html_e('اطلب
                     الروتين الآن', 'arqamweb'); ?>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                         class="lucide lucide-arrow-left h-4 w-4" aria-hidden="true">
-                        <path d="m12 19-7-7 7-7"></path>
-                        <path d="M19 12H5"></path>
+                         class="lucide lucide-arrow-right lv-arrow h-4 w-4 shrink-0" aria-hidden="true">
+                        <path d="m12 5 7 7-7 7"></path>
+                        <path d="M5 12h14"></path>
                     </svg>
                 </a>
             </div>
@@ -402,13 +402,13 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
                         </div>
                     </div>
                     <a href="<?php echo esc_url(get_permalink(apply_filters('wpml_object_id', 2077, 'product', true))); ?>"
-                       class="mt-8 inline-flex items-center gap-2 rounded-full bg-[var(--navy-deep)] text-white px-7 py-3.5 text-sm font-bold hover:shadow-glow transition-shadow"><?php esc_html_e('اطلب
+                       class="group mt-8 inline-flex items-center gap-2 rounded-full bg-[var(--navy-deep)] text-white px-7 py-3.5 text-sm font-bold hover:shadow-glow transition-shadow"><?php esc_html_e('اطلب
                         الروتين كاملاً', 'arqamweb'); ?>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                             class="lucide lucide-arrow-left h-4 w-4" aria-hidden="true">
-                            <path d="m12 19-7-7 7-7"></path>
-                            <path d="M19 12H5"></path>
+                             class="lucide lucide-arrow-right lv-arrow h-4 w-4 shrink-0" aria-hidden="true">
+                            <path d="m12 5 7 7-7 7"></path>
+                            <path d="M5 12h14"></path>
                         </svg>
                     </a>
                 </div>
@@ -611,56 +611,52 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
                 <p class="mt-5 text-white/70 max-w-md leading-relaxed">
                     <?php esc_html_e('بتركيزات مدروسة وموصى بها لأفضل أداء وأسرع نتيجة.', 'arqamweb'); ?></p>
                 <div class="mt-10 space-y-5">
-                    <div class="flex items-center gap-5 border-b border-white/10 pb-4"><span
-                                class="font-display text-3xl text-[color:var(--gold)] w-16 font-bold"><?php esc_html_e('٪٥', 'arqamweb'); ?></span>
+                    <div class="flex items-center gap-5 border-b border-white/10 pb-4">
                         <div class="flex-1">
                             <div class="font-bold"><?php esc_html_e('Darkenyl', 'arqamweb'); ?></div>
                             <div class="text-sm text-white/60"><?php esc_html_e('علاج وتأخير الشيب واستعادة لون الشعر الطبيعي بدون صبغة.', 'arqamweb'); ?></div>
                         </div>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                             class="lucide lucide-arrow-left h-4 w-4 text-white/40" aria-hidden="true">
-                            <path d="m12 19-7-7 7-7"></path>
-                            <path d="M19 12H5"></path>
+                             class="lucide lucide-arrow-right lv-arrow h-4 w-4 shrink-0 text-white/40" aria-hidden="true">
+                            <path d="m12 5 7 7-7 7"></path>
+                            <path d="M5 12h14"></path>
                         </svg>
                     </div>
-                    <div class="flex items-center gap-5 border-b border-white/10 pb-4"><span
-                                class="font-display text-3xl text-[color:var(--gold)] w-16 font-bold"><?php esc_html_e('٪١٢', 'arqamweb'); ?></span>
+                    <div class="flex items-center gap-5 border-b border-white/10 pb-4">
                         <div class="flex-1">
                             <div class="font-bold"><?php esc_html_e('procapil', 'arqamweb'); ?></div>
                             <div class="text-sm text-white/60"><?php esc_html_e('لعلاج تساقط الشعر وتقوية البصيلات.', 'arqamweb'); ?></div>
                         </div>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                             class="lucide lucide-arrow-left h-4 w-4 text-white/40" aria-hidden="true">
-                            <path d="m12 19-7-7 7-7"></path>
-                            <path d="M19 12H5"></path>
+                             class="lucide lucide-arrow-right lv-arrow h-4 w-4 shrink-0 text-white/40" aria-hidden="true">
+                            <path d="m12 5 7 7-7 7"></path>
+                            <path d="M5 12h14"></path>
                         </svg>
                     </div>
-                    <div class="flex items-center gap-5 border-b border-white/10 pb-4"><span
-                                class="font-display text-3xl text-[color:var(--gold)] w-16 font-bold"><?php esc_html_e('٪١٠', 'arqamweb'); ?></span>
+                    <div class="flex items-center gap-5 border-b border-white/10 pb-4">
                         <div class="flex-1">
                             <div class="font-bold"><?php esc_html_e('anagain', 'arqamweb'); ?></div>
                             <div class="text-sm text-white/60"><?php esc_html_e('لعلاج تساقط الشعر وفراغات الرأس.', 'arqamweb'); ?></div>
                         </div>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                             class="lucide lucide-arrow-left h-4 w-4 text-white/40" aria-hidden="true">
-                            <path d="m12 19-7-7 7-7"></path>
-                            <path d="M19 12H5"></path>
+                             class="lucide lucide-arrow-right lv-arrow h-4 w-4 shrink-0 text-white/40" aria-hidden="true">
+                            <path d="m12 5 7 7-7 7"></path>
+                            <path d="M5 12h14"></path>
                         </svg>
                     </div>
-                    <div class="flex items-center gap-5 border-b border-white/10 pb-4"><span
-                                class="font-display text-3xl text-[color:var(--gold)] w-16 font-bold"><?php esc_html_e('٪٣', 'arqamweb'); ?></span>
+                    <div class="flex items-center gap-5 border-b border-white/10 pb-4">
                         <div class="flex-1">
                             <div class="font-bold"><?php esc_html_e('مزيج الببتيدات', 'arqamweb'); ?></div>
                             <div class="text-sm text-white/60"><?php esc_html_e('ينشّط بصيلات الشعر النائمة.', 'arqamweb'); ?></div>
                         </div>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                             class="lucide lucide-arrow-left h-4 w-4 text-white/40" aria-hidden="true">
-                            <path d="m12 19-7-7 7-7"></path>
-                            <path d="M19 12H5"></path>
+                             class="lucide lucide-arrow-right lv-arrow h-4 w-4 shrink-0 text-white/40" aria-hidden="true">
+                            <path d="m12 5 7 7-7 7"></path>
+                            <path d="M5 12h14"></path>
                         </svg>
                     </div>
                 </div>
@@ -676,13 +672,13 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
                 <h2 class="mt-3 text-4xl md:text-5xl font-bold"><?php echo esc_html(__('الأسئلة الشائعة', 'arqamweb')); ?></h2>
                 <p class="mt-4 text-muted-foreground leading-relaxed"><?php echo esc_html(__('تحتاج مساعدة أكثر؟ استشارى لوفيزاج على بعد ضغطة زر.', 'arqamweb')); ?></p>
                 <a href="https://wa.me/+201004025435" target="_blank" rel="noopener"
-                   class="mt-6 inline-flex items-center gap-2 rounded-full bg-[var(--navy-deep)] text-white px-5 py-3 text-sm font-bold">
+                   class="group mt-6 inline-flex items-center gap-2 rounded-full bg-[var(--navy-deep)] text-white px-5 py-3 text-sm font-bold">
                     <?php echo esc_html(__('تحدّث مع استشاري', 'arqamweb')); ?>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"
+                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lv-arrow h-4 w-4 shrink-0"
                          aria-hidden="true">
-                        <path d="m12 19-7-7 7-7"/>
-                        <path d="M19 12H5"/>
+                        <path d="m12 5 7 7-7 7"/>
+                        <path d="M5 12h14"/>
                     </svg>
                 </a>
             </div>
@@ -741,13 +737,13 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
                         <h2 class="mt-3 text-4xl md:text-6xl font-bold"><?php echo esc_html(__('ثقافة العناية', 'arqamweb')); ?></h2>
                     </div>
                     <a href="<?php echo esc_url($blog_url); ?>"
-                       class="hidden md:inline-flex items-center gap-2 text-sm font-bold">
+                       class="group hidden md:inline-flex items-center gap-2 text-sm font-bold">
                         <?php echo esc_html(__('جميع المقالات', 'arqamweb')); ?>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"
+                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lv-arrow h-4 w-4 shrink-0"
                              aria-hidden="true">
-                            <path d="m12 19-7-7 7-7"/>
-                            <path d="M19 12H5"/>
+                            <path d="m12 5 7 7-7 7"/>
+                            <path d="M5 12h14"/>
                         </svg>
                     </a>
                 </div>
@@ -795,13 +791,13 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
                         </svg>
                         <?php esc_html_e('تواصل عبر واتساب', 'arqamweb'); ?></a>
                     <a href="#"
-                       class="inline-flex items-center gap-2 rounded-full border border-white/30 px-6 py-3.5 text-sm text-white"><?php esc_html_e('احجز
+                       class="group inline-flex items-center gap-2 rounded-full border border-white/30 px-6 py-3.5 text-sm text-white"><?php esc_html_e('احجز
                         الاستشارة', 'arqamweb'); ?>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                             class="lucide lucide-arrow-left h-4 w-4" aria-hidden="true">
-                            <path d="m12 19-7-7 7-7"></path>
-                            <path d="M19 12H5"></path>
+                             class="lucide lucide-arrow-right lv-arrow h-4 w-4 shrink-0" aria-hidden="true">
+                            <path d="m12 5 7 7-7 7"></path>
+                            <path d="M5 12h14"></path>
                         </svg>
                     </a></div>
                 <div class="mt-12 flex gap-4 text-white/60">

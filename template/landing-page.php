@@ -16,7 +16,6 @@ get_header(); ?>
 
 <div class="lv-primary" <?php astra_primary_class(); ?>>
     <div class="lv-page" dir="rtl">
-
         <div dir="rtl" class="font-arabic bg-background text-foreground overflow-x-hidden">
             <section class="relative bg-hero-cinematic text-white overflow-hidden">
                 <div class="absolute inset-0 bg-grid-luxury opacity-30 pointer-events-none"></div>
@@ -87,7 +86,7 @@ get_header(); ?>
                     <div class="order-1 lg:order-2 relative fade-up">
                         <div class="relative aspect-square max-w-[520px] mx-auto">
                             <div class="absolute inset-10 rounded-full bg-gradient-to-br from-[color:var(--navy)]/40 to-[color:var(--leaf)]/30 blur-3xl animate-pulse-glow"></div>
-                            <img src="https://levisage-pharma.com/wp-content/uploads/2023/08/Artboard-3.png"
+                            <img src="https://levisage-pharma.com/wp-content/uploads/2026/08/Before-After.png"
                                  alt="سيروم VIGILANT لعلاج الشعر الأبيض"
                                  class="relative w-full h-full object-contain animate-float drop-shadow-[0_30px_60px_rgba(0,0,0,0.5)]">
                             <div class="absolute -top-2 -right-2 md:top-6 md:right-2 rotate-12 bg-gradient-to-br from-[color:var(--gold)] to-amber-500 text-[color:var(--navy-deep)] rounded-full size-24 md:size-28 flex flex-col items-center justify-center font-black shadow-luxury">

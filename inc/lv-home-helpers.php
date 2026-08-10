@@ -37,7 +37,7 @@ function lv_icon($name)
         'heart' => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1L12 21l7.7-7.5 1.1-1a5.5 5.5 0 0 0 0-7.9z"/></svg>',
         'star'  => '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.3 5.9 20.4l1.5-6.8L2.2 9l6.9-.7L12 2z"/></svg>',
         'cart'  => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>',
-        'arrow' => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>',
+        'arrow' => '<svg class="lv-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>',
     );
     return isset($icons[$name]) ? $icons[$name] : '';
 }
@@ -255,7 +255,7 @@ function lv_bundle_card_lux($product)
 
     $atc = lv_add_to_cart_link(
         $product,
-        'rounded-full bg-white text-[var(--navy-deep)] px-5 py-2.5 text-sm font-bold hover:shadow-glow transition-shadow',
+        'block w-full sm:w-auto text-center whitespace-nowrap rounded-full bg-white text-[var(--navy-deep)] px-5 py-3 sm:py-2.5 text-sm font-bold hover:shadow-glow transition-shadow',
         esc_html(__('اطلب الآن', 'arqamweb'))
     );
     ?>
@@ -268,9 +268,9 @@ function lv_bundle_card_lux($product)
       </a>
       <h3 class="mt-5 font-display text-2xl font-bold"><a href="<?php echo esc_url($link); ?>"><?php echo esc_html($product->get_name()); ?></a></h3>
       <?php if ($sub) : ?><p class="text-white/60 text-sm mt-1"><?php echo esc_html($sub); ?></p><?php endif; ?>
-      <div class="mt-5 flex items-center justify-between">
-        <div class="flex items-baseline gap-2">
-          <span class="text-2xl font-bold text-[color:var(--gold)]"><?php echo wp_kses_post(wc_price($sale)); ?></span>
+      <div class="mt-5 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+        <div class="flex flex-wrap items-baseline gap-2">
+          <span class="text-xl sm:text-2xl font-bold text-[color:var(--gold)]"><?php echo wp_kses_post(wc_price($sale)); ?></span>
           <?php if ($savings > 0) : ?><span class="text-sm text-white/40 line-through"><?php echo wp_kses_post(wc_price($reg)); ?></span><?php endif; ?>
         </div>
         <?php echo $atc; // phpcs:ignore WordPress.Security.EscapeOutput ?>
