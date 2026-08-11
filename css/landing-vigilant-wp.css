@@ -22,10 +22,12 @@
     border: 0;
 }
 
-/* The scoped preflight only reaches descendants of .lv-page, not the wrapper. */
+/* The scoped preflight only reaches descendants of .lv-page, not the wrapper.
+   `start` (not `right`) so the alignment follows the page direction: right on
+   the Arabic site, left on the English one. */
 .lv-page {
     box-sizing: border-box;
-    text-align: right;
+    text-align: start;
 }
 
 /* The sticky order bar owns the bottom 76px, so the page needs that much room
@@ -81,13 +83,18 @@
     outline-offset: 2px;
 }
 
-/* select: keep the chevron the design had */
+/* select: keep the chevron the design had, on the end side in both directions.
+   background-position has no logical keyword, so RTL gets an explicit override. */
 .lv-page .lv-select {
     appearance: none;
     background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%234d5660' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m4 6 4 4 4-4'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
+    background-position: right .85rem center;
+    padding-inline-end: 2.25rem;
+}
+
+.lv-page[dir="rtl"] .lv-select {
     background-position: left .85rem center;
-    padding-left: 2.25rem;
 }
 
 .lv-page .lv-select:invalid {

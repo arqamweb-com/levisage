@@ -17,7 +17,7 @@ if (! defined('ABSPATH')) {
 
 define('LEVISAGE_LANDING_TEMPLATE', 'template/landing-page.php');
 define('LEVISAGE_LANDING_WHATSAPP', '201004025435');
-define('LEVISAGE_LANDING_VERSION', '1.1.1');
+define('LEVISAGE_LANDING_VERSION', '1.1.2');
 
 /** The VIGILANT Anti Grey serum (600 EGP). */
 define('LEVISAGE_LANDING_PRODUCT_ID', 141);
