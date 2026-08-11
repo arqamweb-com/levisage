@@ -14,11 +14,13 @@ get_header();
 
 $img_dir = get_stylesheet_directory_uri() . '/img/';
 $shop_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
-$hero_img = lv_category_image('علاج تساقط الشعر', $img_dir . 'pharm2.webp');
-$routine_img = lv_category_image('ترطيب الشعر', $img_dir . 'pharm3.webp');
-$steps_img = lv_category_image('علاج تساقط الشعر', $img_dir . 'pharm4.webp');
-$ing_img = lv_category_image('Body splash', $img_dir . 'pharm5.webp');
-$spot_img = lv_category_image('علاج شيب الشعر', $img_dir . 'pharm1.webp');
+// Category names are passed in both languages so the lookup also works on the
+// English site (WPML filters term lookups by the active language).
+$hero_img = lv_category_image(array('علاج تساقط الشعر', 'Hair loss'), $img_dir . 'pharm2.webp');
+$routine_img = lv_category_image(array('ترطيب الشعر', 'Moisturizing hair'), $img_dir . 'pharm3.webp');
+$steps_img = lv_category_image(array('علاج تساقط الشعر', 'Hair loss'), $img_dir . 'pharm4.webp');
+$ing_img = lv_category_image(array('Body splash', 'بادي سبلاش'), $img_dir . 'pharm5.webp');
+$spot_img = lv_category_image(array('علاج شيب الشعر', 'Gray hair'), $img_dir . 'pharm1.webp');
 $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 3.8 4.2.6-3 3 .7 4.2L12 16l-3.8 2 .7-4.2-3-3 4.2-.6L12 3z"/></svg>';
 ?>
 <div id="primary" class="lv-home" style="margin-top:0;margin-bottom:0" <?php astra_primary_class(); ?>>
@@ -228,7 +230,7 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
                         </div>
                     </div>
                 </div>
-                <a href="<?php echo esc_url(get_permalink(apply_filters('wpml_object_id', 4137, 'product', true))); ?>"
+                <a href="<?php echo esc_url(get_permalink(apply_filters('wpml_object_id', 3177, 'product', true))); ?>"
                    class="group mt-8 inline-flex items-center gap-2 rounded-full bg-[var(--navy-deep)] text-white px-7 py-3.5 text-sm font-bold hover:shadow-glow transition-shadow"><?php esc_html_e('اطلب
                     الروتين الآن', 'arqamweb'); ?>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -401,7 +403,7 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
                             </div>
                         </div>
                     </div>
-                    <a href="<?php echo esc_url(get_permalink(apply_filters('wpml_object_id', 2077, 'product', true))); ?>"
+                    <a href="<?php echo esc_url(get_permalink(apply_filters('wpml_object_id', 2071, 'product', true))); ?>"
                        class="group mt-8 inline-flex items-center gap-2 rounded-full bg-[var(--navy-deep)] text-white px-7 py-3.5 text-sm font-bold hover:shadow-glow transition-shadow"><?php esc_html_e('اطلب
                         الروتين كاملاً', 'arqamweb'); ?>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"

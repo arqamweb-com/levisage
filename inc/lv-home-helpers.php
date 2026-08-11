@@ -12,16 +12,26 @@ if (!defined('ABSPATH')) {
 
 /**
  * First product category name for a product (skips helper/utility cats).
+ *
+ * The skip list carries BOTH languages: on the English site the categories come
+ * back translated, so listing only the Arabic names would let "Free Shipping" or
+ * "Offers" leak onto the cards. Comparison is lower-cased because the stored
+ * names are not consistently capitalised.
  */
 function lv_first_category_name($product)
 {
-    $skip  = array('uncategorized', 'شحن مجاني', 'أحدث العروض');
+    $skip = array(
+        'uncategorized', 'غير مصنف',
+        'شحن مجاني', 'free shipping',
+        'أحدث العروض', 'offers',
+        'البندلات', 'bundles',
+    );
     $terms = get_the_terms($product->get_id(), 'product_cat');
     if (empty($terms) || is_wp_error($terms)) {
         return '';
     }
     foreach ($terms as $t) {
-        if (!in_array($t->name, $skip, true)) {
+        if (!in_array(strtolower($t->name), $skip, true)) {
             return $t->name;
         }
     }
@@ -303,12 +313,41 @@ function lv_get_best_sellers($limit = 4)
 }
 
 /**
- * Query bundle / offer products. Prefers the "البندلات" (offers) category
+ * Resolve a product category to the CURRENT language (WPML-safe).
+ *
+ * Querying by category *name* breaks on a translated site: WPML filters term
+ * lookups by the active language, so the Arabic name finds nothing while
+ * browsing in English (and vice-versa). We therefore try every known name of
+ * the category, then map whatever we found onto the current language.
+ *
+ * @param array $names Category names in any language (first match wins).
+ * @return int Term ID in the current language, or 0 when not found.
+ */
+function lv_term_id_by_names($names)
+{
+    foreach ((array) $names as $name) {
+        $term = get_term_by('name', $name, 'product_cat');
+        if (!$term) {
+            $term = get_term_by('slug', sanitize_title($name), 'product_cat');
+        }
+        if ($term && !is_wp_error($term)) {
+            // Hand the ID to WPML so we always end up on the current language's
+            // term (returns the same ID untouched when WPML is inactive).
+            return (int) apply_filters('wpml_object_id', $term->term_id, 'product_cat', true);
+        }
+    }
+    return 0;
+}
+
+/**
+ * Query bundle / offer products. Prefers the "البندلات" / "Bundles" category
  * — where the real bundles live — and falls back to any on-sale products.
  */
 function lv_get_bundles($limit = 6)
 {
-    $q = new WP_Query(array(
+    $term_id = lv_term_id_by_names(array('البندلات', 'Bundles'));
+
+    $q = $term_id ? new WP_Query(array(
         'post_type'           => 'product',
         'post_status'         => 'publish',
         'posts_per_page'      => $limit,
@@ -318,11 +357,11 @@ function lv_get_bundles($limit = 6)
         'no_found_rows'       => true,
         'tax_query'           => array(array(
             'taxonomy' => 'product_cat',
-            'field'    => 'name',
-            'terms'    => array('البندلات'),
+            'field'    => 'term_id',
+            'terms'    => array($term_id),
         )),
-    ));
-    if (!empty($q->posts)) {
+    )) : null;
+    if ($q && !empty($q->posts)) {
         return $q->posts;
     }
 
@@ -344,11 +383,19 @@ function lv_get_bundles($limit = 6)
 }
 
 /**
- * Get a representative product image URL from a category name (for spotlights).
- * Uses field "name" which is more robust than URL-encoded Arabic slugs.
+ * Get a representative product image URL from a category (for spotlights).
+ *
+ * @param string|array $cat_names Category name, or names in several languages
+ *                                (first one that exists wins) — see
+ *                                lv_term_id_by_names() for why both are needed.
+ * @param string       $fallback  Image URL used when nothing matches.
  */
-function lv_category_image($cat_name, $fallback = '')
+function lv_category_image($cat_names, $fallback = '')
 {
+    $term_id = lv_term_id_by_names($cat_names);
+    if (!$term_id) {
+        return $fallback;
+    }
     $q = new WP_Query(array(
         'post_type'      => 'product',
         'post_status'    => 'publish',
@@ -357,8 +404,8 @@ function lv_category_image($cat_name, $fallback = '')
         'meta_query'     => array(array('key' => '_thumbnail_id', 'compare' => 'EXISTS')),
         'tax_query'      => array(array(
             'taxonomy' => 'product_cat',
-            'field'    => 'name',
-            'terms'    => array($cat_name),
+            'field'    => 'term_id',
+            'terms'    => array($term_id),
         )),
     ));
     if (!empty($q->posts) && has_post_thumbnail($q->posts[0]->ID)) {
