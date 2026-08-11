@@ -15,8 +15,9 @@ $lv_old = levisage_landing_old_input();
 get_header(); ?>
 
 <div class="lv-primary" <?php astra_primary_class(); ?>>
-    <div class="lv-page" dir="rtl">
-        <div dir="rtl" class="font-arabic bg-background text-foreground overflow-x-hidden">
+    <?php // Direction follows the active language (WPML): RTL on Arabic, LTR on English. ?>
+    <div class="lv-page" dir="<?php echo is_rtl() ? 'rtl' : 'ltr'; ?>">
+        <div class="font-arabic bg-background text-foreground overflow-x-hidden">
             <section class="relative bg-hero-cinematic text-white overflow-hidden">
                 <div class="absolute inset-0 bg-grid-luxury opacity-30 pointer-events-none"></div>
                 <div class="absolute inset-0 bg-noise opacity-[0.08] pointer-events-none"></div>
@@ -87,7 +88,7 @@ get_header(); ?>
                             <img src="https://levisage-pharma.com/wp-content/uploads/2026/08/Before-After.png"
                                  alt="<?php echo esc_attr__('سيروم VIGILANT لعلاج الشعر الأبيض', 'arqamweb'); ?>"
                                  class="relative w-full h-full object-contain animate-float drop-shadow-[0_30px_60px_rgba(0,0,0,0.5)]">
-                            <div class="absolute -top-2 -right-2 md:top-6 md:right-2 rotate-12 bg-gradient-to-br from-[color:var(--gold)] to-amber-500 text-[color:var(--navy-deep)] rounded-full size-24 md:size-28 flex flex-col items-center justify-center font-black shadow-luxury">
+                            <div class="absolute -top-2 -start-2 md:top-6 md:start-2 rotate-12 bg-gradient-to-br from-[color:var(--gold)] to-amber-500 text-[color:var(--navy-deep)] rounded-full size-24 md:size-28 flex flex-col items-center justify-center font-black shadow-luxury">
                                 <span class="text-2xl leading-none"><?php esc_html_e('2+1', 'arqamweb'); ?></span><span
                                         class="text-[11px] mt-1"><?php esc_html_e('مجاناً', 'arqamweb'); ?></span></div>
                         </div>
@@ -340,7 +341,7 @@ get_header(); ?>
                             <div class="relative aspect-square rounded-xl overflow-hidden bg-stone-100">
                                 <img src="https://levisage-pharma.com/wp-content/uploads/2026/07/Artboard-6.png"
                                      alt="<?php echo esc_attr__('الأسبوع 1', 'arqamweb'); ?>" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
-                                <div class="absolute bottom-2 right-2 bg-white/90 text-[color:var(--navy-deep)] text-xs font-bold px-2 py-1 rounded">
+                                <div class="absolute bottom-2 start-2 bg-white/90 text-[color:var(--navy-deep)] text-xs font-bold px-2 py-1 rounded">
                                     <?php esc_html_e('الأسبوع 1', 'arqamweb'); ?>
                                 </div>
                             </div>
@@ -348,7 +349,7 @@ get_header(); ?>
                                 <img src="https://levisage-pharma.com/wp-content/uploads/2026/07/Artboard-5.png"
                                      alt="<?php echo esc_attr__('الأسبوع 12', 'arqamweb'); ?>" class="absolute inset-0 w-full h-full object-cover"
                                      loading="lazy">
-                                <div class="absolute bottom-2 right-2 bg-white/90 text-[color:var(--navy-deep)] text-xs font-bold px-2 py-1 rounded">
+                                <div class="absolute bottom-2 start-2 bg-white/90 text-[color:var(--navy-deep)] text-xs font-bold px-2 py-1 rounded">
                                     <?php esc_html_e('الأسبوع 12', 'arqamweb'); ?>
                                 </div>
                             </div>
@@ -534,7 +535,7 @@ get_header(); ?>
                         <table class="w-full text-sm md:text-base border-collapse">
                             <thead>
                             <tr class="bg-[color:var(--cream)]">
-                                <th class="p-4 text-right font-semibold align-top whitespace-normal break-words"></th>
+                                <th class="p-4 text-start font-semibold align-top whitespace-normal break-words"></th>
                                 <th class="p-4 text-center font-semibold align-top whitespace-normal break-words"><?php esc_html_e('عبوة واحدة', 'arqamweb'); ?>
                                 </th>
                                 <th class="p-4 pt-6 text-center font-bold text-white bg-gradient-to-l from-[color:var(--leaf)] to-[color:var(--navy)] relative align-top whitespace-normal break-words">
@@ -625,7 +626,7 @@ get_header(); ?>
                                 <div class="text-xs text-white/70 mt-1"><?php esc_html_e('ثانية', 'arqamweb'); ?></div>
                             </div>
                         </div>
-                        <div class="text-right text-sm text-white/80 mb-2"><?php esc_html_e('تبقى 23% فقط من المخزون بهذا السعر', 'arqamweb'); ?></div>
+                        <div class="text-start text-sm text-white/80 mb-2"><?php esc_html_e('تبقى 23% فقط من المخزون بهذا السعر', 'arqamweb'); ?></div>
                         <div class="h-2 rounded-full bg-white/10 overflow-hidden">
                             <div class="h-full bg-gradient-to-l from-[color:var(--gold)] to-amber-500"
                                  style="width:23%"></div>
@@ -699,7 +700,7 @@ get_header(); ?>
                                 <h3 class="flex">
                                     <button type="button" id="lv-faq-t-1" aria-controls="lv-faq-1" aria-expanded="false"
                                             data-state="closed"
-                                            class="lv-acc-trigger flex flex-1 items-center justify-between py-4 cursor-pointer transition-all hover:underline [&[data-state=open]>svg]:rotate-180 text-right font-bold text-base md:text-lg">
+                                            class="lv-acc-trigger flex flex-1 items-center justify-between py-4 cursor-pointer transition-all hover:underline [&[data-state=open]>svg]:rotate-180 text-start font-bold text-base md:text-lg">
                                         <?php esc_html_e('هل هيشتغل معايا فعلاً؟', 'arqamweb'); ?>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -720,7 +721,7 @@ get_header(); ?>
                                 <h3 class="flex">
                                     <button type="button" id="lv-faq-t-2" aria-controls="lv-faq-2" aria-expanded="false"
                                             data-state="closed"
-                                            class="lv-acc-trigger flex flex-1 items-center justify-between py-4 cursor-pointer transition-all hover:underline [&[data-state=open]>svg]:rotate-180 text-right font-bold text-base md:text-lg">
+                                            class="lv-acc-trigger flex flex-1 items-center justify-between py-4 cursor-pointer transition-all hover:underline [&[data-state=open]>svg]:rotate-180 text-start font-bold text-base md:text-lg">
                                         <?php esc_html_e('إمتى هبدأ ألاحظ نتيجة؟', 'arqamweb'); ?>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -741,7 +742,7 @@ get_header(); ?>
                                 <h3 class="flex">
                                     <button type="button" id="lv-faq-t-3" aria-controls="lv-faq-3" aria-expanded="false"
                                             data-state="closed"
-                                            class="lv-acc-trigger flex flex-1 items-center justify-between py-4 cursor-pointer transition-all hover:underline [&[data-state=open]>svg]:rotate-180 text-right font-bold text-base md:text-lg">
+                                            class="lv-acc-trigger flex flex-1 items-center justify-between py-4 cursor-pointer transition-all hover:underline [&[data-state=open]>svg]:rotate-180 text-start font-bold text-base md:text-lg">
                                         <?php esc_html_e('يصلح للرجال والستات؟', 'arqamweb'); ?>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -762,7 +763,7 @@ get_header(); ?>
                                 <h3 class="flex">
                                     <button type="button" id="lv-faq-t-4" aria-controls="lv-faq-4" aria-expanded="false"
                                             data-state="closed"
-                                            class="lv-acc-trigger flex flex-1 items-center justify-between py-4 cursor-pointer transition-all hover:underline [&[data-state=open]>svg]:rotate-180 text-right font-bold text-base md:text-lg">
+                                            class="lv-acc-trigger flex flex-1 items-center justify-between py-4 cursor-pointer transition-all hover:underline [&[data-state=open]>svg]:rotate-180 text-start font-bold text-base md:text-lg">
                                         <?php esc_html_e('هل سهل في الاستخدام؟', 'arqamweb'); ?>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -783,7 +784,7 @@ get_header(); ?>
                                 <h3 class="flex">
                                     <button type="button" id="lv-faq-t-5" aria-controls="lv-faq-5" aria-expanded="false"
                                             data-state="closed"
-                                            class="lv-acc-trigger flex flex-1 items-center justify-between py-4 cursor-pointer transition-all hover:underline [&[data-state=open]>svg]:rotate-180 text-right font-bold text-base md:text-lg">
+                                            class="lv-acc-trigger flex flex-1 items-center justify-between py-4 cursor-pointer transition-all hover:underline [&[data-state=open]>svg]:rotate-180 text-start font-bold text-base md:text-lg">
                                         <?php esc_html_e('ليه أشتري الباندل وليس عبوة واحدة؟', 'arqamweb'); ?>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -804,7 +805,7 @@ get_header(); ?>
                                 <h3 class="flex">
                                     <button type="button" id="lv-faq-t-6" aria-controls="lv-faq-6" aria-expanded="false"
                                             data-state="closed"
-                                            class="lv-acc-trigger flex flex-1 items-center justify-between py-4 cursor-pointer transition-all hover:underline [&[data-state=open]>svg]:rotate-180 text-right font-bold text-base md:text-lg">
+                                            class="lv-acc-trigger flex flex-1 items-center justify-between py-4 cursor-pointer transition-all hover:underline [&[data-state=open]>svg]:rotate-180 text-start font-bold text-base md:text-lg">
                                         <?php esc_html_e('لو اشتريت عبوة واحدة بس؟', 'arqamweb'); ?>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -859,7 +860,7 @@ get_header(); ?>
             class="text-[10px] bg-[color:var(--gold)] text-[color:var(--navy-deep)] rounded-full px-2 py-0.5 font-bold"><?php esc_html_e('الأفضل', 'arqamweb'); ?></span></span>
 <span class="block text-sm text-muted-foreground mt-1"><?php esc_html_e('وفّر 600 جنيه', 'arqamweb'); ?></span>
 </span>
-                                <span class="text-left">
+                                <span class="text-end">
 <span class="block text-xs line-through text-muted-foreground"><?php esc_html_e('1800', 'arqamweb'); ?></span>
 <span class="block text-xl font-black text-[color:var(--leaf)]"><?php esc_html_e('1200 ج.م', 'arqamweb'); ?></span>
 </span>
@@ -964,7 +965,7 @@ get_header(); ?>
             </div>
             <a href="<?php echo esc_url('https://wa.me/201004025435?text=' . rawurlencode(__('عايز أستفسر عن عرض 2+1 لسيروم VIGILANT', 'arqamweb'))); ?>" target="_blank"
                rel="noreferrer"
-               class="fixed bottom-24 left-4 z-40 size-14 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-luxury hover:scale-110 transition animate-pulse-glow"
+               class="fixed bottom-24 end-4 z-40 size-14 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-luxury hover:scale-110 transition animate-pulse-glow"
                aria-label="<?php echo esc_attr__('تواصل عبر واتساب', 'arqamweb'); ?>">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -977,7 +978,7 @@ get_header(); ?>
              role="dialog" aria-modal="true" aria-labelledby="lv-exit-title">
             <div class="bg-white rounded-3xl shadow-luxury max-w-md w-full p-8 text-center relative">
                 <button type="button"
-                        class="absolute top-4 left-4 text-muted-foreground cursor-pointer text-xl leading-none"
+                        class="absolute top-4 end-4 text-muted-foreground cursor-pointer text-xl leading-none"
                         data-lv-exit-close aria-label="<?php echo esc_attr__('إغلاق', 'arqamweb'); ?>"><?php esc_html_e('✕', 'arqamweb'); ?>
                 </button>
                 <div class="text-sm font-bold text-[color:var(--leaf)] mb-2"><?php esc_html_e('انتظر لحظة!', 'arqamweb'); ?></div>

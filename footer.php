@@ -32,9 +32,9 @@ astra_footer_after();
 <!-- Start Footer -->
 <footer class="bg-[#0a1a22] text-white/70">
     <div class="container-luxury py-20 grid lg:grid-cols-12 gap-12">
-        <div class="lg:col-span-4"><img src="https://levisage-pharma.com/wp-content/uploads/2023/09/logo.svg" alt="لوفيزاج" class="h-12 brightness-0 invert">
+        <div class="lg:col-span-4"><img src="https://levisage-pharma.com/wp-content/uploads/2023/09/logo.svg" alt="<?php echo esc_attr__('لوفيزاج', 'arqamweb'); ?>" class="h-12 brightness-0 invert">
             <p class="mt-5 text-white/60 max-w-sm leading-loose">
-                عناية تجميلة مبتكرة -مهندسة بالعلم ومصممة للثقة
+                <?php esc_html_e('عناية تجميلة مبتكرة -مهندسة بالعلم ومصممة للثقة', 'arqamweb'); ?>
             </p>
             <div class="mt-7 space-y-3 text-sm">
                 <a href="tel:01004025435"
@@ -63,52 +63,53 @@ astra_footer_after();
                                 stroke-linejoin="round" class="lucide lucide-map-pin h-4 w-4 text-[color:var(--gold)]"
                                 aria-hidden="true"><path
                                     d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle
-                                    cx="12" cy="10" r="3"></circle></svg></span><span>دار مصر — العبور، القليوبية</span>
+                                    cx="12" cy="10" r="3"></circle></svg></span><span><?php esc_html_e('دار مصر — العبور، القليوبية', 'arqamweb'); ?></span>
                 </div>
             </div>
         </div>
-        <div class="lg:col-span-2">
-            <div class="text-xs tracking-[0.3em] text-white/40 mb-4">المتجر</div>
-            <ul class="space-y-2.5">
-                <li><a href="<?php echo esc_url(get_term_link(40, 'product_cat')); ?>" class="text-white/70 hover:text-white transition-colors">علاج التساقط</a></li>
-                <li><a href="<?php echo esc_url(get_term_link(39, 'product_cat')); ?>" class="text-white/70 hover:text-white transition-colors">علاج الشيب</a></li>
-                <li><a href="<?php echo esc_url(get_term_link(36, 'product_cat')); ?>" class="text-white/70 hover:text-white transition-colors">الترطيب</a></li>
-            </ul>
-        </div>
-        <div class="lg:col-span-2">
-            <div class="text-xs tracking-[0.3em] text-white/40 mb-4">عن الشركة</div>
-            <ul class="space-y-2.5">
-                <li><a href="<?php echo esc_url(get_permalink(52)); ?>" class="text-white/70 hover:text-white transition-colors">قصتنا</a></li>
-            </ul>
-        </div>
-        <div class="lg:col-span-2">
-            <div class="text-xs tracking-[0.3em] text-white/40 mb-4">الدعم</div>
-            <ul class="space-y-2.5">
-                <li><a href="<?php echo esc_url(get_permalink(58)); ?>" class="text-white/70 hover:text-white transition-colors">تواصل معنا</a></li>
-                <li><a href="<?php echo esc_url(get_permalink(577)); ?>" class="text-white/70 hover:text-white transition-colors">الشحن</a></li>
-                <li><a href="<?php echo esc_url(get_permalink(566)); ?>" class="text-white/70 hover:text-white transition-colors">الإرجاع</a></li>
-                <li><a href="<?php echo esc_url(home_url('/#faq')); ?>" class="text-white/70 hover:text-white transition-colors">الأسئلة الشائعة</a></li>
-            </ul>
-        </div>
-        <div class="lg:col-span-2">
-            <div class="text-xs tracking-[0.3em] text-white/40 mb-4">تواصل</div>
-            <ul class="space-y-2.5">
-                <li><a href="https://www.instagram.com/levisage.pharma/?igshid=MWZjMTM2ODFkZg%3D%3D" target="_blank" rel="noopener noreferrer" class="text-white/70 hover:text-white transition-colors">إنستجرام</a></li>
-                <li><a href="https://www.facebook.com/levisagepharma?mibextid=nW3QTL" target="_blank" rel="noopener noreferrer" class="text-white/70 hover:text-white transition-colors">فيسبوك</a></li>
-                <li><a href="https://wa.me/201004025435" target="_blank" rel="noopener noreferrer" class="text-white/70 hover:text-white transition-colors">واتساب</a></li>
-                <li><a href="https://www.tiktok.com/@levisage.pharma?_r=1&_t=ZS-98DG3DgYNCX" target="_blank" rel="noopener noreferrer" class="text-white/70 hover:text-white transition-colors">تيك توك</a></li>
-            </ul>
-        </div>
+        <?php
+        // Link columns come from nav menus (Appearance → Menus). The arrays are
+        // only the fallback used until each location has a menu assigned.
+        lv_footer_menu_column('footer_shop', __('المتجر', 'arqamweb'), array(
+            array('label' => __('علاج التساقط', 'arqamweb'), 'url' => lv_translated_url(40, 'product_cat')),
+            array('label' => __('علاج الشيب', 'arqamweb'),   'url' => lv_translated_url(39, 'product_cat')),
+            array('label' => __('الترطيب', 'arqamweb'),      'url' => lv_translated_url(36, 'product_cat')),
+        ));
+
+        lv_footer_menu_column('footer_company', __('عن الشركة', 'arqamweb'), array(
+            array('label' => __('قصتنا', 'arqamweb'), 'url' => lv_translated_url(52)),
+        ));
+
+        lv_footer_menu_column('footer_support', __('الدعم', 'arqamweb'), array(
+            array('label' => __('تواصل معنا', 'arqamweb'),     'url' => lv_translated_url(58)),
+            array('label' => __('الشحن', 'arqamweb'),          'url' => lv_translated_url(577)),
+            array('label' => __('الإرجاع', 'arqamweb'),        'url' => lv_translated_url(566)),
+            array('label' => __('الأسئلة الشائعة', 'arqamweb'), 'url' => home_url('/#faq')),
+        ));
+
+        lv_footer_menu_column('footer_social', __('تواصل', 'arqamweb'), array(
+            array('label' => __('إنستجرام', 'arqamweb'), 'url' => 'https://www.instagram.com/levisage.pharma/?igshid=MWZjMTM2ODFkZg%3D%3D', 'target' => true),
+            array('label' => __('فيسبوك', 'arqamweb'),   'url' => 'https://www.facebook.com/levisagepharma?mibextid=nW3QTL', 'target' => true),
+            array('label' => __('واتساب', 'arqamweb'),   'url' => 'https://wa.me/201004025435', 'target' => true),
+            array('label' => __('تيك توك', 'arqamweb'),  'url' => 'https://www.tiktok.com/@levisage.pharma?_r=1&_t=ZS-98DG3DgYNCX', 'target' => true),
+        ));
+        ?>
     </div>
     <div class="border-t border-white/10">
         <div class="container-luxury py-6 flex flex-wrap items-center justify-between text-xs text-white/40 gap-3">
-            <div>© <!-- -->2026<!-- --> لوفيزاج. جميع الحقوق محفوظة.</div>
-            <div>الموقع من تصميم وبرمجة<!-- --> <a href="https://www.arqamweb.com" target="_blank"
+            <div><?php
+                /* translators: %s: current year. */
+                printf(esc_html__('© %s لوفيزاج. جميع الحقوق محفوظة.', 'arqamweb'), esc_html(date_i18n('Y')));
+            ?></div>
+            <div><?php esc_html_e('الموقع من تصميم وبرمجة', 'arqamweb'); ?> <a href="https://www.arqamweb.com"
+                                                   target="_blank"
                                                    rel="noopener noreferrer"
-                                                   class="text-[color:var(--gold)] hover:text-white transition-colors font-bold">أرقام
-                    ويب</a></div>
-            <div class="flex gap-6"><a href="<?php echo esc_url(get_permalink(572)); ?>" class="text-white/70 hover:text-white">الخصوصية</a><a href="<?php echo esc_url(get_permalink(562)); ?>"
-                                                                                        class="text-white/70 hover:text-white">الشروط</a></div>
+                                                   class="text-[color:var(--gold)] hover:text-white transition-colors font-bold"><?php esc_html_e('أرقام ويب', 'arqamweb'); ?></a>
+            </div>
+            <div class="flex gap-6">
+                <a href="<?php echo esc_url(lv_translated_url(572)); ?>" class="text-white/70 hover:text-white"><?php esc_html_e('الخصوصية', 'arqamweb'); ?></a>
+                <a href="<?php echo esc_url(lv_translated_url(562)); ?>" class="text-white/70 hover:text-white"><?php esc_html_e('الشروط', 'arqamweb'); ?></a>
+            </div>
         </div>
     </div>
 </footer>

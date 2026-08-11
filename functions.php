@@ -191,13 +191,100 @@ function lv_render_top_bar()
 add_action('astra_header_before', 'lv_render_top_bar');
 
 /**
- * Register the primary menu location used by the custom LeVisage header.
+ * Register the menu locations used by the custom LeVisage header & footer.
+ * Each footer column is its own location so it can be managed — and translated
+ * per language with WPML — from Appearance → Menus.
  */
 function lv_register_menus()
 {
-    register_nav_menu('primary', __('Primary Menu', 'arqamweb'));
+    register_nav_menus(array(
+        'primary'        => __('Primary Menu', 'arqamweb'),
+        'footer_shop'    => __('Footer — Shop', 'arqamweb'),
+        'footer_company' => __('Footer — Company', 'arqamweb'),
+        'footer_support' => __('Footer — Support', 'arqamweb'),
+        'footer_social'  => __('Footer — Social', 'arqamweb'),
+    ));
 }
 add_action('after_setup_theme', 'lv_register_menus');
+
+/**
+ * Style the footer menu links like the rest of the footer.
+ * wp_nav_menu() has no argument for the <a> class, so it goes through a filter.
+ */
+function lv_footer_menu_link_attributes($atts, $item, $args)
+{
+    if (isset($args->theme_location) && 0 === strpos($args->theme_location, 'footer_')) {
+        $atts['class'] = 'text-white/70 hover:text-white transition-colors';
+    }
+    return $atts;
+}
+add_filter('nav_menu_link_attributes', 'lv_footer_menu_link_attributes', 10, 3);
+
+/**
+ * Permalink of a page / term, resolved to the CURRENT language (WPML-safe).
+ * Hard-coded IDs point at one language only; WPML maps them to the other.
+ *
+ * @param int    $id   Object ID in any language.
+ * @param string $type 'page', 'post', 'product', or a taxonomy name.
+ * @return string URL, or '' when the object no longer exists.
+ */
+function lv_translated_url($id, $type = 'page')
+{
+    $id = (int) apply_filters('wpml_object_id', (int) $id, $type, true);
+    if (!$id) {
+        return '';
+    }
+    if (taxonomy_exists($type)) {
+        $link = get_term_link($id, $type);
+        return is_wp_error($link) ? '' : $link;
+    }
+    $link = get_permalink($id);
+    return $link ? $link : '';
+}
+
+/**
+ * Render one footer link column from a nav menu location.
+ *
+ * Until a menu is assigned in Appearance → Menus the column falls back to the
+ * links it shipped with, so the footer never renders empty on a live site.
+ *
+ * @param string $location Registered menu location.
+ * @param string $title    Column heading (already translated).
+ * @param array  $fallback Items: array( 'label' => .., 'url' => .., 'target' => bool ).
+ */
+function lv_footer_menu_column($location, $title, $fallback = array())
+{
+    if (!has_nav_menu($location) && empty($fallback)) {
+        return;
+    }
+    ?>
+    <div class="lg:col-span-2">
+        <div class="text-xs tracking-[0.3em] text-white/40 mb-4"><?php echo esc_html($title); ?></div>
+        <?php if (has_nav_menu($location)) : ?>
+            <?php
+            wp_nav_menu(array(
+                'theme_location' => $location,
+                'container'      => false,
+                'menu_class'     => 'space-y-2.5',
+                'depth'          => 1,
+                'fallback_cb'    => false,
+            ));
+            ?>
+        <?php else : ?>
+            <ul class="space-y-2.5">
+                <?php foreach ($fallback as $item) : ?>
+                    <?php if (empty($item['url'])) { continue; } ?>
+                    <li>
+                        <a href="<?php echo esc_url($item['url']); ?>"
+                           class="text-white/70 hover:text-white transition-colors"
+                            <?php if (!empty($item['target'])) : ?>target="_blank" rel="noopener noreferrer"<?php endif; ?>><?php echo esc_html($item['label']); ?></a>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        <?php endif; ?>
+    </div>
+    <?php
+}
 
 /**
  * Fallback header menu — shown when no menu is assigned to the "primary"
