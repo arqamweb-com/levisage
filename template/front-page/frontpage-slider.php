@@ -18,11 +18,12 @@
         <path fill="url(#waveG)"
               d="M0,160 C320,240 720,80 1100,170 C1280,210 1380,180 1440,160 L1440,320 L0,320 Z"></path>
     </svg>
-    <div class="pointer-events-none absolute inset-0"><span class="absolute rounded-full bg-white/70 animate-float"
-                                                            style="top: 0%; left: 0%; width: 2px; height: 2px; opacity: 0.35; filter: blur(0.3px); box-shadow: rgba(255, 255, 255, 0.6) 0px 0px 12px 2px; animation-delay: 0s; animation-duration: 6s;"></span><span
-                class="absolute rounded-full bg-white/70 animate-float"
-                style="top: 53%; left: 37%; width: 3px; height: 3px; opacity: 0.43; filter: blur(0.3px); box-shadow: rgba(255, 255, 255, 0.6) 0px 0px 12px 2px; animation-delay: 0.4s; animation-duration: 7s;"></span><span
-                class="absolute rounded-full bg-white/70 animate-float"
+    <div class="pointer-events-none absolute inset-0">
+        <span class="absolute rounded-full bg-white/70 animate-float"
+              style="top: 0%; left: 0%; width: 2px; height: 2px; opacity: 0.35; filter: blur(0.3px); box-shadow: rgba(255, 255, 255, 0.6) 0px 0px 12px 2px; animation-delay: 0s; animation-duration: 6s;"></span>
+        <span class="absolute rounded-full bg-white/70 animate-float"
+              style="top: 53%; left: 37%; width: 3px; height: 3px; opacity: 0.43; filter: blur(0.3px); box-shadow: rgba(255, 255, 255, 0.6) 0px 0px 12px 2px; animation-delay: 0.4s; animation-duration: 7s;"></span>
+        <span class="absolute rounded-full bg-white/70 animate-float"
                 style="top: 6%; left: 74%; width: 4px; height: 4px; opacity: 0.51; filter: blur(0.3px); box-shadow: rgba(255, 255, 255, 0.6) 0px 0px 12px 2px; animation-delay: 0.8s; animation-duration: 8s;"></span><span
                 class="absolute rounded-full bg-white/70 animate-float"
                 style="top: 59%; left: 11%; width: 5px; height: 5px; opacity: 0.59; filter: blur(0.3px); box-shadow: rgba(255, 255, 255, 0.6) 0px 0px 12px 2px; animation-delay: 1.2s; animation-duration: 9s;"></span><span
@@ -139,9 +140,10 @@
                  style="animation-duration: 60s; animation-direction: reverse;"></div>
             <?php
             $hero_serum_slides = array(
-                    'https://levisage-pharma.com/wp-content/uploads/2026/07/serum-laU65o2l.png',
-                    'https://levisage-pharma.com/wp-content/uploads/2026/07/serum-laU65o2l.png',
-                    'https://levisage-pharma.com/wp-content/uploads/2026/07/serum-laU65o2l.png',
+                    'https://levisage-pharma.com/wp-content/uploads/2026/08/Slider-1.png',
+                    'https://levisage-pharma.com/wp-content/uploads/2026/08/Slider-2.png',
+                    'https://levisage-pharma.com/wp-content/uploads/2026/08/Slider-3.png',
+                    'https://levisage-pharma.com/wp-content/uploads/2026/08/Last-slider-.png',
             );
             ?>
             <div class="hero-serum-slider relative z-10 block mx-auto h-full w-auto animate-float">
