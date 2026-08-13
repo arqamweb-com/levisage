@@ -143,7 +143,6 @@
                     'https://levisage-pharma.com/wp-content/uploads/2026/08/Slider-1.png',
                     'https://levisage-pharma.com/wp-content/uploads/2026/08/Slider-2.png',
                     'https://levisage-pharma.com/wp-content/uploads/2026/08/Slider-3.png',
-                    'https://levisage-pharma.com/wp-content/uploads/2026/08/Last-slider-.png',
             );
             ?>
             <div class="hero-serum-slider relative z-10 block mx-auto h-full w-auto animate-float">

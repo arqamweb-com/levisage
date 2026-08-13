@@ -262,6 +262,27 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
                         lv_bundle_card_lux(wc_get_product($post->ID));
                     } ?>
                 </div>
+                <?php
+                // رابط أرشيف كاتيجوري "البندلات" — لو الكاتيجوري مش موجود
+                // (أو الكروت جت من fallback العروض) بنرجع لصفحة المتجر.
+                $bundles_term_id = lv_term_id_by_names(array('البندلات', 'Bundles'));
+                $bundles_link    = $bundles_term_id ? get_term_link($bundles_term_id, 'product_cat') : '';
+                if (!$bundles_link || is_wp_error($bundles_link)) {
+                    $bundles_link = $shop_url;
+                }
+                ?>
+                <div class="mt-14 flex justify-center">
+                    <a href="<?php echo esc_url($bundles_link); ?>"
+                       class="group inline-flex items-center gap-2 rounded-full bg-white text-[var(--navy-deep)] px-10 py-4 text-sm font-bold hover:shadow-glow transition-all">
+                        <?php echo esc_html(__('All Bundles', 'arqamweb')); ?>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                             class="lv-arrow h-4 w-4 shrink-0" aria-hidden="true">
+                            <path d="m12 5 7 7-7 7"/>
+                            <path d="M5 12h14"/>
+                        </svg>
+                    </a>
+                </div>
             </div>
         </section>
     <?php endif; ?>
@@ -606,7 +627,7 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
                 <div class="absolute h-[380px] w-[380px] rounded-full border border-[var(--navy)]/15 animate-spin"
                      style="animation-duration: 30s; animation-direction: reverse;"></div>
                 <img alt="<?php echo esc_attr__('مكونات White Whisper', 'arqamweb'); ?>" class="relative h-[420px] object-contain animate-float drop-shadow-2xl"
-                     src="https://levisage-pharma.com/wp-content/uploads/2026/07/white-whisper-D6z9DCPq.png"></div>
+                     src="https://levisage-pharma.com/wp-content/uploads/2026/08/Last-slider-.png"></div>
             <div class="bg-[var(--navy-deep)] text-white p-10 md:p-20 flex flex-col justify-center"><span
                         class="text-xs tracking-[0.3em] text-[color:var(--gold)]"><?php esc_html_e('العلم في كل قطرة', 'arqamweb'); ?></span>
                 <h2 class="mt-3 text-4xl md:text-6xl text-gradient-luxury font-bold"><?php esc_html_e('مكونات نشطة تُحدث الفرق', 'arqamweb'); ?></h2>
