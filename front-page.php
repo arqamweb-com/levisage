@@ -64,9 +64,8 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
             <div class="container-luxury">
                 <div class="flex flex-wrap items-end justify-between gap-6">
                     <div>
-                        <span class="text-xs tracking-[0.3em] text-[var(--navy)]"><?php echo esc_html(__('المنتجات الفردية', 'arqamweb')); ?></span>
                         <h2 class="mt-3 text-4xl md:text-6xl font-bold"><?php echo esc_html(__('الأكثر مبيعاً', 'arqamweb')); ?></h2>
-                        <p class="mt-3 text-muted-foreground max-w-md"><?php echo esc_html(__('تركيبة ڤيجيلانت — اختيار +٢٥٠٫٠٠٠ عميل في الشرق الأوسط.', 'arqamweb')); ?></p>
+                        <p class="mt-3 text-muted-foreground max-w-md"><?php echo esc_html(__('تركيبة ڤيجيلانت — اختيار +٥٠٫٠٠٠ عميل في الشرق الأوسط.', 'arqamweb')); ?></p>
                     </div>
                     <div class="flex flex-wrap items-center gap-3 text-xs">
                         <span class="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 border border-border shadow-soft">
@@ -89,7 +88,7 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
                 </div>
                 <div class="mt-14 grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-7">
                     <?php
-                    $bs_badges = array(__('الأكثر مبيعاً', 'arqamweb'), __('كلاسيكي', 'arqamweb'), '');
+                    $bs_badges = array(__('الأكثر مبيعاً', 'arqamweb'), __('الأكثر مبيعا', 'arqamweb'), '');
                     foreach ($best as $i => $post) {
                         lv_bestseller_card(wc_get_product($post->ID), isset($bs_badges[$i]) ? $bs_badges[$i] : '');
                     }
@@ -400,8 +399,8 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
                                 <?php esc_html_e('٠١', 'arqamweb'); ?>
                             </div>
                             <div>
-                                <div class="font-bold text-lg"><?php esc_html_e('اغسل', 'arqamweb'); ?></div>
-                                <div class="text-sm text-muted-foreground"><?php esc_html_e('بشامبو ڤيجيلانت برفق لتحضير فروة الرأس.', 'arqamweb'); ?></div>
+                                <div class="font-bold text-lg"><?php esc_html_e('المكونات الفعالة', 'arqamweb'); ?></div>
+                                <div class="text-sm text-muted-foreground"><?php esc_html_e('AnaGain – Procapil – Redensyl – Biotin', 'arqamweb'); ?></div>
                             </div>
                         </div>
                         <div class="flex items-start gap-4 bg-white rounded-2xl p-5 border border-border">
@@ -409,8 +408,8 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
                                 <?php esc_html_e('٠٢', 'arqamweb'); ?>
                             </div>
                             <div>
-                                <div class="font-bold text-lg"><?php esc_html_e('عالج', 'arqamweb'); ?></div>
-                                <div class="text-sm text-muted-foreground"><?php esc_html_e('ضع الأمبول على الجذور مباشرة.', 'arqamweb'); ?>
+                                <div class="font-bold text-lg"><?php esc_html_e('طريقة الاستخدام', 'arqamweb'); ?></div>
+                                <div class="text-sm text-muted-foreground"><?php esc_html_e('ضع الأمبول على أماكن الفراغات ودلّك فروة الرأس لمدة 5 دقائق، من مرتين إلى 3 مرات أسبوعيًا.', 'arqamweb'); ?>
                                 </div>
                             </div>
                         </div>
@@ -419,8 +418,8 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
                                 <?php esc_html_e('٠٣', 'arqamweb'); ?>
                             </div>
                             <div>
-                                <div class="font-bold text-lg"><?php esc_html_e('غذى', 'arqamweb'); ?></div>
-                                <div class="text-sm text-muted-foreground"><?php esc_html_e('وَزِّع البلسم على الأطراف لترطيبها وحمايتها.', 'arqamweb'); ?></div>
+                                <div class="font-bold text-lg"><?php esc_html_e('النتيجة', 'arqamweb'); ?></div>
+                                <div class="text-sm text-muted-foreground"><?php esc_html_e('تظهر النتائج مع الاستخدام المنتظم خلال 3 أشهر.', 'arqamweb'); ?></div>
                             </div>
                         </div>
                     </div>
@@ -805,15 +804,15 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
                     العناية', 'arqamweb'); ?></h2>
                 <p class="mt-5 text-white/70 max-w-md leading-relaxed"><?php esc_html_e('احجز استشارة مجانية مع نخبة من استشاريي لوفيزاج،
                     واكتشف الروتين المثالي المصمم خصيصاً لشعرك وبشرتك.', 'arqamweb'); ?></p>
-                <div class="mt-8 flex flex-wrap gap-3"><a href="#"
-                                                          class="inline-flex items-center gap-2 rounded-full bg-[color:var(--leaf)] px-6 py-3.5 text-sm font-bold text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                             class="lucide lucide-message-circle h-4 w-4" aria-hidden="true">
-                            <path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"></path>
+                <div class="mt-8 flex flex-wrap gap-3">
+                    <a href="https://wa.me/+201004025435" target="_blank" rel="noopener"
+                       class="inline-flex items-center gap-2 rounded-full bg-[color:var(--leaf)] px-6 py-3.5 text-sm font-bold text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                             fill="currentColor" class="h-4 w-4" aria-hidden="true">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.087 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884a9.82 9.82 0 0 1 6.988 2.898 9.83 9.83 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.82 11.82 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.88 11.88 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.82 11.82 0 0 0-3.48-8.413"></path>
                         </svg>
                         <?php esc_html_e('تواصل عبر واتساب', 'arqamweb'); ?></a>
-                    <a href="#"
+                    <a href="<?php echo esc_url(get_permalink(apply_filters('wpml_object_id', 155, 'page', true))); ?>"
                        class="group inline-flex items-center gap-2 rounded-full border border-white/30 px-6 py-3.5 text-sm text-white"><?php esc_html_e('احجز
                         الاستشارة', 'arqamweb'); ?>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -824,6 +823,14 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
                         </svg>
                     </a></div>
                 <div class="mt-12 flex gap-4 text-white/60">
+                    <a href="https://www.facebook.com/levisagepharma?mibextid=nW3QTL" target="_blank"
+                       class="h-10 w-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:bg-white/10">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                             class="lucide lucide-facebook h-4 w-4" aria-hidden="true">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                        </svg>
+                    </a>
                     <a href="https://www.instagram.com/levisage.pharma/?igshid=MWZjMTM2ODFkZg%3D%3D" target="_blank"
                        class="h-10 w-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:bg-white/10">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -834,20 +841,11 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
                             <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
                         </svg>
                     </a>
-                    <a href="https://www.facebook.com/levisagepharma?mibextid=nW3QTL" target="_blank"
-                       class="h-10 w-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:bg-white/10">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                             class="lucide lucide-facebook h-4 w-4" aria-hidden="true">
-                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                        </svg>
-                    </a>
                     <a href="https://wa.me/01004025435" target="_blank"
                        class="h-10 w-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:bg-white/10">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                             class="lucide lucide-message-circle h-4 w-4" aria-hidden="true">
-                            <path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"></path>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                             fill="currentColor" class="h-4 w-4" aria-hidden="true">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.087 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884a9.82 9.82 0 0 1 6.988 2.898 9.83 9.83 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.82 11.82 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.88 11.88 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.82 11.82 0 0 0-3.48-8.413"></path>
                         </svg>
                     </a>
                 </div>

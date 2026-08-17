@@ -114,9 +114,20 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="mt-10 pt-8 border-t border-white/10"><span
-                                    class="block text-sm text-white/60 mb-4"><?php esc_html_e('تابعنا', 'arqamweb'); ?></span>
+                        <div class="mt-10 pt-8 border-t border-white/10">
+                            <span class="block text-sm text-white/60 mb-4"><?php esc_html_e('تابعنا', 'arqamweb'); ?></span>
                             <div class="flex items-center gap-3">
+                                <a href="https://www.facebook.com/levisagepharma" target="_blank"
+                                   rel="noopener noreferrer"
+                                   aria-label="<?php echo esc_attr__('فيسبوك', 'arqamweb'); ?>"
+                                   class="h-11 w-11 rounded-full bg-[color:var(--gold)]/10 flex items-center justify-center text-[color:var(--gold)] hover:bg-[color:var(--gold)]/20 hover:scale-105 transition-all">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                         stroke-linejoin="round" class="lucide lucide-facebook h-5 w-5"
+                                         aria-hidden="true">
+                                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                                    </svg>
+                                </a>
                                 <a href="https://www.instagram.com/levisage.pharma/"
                                    target="_blank" rel="noopener noreferrer"
                                    aria-label="<?php echo esc_attr__('إنستجرام', 'arqamweb'); ?>"
@@ -130,31 +141,11 @@
                                         <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
                                     </svg>
                                 </a>
-                                <a href="https://www.facebook.com/levisagepharma" target="_blank"
-                                   rel="noopener noreferrer" aria-label="<?php echo esc_attr__('فيسبوك', 'arqamweb'); ?>"
-                                   class="h-11 w-11 rounded-full bg-[color:var(--gold)]/10 flex items-center justify-center text-[color:var(--gold)] hover:bg-[color:var(--gold)]/20 hover:scale-105 transition-all">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                         stroke-linejoin="round" class="lucide lucide-facebook h-5 w-5"
-                                         aria-hidden="true">
-                                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                                    </svg>
-                                </a>
                                 <a href="https://www.tiktok.com/@levisage.pharma" target="_blank"
                                    rel="noopener noreferrer" aria-label="<?php echo esc_attr__('تيك توك', 'arqamweb'); ?>"
                                    class="h-11 w-11 rounded-full bg-[color:var(--gold)]/10 flex items-center justify-center text-[color:var(--gold)] hover:bg-[color:var(--gold)]/20 hover:scale-105 transition-all">
                                     <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                                         <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"></path>
-                                    </svg>
-                                </a>
-                                <a href="https://wa.me/+201004025435" target="_blank" rel="noopener noreferrer"
-                                   aria-label="<?php echo esc_attr__('واتساب', 'arqamweb'); ?>"
-                                   class="h-11 w-11 rounded-full bg-[color:var(--gold)]/10 flex items-center justify-center text-[color:var(--gold)] hover:bg-[color:var(--gold)]/20 hover:scale-105 transition-all">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                         stroke-linejoin="round" class="lucide lucide-message-circle h-5 w-5"
-                                         aria-hidden="true">
-                                        <path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"></path>
                                     </svg>
                                 </a>
                             </div>

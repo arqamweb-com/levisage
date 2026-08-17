@@ -15,15 +15,23 @@ if (!defined('ABSPATH')) {
  *
  * The skip list carries BOTH languages: on the English site the categories come
  * back translated, so listing only the Arabic names would let "Free Shipping" or
- * "Offers" leak onto the cards. Comparison is lower-cased because the stored
- * names are not consistently capitalised.
+ * "Offers" leak onto the cards. We match on the *slug* as well as on a
+ * normalised name, because the stored names differ in capitalisation, in
+ * whitespace and in Arabic diacritics ("البندلات" vs "البندلات ").
+ *
+ * Returns '' when every category of the product is a helper category — a card
+ * with no real category shows nothing rather than labelling every product
+ * "البندلات".
  */
 function lv_first_category_name($product)
 {
-    $skip = array(
+    $skip_slugs = array(
+        'uncategorized', 'free-shipping', 'offers', 'bundles',
+    );
+    $skip_names = array(
         'uncategorized', 'غير مصنف',
         'شحن مجاني', 'free shipping',
-        'أحدث العروض', 'offers',
+        'أحدث العروض', 'احدث العروض', 'offers',
         'البندلات', 'bundles',
     );
     $terms = get_the_terms($product->get_id(), 'product_cat');
@@ -31,11 +39,30 @@ function lv_first_category_name($product)
         return '';
     }
     foreach ($terms as $t) {
-        if (!in_array(strtolower($t->name), $skip, true)) {
-            return $t->name;
+        $slug = strtolower($t->slug);
+        $name = lv_normalize_cat_name($t->name);
+        if (in_array($slug, $skip_slugs, true)) {
+            continue;
         }
+        if (in_array($name, array_map('lv_normalize_cat_name', $skip_names), true)) {
+            continue;
+        }
+        return $t->name;
     }
-    return $terms[0]->name;
+    return '';
+}
+
+/**
+ * Normalise a category name for comparison: lower-case (multibyte-safe),
+ * collapsed whitespace and Arabic diacritics/tatweel stripped.
+ */
+function lv_normalize_cat_name($name)
+{
+    $name = function_exists('mb_strtolower') ? mb_strtolower($name, 'UTF-8') : strtolower($name);
+    // Arabic harakat (U+064B–U+0652) + tatweel (U+0640).
+    $name = preg_replace('/[\x{0640}\x{064B}-\x{0652}]/u', '', $name);
+    $name = preg_replace('/\s+/u', ' ', $name);
+    return trim($name);
 }
 
 /**
@@ -260,8 +287,12 @@ function lv_bundle_card_lux($product)
     $sale    = (float) $product->get_price();
     $savings = ($product->is_on_sale() && $reg > $sale) ? ($reg - $sale) : 0;
 
+    // Category and short description are two independent lines: the category
+    // is not swallowed by a product that happens to have a short description,
+    // and a product with no real category simply shows no category line.
+    $cat = lv_first_category_name($product);
     $sub = wp_strip_all_tags($product->get_short_description());
-    $sub = $sub ? wp_trim_words($sub, 10) : lv_first_category_name($product);
+    $sub = $sub ? wp_trim_words($sub, 10) : '';
 
     $atc = lv_add_to_cart_link(
         $product,
@@ -277,6 +308,7 @@ function lv_bundle_card_lux($product)
         <img alt="<?php echo esc_attr($product->get_name()); ?>" loading="lazy" class="block h-full w-full object-contain p-4 transition-transform duration-700 group-hover:scale-110" src="<?php echo esc_url($img); ?>">
       </a>
       <h3 class="mt-5 font-display text-2xl font-bold"><a href="<?php echo esc_url($link); ?>"><?php echo esc_html($product->get_name()); ?></a></h3>
+      <?php if ($cat) : ?><p class="mt-1 text-[11px] tracking-[0.2em] uppercase text-[color:var(--gold)]/80"><?php echo esc_html($cat); ?></p><?php endif; ?>
       <?php if ($sub) : ?><p class="text-white/60 text-sm mt-1"><?php echo esc_html($sub); ?></p><?php endif; ?>
       <div class="mt-5 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
         <div class="flex flex-wrap items-baseline gap-2">
@@ -290,11 +322,33 @@ function lv_bundle_card_lux($product)
 }
 
 /**
- * Query best-selling products (falls back to recent when no sales data).
+ * Query products of the "Best Seller" category. Falls back to actual sales
+ * data (total_sales) when the category is missing or empty.
  */
 function lv_get_best_sellers($limit = 4)
 {
-    $q = new WP_Query(array(
+    $term_id = lv_term_id_by_names(array('Best Seller', 'Best Sellers', 'الأكثر مبيعاً', 'الأكثر مبيعا', 'الاكثر مبيعا'));
+
+    $q = $term_id ? new WP_Query(array(
+        'post_type'           => 'product',
+        'post_status'         => 'publish',
+        'posts_per_page'      => $limit,
+        'orderby'             => 'date',
+        'order'               => 'DESC',
+        'ignore_sticky_posts' => true,
+        'no_found_rows'       => true,
+        'tax_query'           => array(array(
+            'taxonomy' => 'product_cat',
+            'field'    => 'term_id',
+            'terms'    => array($term_id),
+        )),
+    )) : null;
+    if ($q && !empty($q->posts)) {
+        return $q->posts;
+    }
+
+    // Fallback: top sellers by sales count, excluding uncategorized.
+    $q2 = new WP_Query(array(
         'post_type'           => 'product',
         'post_status'         => 'publish',
         'posts_per_page'      => $limit,
@@ -309,7 +363,7 @@ function lv_get_best_sellers($limit = 4)
             'operator' => 'NOT IN',
         )),
     ));
-    return $q->posts;
+    return $q2->posts;
 }
 
 /**

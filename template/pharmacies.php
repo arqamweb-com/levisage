@@ -3,6 +3,12 @@
 <?php
 $lv_pharmacies = array(
         array(
+                'name' => __('نون', 'arqamweb'),
+        ),
+        array(
+                'name' => __('امازون', 'arqamweb'),
+        ),
+        array(
                 'name' => __('صيدلية كبسولة', 'arqamweb'),
                 'address' => __('ش الاديب متفرع من ش الترعة - المنصورة', 'arqamweb'),
                 'phones' => array('01010501112', '01011880055'),
@@ -160,12 +166,6 @@ $lv_pharmacies = array(
                 'address' => __('منوف - المنوفية', 'arqamweb'),
                 'phones' => array(),
         ),
-        array(
-                'name' => __('نون', 'arqamweb'),
-        ),
-        array(
-                'name' => __('امازون', 'arqamweb'),
-        ),
 );
 
 $lv_pin = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>';
@@ -197,7 +197,7 @@ if (!function_exists('lv_phone_link')) {
         <div class="container-luxury">
             <div class="text-center mb-16"><span class="lv-label"><?php esc_html_e('نقاط البيع', 'arqamweb'); ?></span>
                 <h2 class="mt-3 text-4xl md:text-5xl font-bold text-gradient-brand">
-                    <?php esc_html_e('تجد منتجات لوفيزاج في الصيدليات التالية', 'arqamweb'); ?>
+                    <?php esc_html_e('اماكن تواجد منتجات لوفيزاج', 'arqamweb'); ?>
                 </h2>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
