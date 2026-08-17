@@ -53,6 +53,26 @@ function lv_first_category_name($product)
 }
 
 /**
+ * Category name for a product that ALWAYS resolves to something: the first
+ * real category when there is one, otherwise any category the product has
+ * (including helper ones), otherwise the given default label.
+ *
+ * Used by the bundles section, where every card must carry a category line.
+ */
+function lv_category_name_always($product, $default = '')
+{
+    $cat = lv_first_category_name($product);
+    if ($cat) {
+        return $cat;
+    }
+    $terms = get_the_terms($product->get_id(), 'product_cat');
+    if (!empty($terms) && !is_wp_error($terms)) {
+        return $terms[0]->name;
+    }
+    return $default;
+}
+
+/**
  * Normalise a category name for comparison: lower-case (multibyte-safe),
  * collapsed whitespace and Arabic diacritics/tatweel stripped.
  */
@@ -288,9 +308,10 @@ function lv_bundle_card_lux($product)
     $savings = ($product->is_on_sale() && $reg > $sale) ? ($reg - $sale) : 0;
 
     // Category and short description are two independent lines: the category
-    // is not swallowed by a product that happens to have a short description,
-    // and a product with no real category simply shows no category line.
-    $cat = lv_first_category_name($product);
+    // is not swallowed by a product that happens to have a short description.
+    // In this section the category line is ALWAYS rendered, so we fall back to
+    // any category the product has and finally to the section's own label.
+    $cat = lv_category_name_always($product, __('البندلات', 'arqamweb'));
     $sub = wp_strip_all_tags($product->get_short_description());
     $sub = $sub ? wp_trim_words($sub, 10) : '';
 
