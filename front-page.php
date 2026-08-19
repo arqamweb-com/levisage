@@ -378,7 +378,7 @@ $sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
     <section class="py-28 bg-[color:var(--cream)] relative overflow-hidden">
         <div class="container-luxury">
             <div class="text-center max-w-2xl mx-auto"><span class="text-xs tracking-[0.3em] text-[var(--navy)]"><?php esc_html_e('روتينك المثالي', 'arqamweb'); ?></span>
-                <h2 class="mt-3 text-4xl md:text-6xl font-bold"><?php esc_html_e('روتينٌ مصمَّمة لأهدافك', 'arqamweb'); ?></h2>
+                <h2 class="mt-3 text-4xl md:text-6xl font-bold"><?php esc_html_e('روتينٌ مصمَّم لأهدافك', 'arqamweb'); ?></h2>
                 <p class="mt-4 text-muted-foreground"><?php esc_html_e('بروتوكول متكامل لاستعادة كثافة وقوّة شعرك خلال ستة أشهر.', 'arqamweb'); ?></p>
             </div>
             <div class="mt-14 grid lg:grid-cols-12 gap-10 items-center">
